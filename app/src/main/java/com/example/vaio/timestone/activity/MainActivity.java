@@ -20,12 +20,14 @@ import android.view.MenuItem;
 import com.example.vaio.timestone.R;
 import com.example.vaio.timestone.database.MyDatabase;
 import com.example.vaio.timestone.fragment.ContentMainFragment;
+import com.example.vaio.timestone.fragment.QuizFragment;
 import com.example.vaio.timestone.model.Item;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -40,12 +42,14 @@ public class MainActivity extends AppCompatActivity
     private Toolbar toolbar;
     private ArrayList arrItem = new ArrayList();   // arr Main data
     private ContentMainFragment contentMainFragment;
+    private MyDatabase myDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
+            myDatabase = new MyDatabase(this);
             getData();
             initToolbar("CC / YYYY / MM ");
             initDrawerLayout();
@@ -113,12 +117,24 @@ public class MainActivity extends AppCompatActivity
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference reference = firebaseDatabase.getReference();
         reference.child(ITEM).keepSynced(true);
+        reference.child(ITEM).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         reference.child(ITEM).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Item item = dataSnapshot.getValue(Item.class);
                 arrItem.add(item);
-                Log.e("TAG", item.getE_info());
+//                myDatabase.insertItem(item);
+//                Log.e("TAG", item.getE_date());
 //                Log.e("TAG", s);
                 contentMainFragment.notifyData();
             }
@@ -205,7 +221,7 @@ public class MainActivity extends AppCompatActivity
                     replaceContentMainLayout(new ContentMainFragment(arrItem));
                     break;
                 case R.id.nav_quiz:
-
+                    replaceContentMainLayout(new QuizFragment(arrItem));
                     break;
             }
 

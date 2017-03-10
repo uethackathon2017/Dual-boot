@@ -1,10 +1,12 @@
 package com.example.vaio.timestone.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
 import com.example.vaio.timestone.model.Item;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
  */
 
 public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecyclerViewAdapter.ViewHolder> {
-
+    private int itemCount = 10; // 10
     private ArrayList<Item> arrItem;
 
     public EventRecyclerViewAdapter(ArrayList<Item> arrItem) {
@@ -45,6 +47,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
     @Override
     public int getItemCount() {
+        Log.e("TAG", arrItem.size()+"");
         return arrItem.size();
     }
 
@@ -87,5 +90,9 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
 
     public interface OnItemClick {
         void onClick(View view, int position);
+    }
+
+    public void setItemCount(int itemCount) {
+        this.itemCount = itemCount;
     }
 }

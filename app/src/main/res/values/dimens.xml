@@ -10,4 +10,6 @@
     <dimen name="view_pager_padding">10dp</dimen>
     <dimen name="recycler_view_default_margin">10dp</dimen>
     <dimen name="view_pager_margin">10dp</dimen>
+    <dimen name="bg_answer_radius">50dp</dimen>
+    <dimen name="tv_pading">16dp</dimen>
 </resources>

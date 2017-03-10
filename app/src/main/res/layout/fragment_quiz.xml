@@ -1,6 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_content_main"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+
+        <TextView
+            style="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="@string/tv_quiz" />
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_weight="2"
+            android:background="@drawable/bg_picker_center"
+            android:gravity="center"
+            android:padding="@dimen/tv_pading" />
+
+        <TextView
+            android:id="@+id/tvAnswer1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_weight="1.5"
+            android:background="@drawable/bg_answer"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:paddingLeft="@dimen/tv_pading"
+            android:paddingRight="@dimen/tv_pading" />
+
+        <TextView
+            android:id="@+id/tvAnswer2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_weight="1.5"
+            android:background="@drawable/bg_answer"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:paddingLeft="@dimen/tv_pading"
+            android:paddingRight="@dimen/tv_pading" />
+
+        <TextView
+            android:id="@+id/tvAnswer3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_weight="1.5"
+            android:background="@drawable/bg_answer"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:paddingLeft="@dimen/tv_pading"
+            android:paddingRight="@dimen/tv_pading" />
+
+        <TextView
+            android:id="@+id/tvAnswer4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_weight="1.5"
+            android:background="@drawable/bg_answer"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:paddingLeft="@dimen/tv_pading"
+            android:paddingRight="@dimen/tv_pading" />
+    </LinearLayout>
+
+</RelativeLayout>
