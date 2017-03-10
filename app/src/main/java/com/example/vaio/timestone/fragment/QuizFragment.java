@@ -60,18 +60,18 @@ public class QuizFragment extends Fragment {
 
     private void initData() {
         Random random = new Random();
-        int randType = random.nextInt(1);
+        int randType = random.nextInt(1); // random thể loại câu hỏi
         if (randType == 1) {
-            Random randAnswer = new Random();
+            Random randAnswer = new Random();  // random 4 câu trả lời
             ArrayList<Item> arrItemTmp = new ArrayList<>();
             String[] answer = new String[4];
             for (int i = 0; i < 4; i++) {
-                int position = randAnswer.nextInt(arrItem.size() - 1); // 0 - 3432;
+                int position = randAnswer.nextInt(arrItem.size() - 1); // 0 - 9xxx;
                 arrItemTmp.add(arrItem.get(position));
                 answer[i] = arrItem.get(position).getE_info();
             }
             Random randQuestion = new Random();
-            int rightAnswer = randQuestion.nextInt(3);
+            int rightAnswer = randQuestion.nextInt(3); // random vị trí của câu trả lời đúng 0->3
             String question = arrItem.get(rightAnswer).getE_date() + " diễn ra sự kiện nào ? ";
             quiz = new Quiz(question, answer, rightAnswer);
         } else {

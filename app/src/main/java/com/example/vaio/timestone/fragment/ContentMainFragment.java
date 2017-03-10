@@ -56,8 +56,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     private ContentLoadingProgressBar progressBar;
     private CirclePageIndicator circlePageIndicator;
 
-    private ArrayList<Item> arrItem;
-    private ArrayList<Item> arrItemTmp = new ArrayList<>();
+    private ArrayList<Item> arrItem; // mảng dữ liệu hiển thị chính
+    private ArrayList<Item> arrItemTmp = new ArrayList<>(); // mảng nhớ tạm
     private String currentContent;
     private int centurySelected = 1;
     private int yearSelected = 0;
@@ -80,9 +80,9 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
     protected void initViews(View view) {
         try {
-            arrItemTmp.addAll(arrItem);
+            arrItemTmp.addAll(arrItem); // add tất cả phần tử của dữ liệu sang một mảng tạm
             progressBar = (ContentLoadingProgressBar) view.findViewById(R.id.contentLoadingProgressBar);
-            currentContent = CENTURY;
+            currentContent = CENTURY; // nội dung hiển thị hiện tại theo cent hoặc year hoặc month
             circlePageIndicator = (CirclePageIndicator) view.findViewById(R.id.circlePageIndicator);
 
             tvTitle = (TextView) view.findViewById(R.id.tvDate);
@@ -96,7 +96,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             ivForward = (ImageView) view.findViewById(R.id.ivFoward);
             ivBack.setOnClickListener(this);
             ivForward.setOnClickListener(this);
-//
+            //
             viewPager = (ViewPager) view.findViewById(R.id.viewPager);
             numberPickerViewPagerAdapter = new NumberPickerViewPagerAdapter(getFragmentManager(), CENTURY_START_AT, CENTURY_END_AT);
             numberPickerViewPagerAdapter.setOnItemClick(this);
@@ -121,6 +121,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
         eventRecyclerViewAdapter.setOnItemClick(new EventRecyclerViewAdapter.OnItemClick() {
             @Override
             public void onClick(View view, int position) {
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
                 builder.setMessage(arrItem.get(position).getE_info());
                 builder.setTitle(arrItem.get(position).getE_date());
@@ -131,6 +132,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     }
 
     private void initNumberPickerViewPagerAdapter(int from, int to) {
+        // Khởi tạo adapter cho viewpager
         numberPickerViewPagerAdapter =
                 new NumberPickerViewPagerAdapter(getFragmentManager(), from, to);
         viewPager.setAdapter(numberPickerViewPagerAdapter);
@@ -151,8 +153,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
                 break;
             case MONTH:
-                int year_start_at = (centurySelected - 1) * 100;
-                int year_end_at = centurySelected * 100;
+                int year_start_at = (centurySelected - 1) * 100; // tính năm bắt đầu
+                int year_end_at = centurySelected * 100; //  tính năm kết thúc
                 if (year_end_at > CurrentTime.getYear()) {
                     year_end_at = CurrentTime.getYear();
                 }
@@ -168,8 +170,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     private void onImageViewForwardPress() throws Exception {
         switch (currentContent) {
             case CENTURY:
-                int year_start_at = (centurySelected - 1) * 100 + 1;
-                int year_end_at = centurySelected * 100;
+                int year_start_at = (centurySelected - 1) * 100 + 1; //  tính năm bắt đầu
+                int year_end_at = centurySelected * 100; // tính năm kết thúc
                 if (year_end_at > CurrentTime.getYear()) {
                     year_end_at = CurrentTime.getYear();
                 }
@@ -190,7 +192,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
                 break;
         }
         AnimationSet animationSet = (AnimationSet) AnimationUtils.loadAnimation(getContext(), R.anim.anim_set_right_to_left);
-        tvTitle.startAnimation(animationSet);
+        tvTitle.startAnimation(animationSet); // Hiệu ứng chuyển nội dung
     }
 
     @Override
@@ -213,8 +215,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     public void notifyData() {
         if (eventRecyclerViewAdapter != null) {
             eventRecyclerViewAdapter.notifyDataSetChanged();
-            arrItemTmp.clear();
-            arrItemTmp.addAll(arrItem);
+            arrItemTmp.clear(); //
+            arrItemTmp.addAll(arrItem); //
         }
     }
 
@@ -225,38 +227,33 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             TextView textView = (TextView) view.findViewById(R.id.tvNumber);
             switch (currentContent) {
                 case CENTURY:
-                    centurySelected = Integer.parseInt(textView.getText().toString());
-                    yearSelected = 0;
-                    monthSelected = 0;
+                    centurySelected = Integer.parseInt(textView.getText().toString()); // set giá trị của thế kỉ đã chọn
+                    yearSelected = 0; //
+                    monthSelected = 0; //
                     break;
                 case YEAR:
-                    yearSelected = Integer.parseInt(textView.getText().toString());
+                    yearSelected = Integer.parseInt(textView.getText().toString());// set giá trị của năm đã chọn
                     break;
                 case MONTH:
-                    monthSelected = Integer.parseInt(textView.getText().toString());
+                    monthSelected = Integer.parseInt(textView.getText().toString()); //set giá trị của tháng đã chọn
                     break;
             }
             MainActivity activity = (MainActivity) getActivity();
             activity.initToolbar("C " + centurySelected + " / Y " + yearSelected + " / M " + monthSelected + " ");
 
-            onImageViewForwardPress();
-            arrItem.clear();
+            onImageViewForwardPress(); // tự động next sang nội dung mới
+            arrItem.clear(); // xóa dữ liệu để chuẩn bị dữ liệu cho nội dung mới
             for (int i = 0; i < arrItemTmp.size(); i++) {
                 Item item = arrItemTmp.get(i);
-                int year;
-                if (!item.getE_year().toString().trim().equals("Không rõ")) {
-                    year = Integer.parseInt(item.getE_year().toString().trim());
-                } else {
-                    year = 1;
-                }
+                int year = Integer.parseInt(item.getE_year().toString().trim()); // lấy ra năm
                 int century;
                 if (year % 100 == 0) {
-                    century = year / 100;
+                    century = year / 100; // tính ra thế kỉ từ năm
                 } else {
-                    century = year / 100 + 1;
+                    century = year / 100 + 1; //// tính ra thế kỉ từ năm
                 }
 
-                int month = Integer.parseInt(item.getE_month().toString().trim());
+                int month = Integer.parseInt(item.getE_month().toString().trim()); // lấy ra tháng
                 if (century == centurySelected) {
                     if (year == yearSelected || yearSelected == 0) {
                         if (month == monthSelected || monthSelected == 0) {

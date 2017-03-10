@@ -18,7 +18,6 @@ import java.util.ArrayList;
  */
 
 public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecyclerViewAdapter.ViewHolder> {
-    private int itemCount = 10; // 10
     private ArrayList<Item> arrItem;
 
     public EventRecyclerViewAdapter(ArrayList<Item> arrItem) {
@@ -91,7 +90,4 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         void onClick(View view, int position);
     }
 
-    public void setItemCount(int itemCount) {
-        this.itemCount = itemCount;
-    }
 }
