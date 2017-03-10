@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "912685275739",
+    "firebase_url": "https://dual-boot.firebaseio.com",
+    "project_id": "dual-boot",
+    "storage_bucket": "dual-boot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912685275739:android:676ca1a60b36012d",
+        "android_client_info": {
+          "package_name": "com.example.vaio.timestone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912685275739-46omgmjfl5sko5s50pei92og39vqn14e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vaio.timestone",
+            "certificate_hash": "be6458c966c3b0c3a7a02ddadd4208bea9c41548"
+          }
+        },
+        {
+          "client_id": "912685275739-nd49ctfsrrdchtubgtcr60bcj1eru0av.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD965AyQKlk8Z6e-_TraXbkPk_oL0jpmyE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912685275739-nd49ctfsrrdchtubgtcr60bcj1eru0av.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
