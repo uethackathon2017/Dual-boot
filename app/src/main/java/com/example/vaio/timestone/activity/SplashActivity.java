@@ -28,6 +28,7 @@ import static com.example.vaio.timestone.activity.MainActivity.ITEM;
 
 public class SplashActivity extends AppCompatActivity {
     public static final String DATA = "data";
+    public static final int RESULT_CODE = 0;
     private ArrayList<Item> arrItem = new ArrayList<>();
     public static final String TAG = "SplashActivity";
 
@@ -35,20 +36,25 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        getdata();
+        try {
+            getdata();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
-    private void getdata() {
+    private void getdata() throws Exception {
+        // Load dữ liệu online hoặc offline vào mảng arrItem
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference reference = firebaseDatabase.getReference();
-        reference.child(ITEM).keepSynced(true);
+        reference.child(ITEM).keepSynced(true); // Lưu dữ liệu khi sử dụng offline
         reference.child(ITEM).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Item item = dataSnapshot.getValue(Item.class);
-                arrItem.add(item);
+                arrItem.add(item); // add item lấy được vào mảng
                 Log.e(TAG, arrItem.size() + "");
             }
 
@@ -75,10 +81,11 @@ public class SplashActivity extends AppCompatActivity {
         reference.child(ITEM).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                // Hàm được gọi khi đã load xong dữ liệu
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                GlobalData data = (GlobalData) getApplication();
+                GlobalData data = (GlobalData) getApplication(); // Lưu dữ liệu cho toàn ứng dụng
                 data.setArrItem(arrItem);
-                startActivity(intent);
+                startActivityForResult(intent, RESULT_CODE); // Chuyển sang main activity khi đã chuẩn bị xong dữ liệu
             }
 
             @Override
@@ -86,5 +93,19 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_CODE) {
+            // thoát ứng dụng
+            finish();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

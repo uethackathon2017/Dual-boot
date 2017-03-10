@@ -45,6 +45,7 @@ public class NumberPickerFragment extends Fragment {
     }
 
     private void initViews(View view) throws Exception {
+        // Khởi tạo danh sách number picker
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewNumberPicker);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), SPAN_COUNT, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
