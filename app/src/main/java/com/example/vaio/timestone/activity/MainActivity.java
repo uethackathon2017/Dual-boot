@@ -1,6 +1,9 @@
 package com.example.vaio.timestone.activity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,11 +19,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
+import com.example.vaio.timestone.async.LoadingDataAsyncTask;
 import com.example.vaio.timestone.database.MyDatabase;
 import com.example.vaio.timestone.fragment.ContentMainFragment;
 import com.example.vaio.timestone.fragment.QuizFragment;
+import com.example.vaio.timestone.model.GlobalData;
 import com.example.vaio.timestone.model.Item;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -39,59 +45,46 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String ITEM = "item";
+    public static final int WHAT_COMPLETE_LOADING_DATA = 1;
+    private static final String TAG = "MainActivity";
     private Toolbar toolbar;
     private ArrayList arrItem = new ArrayList();   // arr Main data
     private ContentMainFragment contentMainFragment;
-    private MyDatabase myDatabase;
+    private ProgressDialog progressDialog;
+//    private Handler handlerOnCompleteLoadingData = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            super.handleMessage(msg);
+//            if (msg.what == WHAT_COMPLETE_LOADING_DATA) {
+//                arrItem = (ArrayList) msg.obj;
+//                progressDialog.hide();
+//            }
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            myDatabase = new MyDatabase(this);
-            getData();
             initToolbar("CC / YYYY / MM ");
             initDrawerLayout();
             initComponent();
-//            InputStream inputStream = getResources().getAssets().open("sample.json");
-//            byte b[] = new byte[1024];
-//            int count = inputStream.read(b);
-//            StringBuilder stringBuilder = new StringBuilder();
-//            while (count != -1) {
-//                String s = new String(b);
-//                stringBuilder.append(s);
-//                count = inputStream.read(b);
-//            }
-//            inputStream.close();
-//            Log.e("TAG", stringBuilder.toString());
-//            ArrayList<Item> arrItem = new ArrayList<>();
-//            JSONArray jsonArray = new JSONArray(stringBuilder.toString());
-//            FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//            DatabaseReference reference = firebaseDatabase.getReference();
-//
-//            for (int i = 0; i < jsonArray.length(); i++) {
-//                JSONObject jsonObject = jsonArray.getJSONObject(i);
-//
-//                String type = jsonObject.getString(MyDatabase.TYPE);
-//                String indo = jsonObject.getString(MyDatabase.INFO);
-//                String date = jsonObject.getString(MyDatabase.DATE);
-//                String day = jsonObject.getString(MyDatabase.DAY);
-//                String month = jsonObject.getString(MyDatabase.MONTH);
-//                String year = jsonObject.getString(MyDatabase.YEAR);
-//                int weight = jsonObject.getInt(MyDatabase.WEIGHT);
-//                String url = jsonObject.getString(MyDatabase.URL);
-//                Log.e("TAG", date + ":" + type);
-//                Item item = new Item(type, indo, date, day, month, year,weight,url);
-//                arrItem.add(item);
-//                reference.child("item").push().setValue(item);
-//            }
-//            Log.e("TAG", arrItem.size() + "");
+            getData();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
+    private void getData() {
+        GlobalData data = (GlobalData) getApplication();
+        arrItem.addAll(data.getArrItem());
+        Toast.makeText(this, arrItem.size() + "data", Toast.LENGTH_SHORT).show();
+        contentMainFragment.notifyData();
+    }
+
 
     private void initComponent() throws Exception {
         contentMainFragment = new ContentMainFragment(arrItem);
@@ -112,54 +105,6 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void getData() throws Exception {
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference reference = firebaseDatabase.getReference();
-        reference.child(ITEM).keepSynced(true);
-        reference.child(ITEM).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        reference.child(ITEM).addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Item item = dataSnapshot.getValue(Item.class);
-                arrItem.add(item);
-//                myDatabase.insertItem(item);
-//                Log.e("TAG", item.getE_date());
-//                Log.e("TAG", s);
-                contentMainFragment.notifyData();
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     private void initDrawerLayout() throws Exception {
 

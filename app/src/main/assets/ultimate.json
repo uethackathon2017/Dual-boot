@@ -1721,16 +1721,6 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "2/1/1937",
-  "e_day": "2",
-  "e_month": "1",
-  "e_year": "1937",
-  "e_info": "Đức Hoàn, diễn viên và đạo diễn người Việt Nam (m. 2009)",
-  "url": "https://vi.wikipedia.org/wiki/2_th%C3%A1ng_1"
-},
-{
-  "e_weight": 0,
-  "e_type": "Mất",
   "e_date": "2/1/1935",
   "e_day": "2",
   "e_month": "1",
@@ -1740,7 +1730,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
+  "e_date": "2/1/1937",
+  "e_day": "2",
+  "e_month": "1",
+  "e_year": "1937",
+  "e_info": "Đức Hoàn, diễn viên và đạo diễn người Việt Nam (m. 2009)",
+  "url": "https://vi.wikipedia.org/wiki/2_th%C3%A1ng_1"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
   "e_date": "2/1/1938",
   "e_day": "2",
   "e_month": "1",
@@ -1750,7 +1750,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "2/1/1944",
   "e_day": "2",
   "e_month": "1",
@@ -1760,7 +1760,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "2/1/1952",
   "e_day": "2",
   "e_month": "1",
@@ -1770,7 +1770,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "2/1/1968",
   "e_day": "2",
   "e_month": "1",
@@ -1780,7 +1780,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "2/1/1960",
   "e_day": "2",
   "e_month": "1",
@@ -1790,7 +1790,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "2/1/1981",
   "e_day": "2",
   "e_month": "1",
@@ -1800,7 +1800,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "2/1/1990",
   "e_day": "2",
   "e_month": "1",
@@ -1810,7 +1810,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "2/1/1991",
   "e_day": "2",
   "e_month": "1",
@@ -1820,7 +1820,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "2/1/1546",
   "e_day": "2",
   "e_month": "1",
@@ -1830,7 +1830,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "2/1/1861",
   "e_day": "2",
   "e_month": "1",
@@ -1840,7 +1840,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "2/1/1904",
   "e_day": "2",
   "e_month": "1",
@@ -1850,7 +1850,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "2/1/1913",
   "e_day": "2",
   "e_month": "1",
@@ -1860,7 +1860,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "2/1/1953",
   "e_day": "2",
   "e_month": "1",
@@ -1870,7 +1870,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "2/1/2003",
   "e_day": "2",
   "e_month": "1",
@@ -1880,7 +1880,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "2/1/2008",
   "e_day": "2",
   "e_month": "1",
@@ -2341,16 +2341,6 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "3/1/1983",
-  "e_day": "3",
-  "e_month": "1",
-  "e_year": "1983",
-  "e_info": "Precious Lara Quigaman, người mẫu, diễn viên người Philippines, Hoa hậu Quốc tế 2005",
-  "url": "https://vi.wikipedia.org/wiki/3_th%C3%A1ng_1"
-},
-{
-  "e_weight": 0,
-  "e_type": "Mất",
   "e_date": "3/1/1982",
   "e_day": "3",
   "e_month": "1",
@@ -2360,7 +2350,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
+  "e_date": "3/1/1983",
+  "e_day": "3",
+  "e_month": "1",
+  "e_year": "1983",
+  "e_info": "Precious Lara Quigaman, người mẫu, diễn viên người Philippines, Hoa hậu Quốc tế 2005",
+  "url": "https://vi.wikipedia.org/wiki/3_th%C3%A1ng_1"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
   "e_date": "3/1/1988",
   "e_day": "3",
   "e_month": "1",
@@ -2370,7 +2370,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "3/1/1989",
   "e_day": "3",
   "e_month": "1",
@@ -2381,10 +2381,10 @@
 {
   "e_weight": 0,
   "e_type": "Mất",
-  "e_date": "3/1/Không rõ",
+  "e_date": "3/1",
   "e_day": "3",
   "e_month": "1",
-  "e_year": "Không rõ",
+  "e_year": "0",
   "e_info": "Tamiyasu Tomoe, diễn viên lồng tiếng và ca sĩ người Nhật Bản",
   "url": "https://vi.wikipedia.org/wiki/3_th%C3%A1ng_1"
 },
@@ -2681,16 +2681,6 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "4/1/1710",
-  "e_day": "4",
-  "e_month": "1",
-  "e_year": "1710",
-  "e_info": "Giovanni Battista Pergolesi, nhà soạn nhạc, nhạc công người Ý (m. 1736)",
-  "url": "https://vi.wikipedia.org/wiki/4_th%C3%A1ng_1"
-},
-{
-  "e_weight": 0,
-  "e_type": "Mất",
   "e_date": "4/1/1643",
   "e_day": "4",
   "e_month": "1",
@@ -2700,7 +2690,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
+  "e_date": "4/1/1710",
+  "e_day": "4",
+  "e_month": "1",
+  "e_year": "1710",
+  "e_info": "Giovanni Battista Pergolesi, nhà soạn nhạc, nhạc công người Ý (m. 1736)",
+  "url": "https://vi.wikipedia.org/wiki/4_th%C3%A1ng_1"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
   "e_date": "4/1/1772",
   "e_day": "4",
   "e_month": "1",
@@ -2710,7 +2710,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1809",
   "e_day": "4",
   "e_month": "1",
@@ -2720,7 +2720,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1812",
   "e_day": "4",
   "e_month": "1",
@@ -2730,7 +2730,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1848",
   "e_day": "4",
   "e_month": "1",
@@ -2740,7 +2740,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1890",
   "e_day": "4",
   "e_month": "1",
@@ -2750,7 +2750,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1893",
   "e_day": "4",
   "e_month": "1",
@@ -2760,7 +2760,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1896",
   "e_day": "4",
   "e_month": "1",
@@ -2770,7 +2770,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1898",
   "e_day": "4",
   "e_month": "1",
@@ -2780,7 +2780,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1910",
   "e_day": "4",
   "e_month": "1",
@@ -2790,7 +2790,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1923",
   "e_day": "4",
   "e_month": "1",
@@ -2800,7 +2800,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1924",
   "e_day": "4",
   "e_month": "1",
@@ -2810,7 +2810,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1929",
   "e_day": "4",
   "e_month": "1",
@@ -2820,7 +2820,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1936",
   "e_day": "4",
   "e_month": "1",
@@ -2830,7 +2830,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1940",
   "e_day": "4",
   "e_month": "1",
@@ -2840,7 +2840,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1940",
   "e_day": "4",
   "e_month": "1",
@@ -2850,7 +2850,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1940",
   "e_day": "4",
   "e_month": "1",
@@ -2860,7 +2860,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1943",
   "e_day": "4",
   "e_month": "1",
@@ -2870,7 +2870,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1945",
   "e_day": "4",
   "e_month": "1",
@@ -2880,7 +2880,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1947",
   "e_day": "4",
   "e_month": "1",
@@ -2890,7 +2890,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1950",
   "e_day": "4",
   "e_month": "1",
@@ -2900,7 +2900,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1954",
   "e_day": "4",
   "e_month": "1",
@@ -2910,7 +2910,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1965",
   "e_day": "4",
   "e_month": "1",
@@ -2920,7 +2920,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1980",
   "e_day": "4",
   "e_month": "1",
@@ -2930,7 +2930,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1983",
   "e_day": "4",
   "e_month": "1",
@@ -2940,7 +2940,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1984",
   "e_day": "4",
   "e_month": "1",
@@ -2950,7 +2950,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1986",
   "e_day": "4",
   "e_month": "1",
@@ -2960,7 +2960,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1986",
   "e_day": "4",
   "e_month": "1",
@@ -2970,7 +2970,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "4/1/1990",
   "e_day": "4",
   "e_month": "1",
@@ -2980,7 +2980,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1896",
   "e_day": "4",
   "e_month": "1",
@@ -2990,7 +2990,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1913",
   "e_day": "4",
   "e_month": "1",
@@ -3000,7 +3000,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1928",
   "e_day": "4",
   "e_month": "1",
@@ -3010,7 +3010,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1941",
   "e_day": "4",
   "e_month": "1",
@@ -3020,7 +3020,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1943",
   "e_day": "4",
   "e_month": "1",
@@ -3030,7 +3030,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1943",
   "e_day": "4",
   "e_month": "1",
@@ -3040,7 +3040,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1960",
   "e_day": "4",
   "e_month": "1",
@@ -3050,7 +3050,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1961",
   "e_day": "4",
   "e_month": "1",
@@ -3060,7 +3060,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1965",
   "e_day": "4",
   "e_month": "1",
@@ -3070,7 +3070,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/1970",
   "e_day": "4",
   "e_month": "1",
@@ -3080,7 +3080,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/2001",
   "e_day": "4",
   "e_month": "1",
@@ -3090,7 +3090,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/2010",
   "e_day": "4",
   "e_month": "1",
@@ -3100,7 +3100,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/2011",
   "e_day": "4",
   "e_month": "1",
@@ -3110,7 +3110,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
+  "e_type": "Mất",
   "e_date": "4/1/2011",
   "e_day": "4",
   "e_month": "1",
@@ -3425,7 +3425,7 @@
   "e_day": "5",
   "e_month": "1",
   "e_year": "1941",
-  "e_info": "Miyazaki Hayao, hoạt họa viên, đạo diễn, nhà viết kịch bản người Nhật Bản",
+  "e_info": "Miyazaki Hayao, đạo diễn phim hoạt hình và là người đồng sáng lập hãng phim hoạt hình Ghibli",
   "url": "https://vi.wikipedia.org/wiki/5_th%C3%A1ng_1"
 },
 {
@@ -3511,6 +3511,16 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
+  "e_date": "5/1/1979",
+  "e_day": "5",
+  "e_month": "1",
+  "e_year": "1979",
+  "e_info": "Nakamura Asumiko, họa sĩ truyện tranh người Nhật Bản",
+  "url": "https://vi.wikipedia.org/wiki/5_th%C3%A1ng_1"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
   "e_date": "5/1/1984",
   "e_day": "5",
   "e_month": "1",
@@ -3561,26 +3571,6 @@
 {
   "e_weight": 0,
   "e_type": "Mất",
-  "e_date": "5/1/1979",
-  "e_day": "5",
-  "e_month": "1",
-  "e_year": "1979",
-  "e_info": "Nakamura Asumiko, họa sĩ truyện tranh người Nhật Bản",
-  "url": "https://vi.wikipedia.org/wiki/5_th%C3%A1ng_1"
-},
-{
-  "e_weight": 0,
-  "e_type": "Sự kiện",
-  "e_date": "5/1/1941",
-  "e_day": "5",
-  "e_month": "1",
-  "e_year": "1941",
-  "e_info": "Hayao Miyazaki, đạo diễn phim hoạt hình và là người đồng sáng lập hãng phim hoạt hình Ghibli",
-  "url": "https://vi.wikipedia.org/wiki/5_th%C3%A1ng_1"
-},
-{
-  "e_weight": 0,
-  "e_type": "Sinh",
   "e_date": "5/1/1588",
   "e_day": "5",
   "e_month": "1",
@@ -3590,7 +3580,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1589",
   "e_day": "5",
   "e_month": "1",
@@ -3600,7 +3590,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1762",
   "e_day": "5",
   "e_month": "1",
@@ -3610,7 +3600,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1858",
   "e_day": "5",
   "e_month": "1",
@@ -3620,7 +3610,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1874",
   "e_day": "5",
   "e_month": "1",
@@ -3630,7 +3620,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1878",
   "e_day": "5",
   "e_month": "1",
@@ -3640,7 +3630,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1905",
   "e_day": "5",
   "e_month": "1",
@@ -3650,7 +3640,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1910",
   "e_day": "5",
   "e_month": "1",
@@ -3660,7 +3650,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1915",
   "e_day": "5",
   "e_month": "1",
@@ -3670,7 +3660,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1922",
   "e_day": "5",
   "e_month": "1",
@@ -3680,7 +3670,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1923",
   "e_day": "5",
   "e_month": "1",
@@ -3690,7 +3680,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1933",
   "e_day": "5",
   "e_month": "1",
@@ -3700,7 +3690,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1947",
   "e_day": "5",
   "e_month": "1",
@@ -3710,7 +3700,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1970",
   "e_day": "5",
   "e_month": "1",
@@ -3720,7 +3710,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1976",
   "e_day": "5",
   "e_month": "1",
@@ -3730,7 +3720,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1981",
   "e_day": "5",
   "e_month": "1",
@@ -3740,7 +3730,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1987",
   "e_day": "5",
   "e_month": "1",
@@ -3750,7 +3740,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1995",
   "e_day": "5",
   "e_month": "1",
@@ -3760,7 +3750,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/1997",
   "e_day": "5",
   "e_month": "1",
@@ -3770,7 +3760,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/2002",
   "e_day": "5",
   "e_month": "1",
@@ -3780,7 +3770,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/2007",
   "e_day": "5",
   "e_month": "1",
@@ -3790,7 +3780,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "5/1/2014",
   "e_day": "5",
   "e_month": "1",
@@ -4170,7 +4160,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
+  "e_date": "6/1",
+  "e_day": "6",
+  "e_month": "1",
+  "e_year": "0",
+  "e_info": "Okamoto Lynn, mangaka người Nhật Bản",
+  "url": "https://vi.wikipedia.org/wiki/6_th%C3%A1ng_1"
+},
+{
+  "e_weight": 0,
+  "e_type": "Mất",
   "e_date": "6/1/1988",
   "e_day": "6",
   "e_month": "1",
@@ -4180,7 +4180,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "6/1/1989",
   "e_day": "6",
   "e_month": "1",
@@ -4190,7 +4190,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "6/1/2003",
   "e_day": "6",
   "e_month": "1",
@@ -4200,17 +4200,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "6/1/Không rõ",
-  "e_day": "6",
-  "e_month": "1",
-  "e_year": "Không rõ",
-  "e_info": "Okamoto Lynn, mangaka người Nhật Bản",
-  "url": "https://vi.wikipedia.org/wiki/6_th%C3%A1ng_1"
-},
-{
-  "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1693",
   "e_day": "6",
   "e_month": "1",
@@ -4220,7 +4210,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1786",
   "e_day": "6",
   "e_month": "1",
@@ -4230,7 +4220,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1852",
   "e_day": "6",
   "e_month": "1",
@@ -4240,7 +4230,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1884",
   "e_day": "6",
   "e_month": "1",
@@ -4250,7 +4240,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1918",
   "e_day": "6",
   "e_month": "1",
@@ -4260,7 +4250,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1919",
   "e_day": "6",
   "e_month": "1",
@@ -4270,7 +4260,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1942",
   "e_day": "6",
   "e_month": "1",
@@ -4280,7 +4270,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1945",
   "e_day": "6",
   "e_month": "1",
@@ -4290,7 +4280,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1972",
   "e_day": "6",
   "e_month": "1",
@@ -4300,7 +4290,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1981",
   "e_day": "6",
   "e_month": "1",
@@ -4310,7 +4300,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1988",
   "e_day": "6",
   "e_month": "1",
@@ -4320,7 +4310,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/1990",
   "e_day": "6",
   "e_month": "1",
@@ -4330,7 +4320,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/2006",
   "e_day": "6",
   "e_month": "1",
@@ -4340,7 +4330,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/2006",
   "e_day": "6",
   "e_month": "1",
@@ -4350,7 +4340,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Sự kiện",
   "e_date": "6/1/2011",
   "e_day": "6",
   "e_month": "1",
@@ -7350,11 +7340,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "11/1/Albania",
+  "e_type": "Sự kiện",
+  "e_date": "11/1",
   "e_day": "11",
   "e_month": "1",
-  "e_year": "Albania",
+  "e_year": "0",
   "e_info": "Ngày Cộng hòa (1946)",
   "url": "https://vi.wikipedia.org/wiki/11_th%C3%A1ng_1"
 },
@@ -7911,10 +7901,10 @@
 {
   "e_weight": 0,
   "e_type": "Sự kiện",
-  "e_date": "12/1/1519?",
+  "e_date": "12/1/1519",
   "e_day": "12",
   "e_month": "1",
-  "e_year": "1519?",
+  "e_year": "1519",
   "e_info": "Vasco Núñez de Balboa, nhà thám hiểm, tướng lĩnh người Tây Ban Nha (s. 1475)",
   "url": "https://vi.wikipedia.org/wiki/12_th%C3%A1ng_1"
 },
@@ -12121,10 +12111,10 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "19/1/398/399",
+  "e_date": "19/1/398",
   "e_day": "19",
   "e_month": "1",
-  "e_year": "398/399",
+  "e_year": "398",
   "e_info": "Pulcheria, hoàng hậu của Đế quốc Đông La Mã, được phong thánh (m. 453)",
   "url": "https://vi.wikipedia.org/wiki/19_th%C3%A1ng_1"
 },
@@ -12480,17 +12470,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "19/1/Không rõ năm",
+  "e_type": "Mất",
+  "e_date": "19/1",
   "e_day": "19",
   "e_month": "1",
-  "e_year": "Không rõ năm",
+  "e_year": "0",
   "e_info": "KOTOKO, ca sĩ người Nhật Bản",
   "url": "https://vi.wikipedia.org/wiki/19_th%C3%A1ng_1"
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1048",
   "e_day": "19",
   "e_month": "1",
@@ -12500,7 +12490,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1629",
   "e_day": "19",
   "e_month": "1",
@@ -12510,7 +12500,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1896",
   "e_day": "19",
   "e_month": "1",
@@ -12520,7 +12510,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1929",
   "e_day": "19",
   "e_month": "1",
@@ -12530,7 +12520,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1969",
   "e_day": "19",
   "e_month": "1",
@@ -12540,7 +12530,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1971",
   "e_day": "19",
   "e_month": "1",
@@ -12550,7 +12540,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1974",
   "e_day": "19",
   "e_month": "1",
@@ -12560,7 +12550,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1974",
   "e_day": "19",
   "e_month": "1",
@@ -12570,7 +12560,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1990",
   "e_day": "19",
   "e_month": "1",
@@ -12580,7 +12570,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/1992",
   "e_day": "19",
   "e_month": "1",
@@ -12590,7 +12580,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/2000",
   "e_day": "19",
   "e_month": "1",
@@ -12600,7 +12590,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/2002",
   "e_day": "19",
   "e_month": "1",
@@ -12610,7 +12600,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/2005",
   "e_day": "19",
   "e_month": "1",
@@ -12620,7 +12610,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "19/1/2017",
   "e_day": "19",
   "e_month": "1",
@@ -14400,11 +14390,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "22/1/Công giáo",
+  "e_type": "Sự kiện",
+  "e_date": "22/1",
   "e_day": "22",
   "e_month": "1",
-  "e_year": "Công giáo",
+  "e_year": "0",
   "e_info": "Ngày kỉ niệm Thánh Vincent",
   "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_1"
 },
@@ -14521,10 +14511,10 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "23/1/599?",
+  "e_date": "23/1/599",
   "e_day": "23",
   "e_month": "1",
-  "e_year": "599?",
+  "e_year": "599",
   "e_info": "Lý Thế Dân, tức Đường Thái Tông, hoàng đế triều Đường, tức ngày Mậu Ngọ (22) tháng 12 năm Khai Hoàng thứ 18 (m. 649)",
   "url": "https://vi.wikipedia.org/wiki/23_th%C3%A1ng_1"
 },
@@ -15510,17 +15500,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "24/1/Không rõ",
+  "e_type": "Mất",
+  "e_date": "24/1",
   "e_day": "24",
   "e_month": "1",
-  "e_year": "Không rõ",
+  "e_year": "0",
   "e_info": "Hino Matsuri, mangaka người Nhật Bản",
   "url": "https://vi.wikipedia.org/wiki/24_th%C3%A1ng_1"
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/41",
   "e_day": "24",
   "e_month": "1",
@@ -15530,7 +15520,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/847",
   "e_day": "24",
   "e_month": "1",
@@ -15540,7 +15530,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1850",
   "e_day": "24",
   "e_month": "1",
@@ -15550,7 +15540,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1852",
   "e_day": "24",
   "e_month": "1",
@@ -15560,7 +15550,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1890",
   "e_day": "24",
   "e_month": "1",
@@ -15570,7 +15560,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1896",
   "e_day": "24",
   "e_month": "1",
@@ -15580,7 +15570,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1904",
   "e_day": "24",
   "e_month": "1",
@@ -15590,7 +15580,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1911",
   "e_day": "24",
   "e_month": "1",
@@ -15600,7 +15590,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1920",
   "e_day": "24",
   "e_month": "1",
@@ -15610,7 +15600,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1924",
   "e_day": "24",
   "e_month": "1",
@@ -15620,7 +15610,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1939",
   "e_day": "24",
   "e_month": "1",
@@ -15630,7 +15620,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/1965",
   "e_day": "24",
   "e_month": "1",
@@ -15640,7 +15630,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/2007",
   "e_day": "24",
   "e_month": "1",
@@ -15650,7 +15640,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/2007",
   "e_day": "24",
   "e_month": "1",
@@ -15660,7 +15650,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "24/1/2011",
   "e_day": "24",
   "e_month": "1",
@@ -16180,17 +16170,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "25/1/Không rõ",
+  "e_type": "Mất",
+  "e_date": "25/1",
   "e_day": "25",
   "e_month": "1",
-  "e_year": "Không rõ",
+  "e_year": "0",
   "e_info": "Tonokawa Yūto, tác gia người Nhật Bản",
   "url": "https://vi.wikipedia.org/wiki/25_th%C3%A1ng_1"
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/389",
   "e_day": "25",
   "e_month": "1",
@@ -16200,7 +16190,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/477",
   "e_day": "25",
   "e_month": "1",
@@ -16210,7 +16200,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/844",
   "e_day": "25",
   "e_month": "1",
@@ -16220,7 +16210,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1067",
   "e_day": "25",
   "e_month": "1",
@@ -16230,7 +16220,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1138",
   "e_day": "25",
   "e_month": "1",
@@ -16240,7 +16230,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1892",
   "e_day": "25",
   "e_month": "1",
@@ -16250,7 +16240,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1894",
   "e_day": "25",
   "e_month": "1",
@@ -16260,7 +16250,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1906",
   "e_day": "25",
   "e_month": "1",
@@ -16270,7 +16260,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1933",
   "e_day": "25",
   "e_month": "1",
@@ -16280,7 +16270,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1947",
   "e_day": "25",
   "e_month": "1",
@@ -16290,7 +16280,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1971",
   "e_day": "25",
   "e_month": "1",
@@ -16300,7 +16290,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/1990",
   "e_day": "25",
   "e_month": "1",
@@ -16310,7 +16300,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/2000",
   "e_day": "25",
   "e_month": "1",
@@ -16320,7 +16310,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/2004",
   "e_day": "25",
   "e_month": "1",
@@ -16330,7 +16320,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/2005",
   "e_day": "25",
   "e_month": "1",
@@ -16340,7 +16330,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/2010",
   "e_day": "25",
   "e_month": "1",
@@ -16350,7 +16340,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "25/1/2011",
   "e_day": "25",
   "e_month": "1",
@@ -17320,17 +17310,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "27/1/Không rõ năm",
+  "e_type": "Mất",
+  "e_date": "27/1",
   "e_day": "27",
   "e_month": "1",
-  "e_year": "Không rõ năm",
+  "e_year": "0",
   "e_info": "Andō Natsumi, mangaka người Nhật Bản",
   "url": "https://vi.wikipedia.org/wiki/27_th%C3%A1ng_1"
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/98",
   "e_day": "27",
   "e_month": "1",
@@ -17340,7 +17330,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/457",
   "e_day": "27",
   "e_month": "1",
@@ -17350,7 +17340,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/661",
   "e_day": "27",
   "e_month": "1",
@@ -17360,7 +17350,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/672",
   "e_day": "27",
   "e_month": "1",
@@ -17370,7 +17360,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1142",
   "e_day": "27",
   "e_month": "1",
@@ -17380,7 +17370,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1596",
   "e_day": "27",
   "e_month": "1",
@@ -17390,7 +17380,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1688",
   "e_day": "27",
   "e_month": "1",
@@ -17400,7 +17390,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1725",
   "e_day": "27",
   "e_month": "1",
@@ -17410,7 +17400,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1814",
   "e_day": "27",
   "e_month": "1",
@@ -17420,7 +17410,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1851",
   "e_day": "27",
   "e_month": "1",
@@ -17430,7 +17420,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1877",
   "e_day": "27",
   "e_month": "1",
@@ -17440,7 +17430,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1881",
   "e_day": "27",
   "e_month": "1",
@@ -17450,7 +17440,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1898",
   "e_day": "27",
   "e_month": "1",
@@ -17460,7 +17450,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1901",
   "e_day": "27",
   "e_month": "1",
@@ -17470,7 +17460,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1924",
   "e_day": "27",
   "e_month": "1",
@@ -17480,7 +17470,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1951",
   "e_day": "27",
   "e_month": "1",
@@ -17490,7 +17480,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1972",
   "e_day": "27",
   "e_month": "1",
@@ -17500,7 +17490,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1982",
   "e_day": "27",
   "e_month": "1",
@@ -17510,7 +17500,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/1983",
   "e_day": "27",
   "e_month": "1",
@@ -17520,7 +17510,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/2008",
   "e_day": "27",
   "e_month": "1",
@@ -17530,7 +17520,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/2009",
   "e_day": "27",
   "e_month": "1",
@@ -17540,7 +17530,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/2010",
   "e_day": "27",
   "e_month": "1",
@@ -17550,7 +17540,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/2013",
   "e_day": "27",
   "e_month": "1",
@@ -17560,7 +17550,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/2013",
   "e_day": "27",
   "e_month": "1",
@@ -17570,7 +17560,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "27/1/2014",
   "e_day": "27",
   "e_month": "1",
@@ -25980,17 +25970,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "10/2/Không rõ năm",
+  "e_type": "Mất",
+  "e_date": "10/2",
   "e_day": "10",
   "e_month": "2",
-  "e_year": "Không rõ năm",
+  "e_year": "0",
   "e_info": "Sakaguchi Kōichi, seiyū người Nhật Bản",
   "url": "https://vi.wikipedia.org/wiki/10_th%C3%A1ng_2"
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "10/2/840",
   "e_day": "10",
   "e_month": "2",
@@ -26000,7 +25990,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "10/2/1307",
   "e_day": "10",
   "e_month": "2",
@@ -26010,7 +26000,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "10/2/1755",
   "e_day": "10",
   "e_month": "2",
@@ -26020,7 +26010,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "10/2/1829",
   "e_day": "10",
   "e_month": "2",
@@ -26030,7 +26020,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "10/2/1837",
   "e_day": "10",
   "e_month": "2",
@@ -26040,7 +26030,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "10/2/1865",
   "e_day": "10",
   "e_month": "2",
@@ -26050,7 +26040,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "10/2/1891",
   "e_day": "10",
   "e_month": "2",
@@ -26060,7 +26050,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1878",
   "e_day": "10",
   "e_month": "2",
@@ -26070,7 +26060,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1879",
   "e_day": "10",
   "e_month": "2",
@@ -26080,7 +26070,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1886",
   "e_day": "10",
   "e_month": "2",
@@ -26090,7 +26080,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1912",
   "e_day": "10",
   "e_month": "2",
@@ -26100,7 +26090,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1912",
   "e_day": "10",
   "e_month": "2",
@@ -26110,7 +26100,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1913",
   "e_day": "10",
   "e_month": "2",
@@ -26120,7 +26110,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1918",
   "e_day": "10",
   "e_month": "2",
@@ -26130,7 +26120,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1918",
   "e_day": "10",
   "e_month": "2",
@@ -26140,7 +26130,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1923",
   "e_day": "10",
   "e_month": "2",
@@ -26150,7 +26140,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1938",
   "e_day": "10",
   "e_month": "2",
@@ -26160,7 +26150,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1939",
   "e_day": "10",
   "e_month": "2",
@@ -26170,7 +26160,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1954",
   "e_day": "10",
   "e_month": "2",
@@ -26180,7 +26170,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1971",
   "e_day": "10",
   "e_month": "2",
@@ -26190,7 +26180,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/1993",
   "e_day": "10",
   "e_month": "2",
@@ -26200,7 +26190,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/2000",
   "e_day": "10",
   "e_month": "2",
@@ -26210,7 +26200,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/2007",
   "e_day": "10",
   "e_month": "2",
@@ -26220,7 +26210,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sự kiện",
   "e_date": "10/2/2013",
   "e_day": "10",
   "e_month": "2",
@@ -26530,11 +26520,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "11/2/Cameroon",
+  "e_type": "Sự kiện",
+  "e_date": "11/2",
   "e_day": "11",
   "e_month": "2",
-  "e_year": "Cameroon",
+  "e_year": "0",
   "e_info": "Ngày Thanh niên Quốc gia.",
   "url": "https://vi.wikipedia.org/wiki/11_th%C3%A1ng_2"
 },
@@ -29880,11 +29870,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
-  "e_date": "23/2/Guyana",
+  "e_type": "Sinh",
+  "e_date": "23/2",
   "e_day": "23",
   "e_month": "2",
-  "e_year": "Guyana",
+  "e_year": "0",
   "e_info": "Ngày Cộng hòa Mashramani",
   "url": "https://vi.wikipedia.org/wiki/23_th%C3%A1ng_2"
 },
@@ -31590,17 +31580,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "8/3/Không rõ năm",
+  "e_type": "Mất",
+  "e_date": "8/3",
   "e_day": "8",
   "e_month": "3",
-  "e_year": "Không rõ năm",
+  "e_year": "0",
   "e_info": "Fumizuki Kō, mangaka người Nhật Bản",
   "url": "https://vi.wikipedia.org/wiki/8_th%C3%A1ng_3"
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/415",
   "e_day": "8",
   "e_month": "3",
@@ -31610,7 +31600,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1144",
   "e_day": "8",
   "e_month": "3",
@@ -31620,7 +31610,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1550",
   "e_day": "8",
   "e_month": "3",
@@ -31630,7 +31620,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1702",
   "e_day": "8",
   "e_month": "3",
@@ -31640,7 +31630,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1844",
   "e_day": "8",
   "e_month": "3",
@@ -31650,7 +31640,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1854",
   "e_day": "8",
   "e_month": "3",
@@ -31660,7 +31650,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1869",
   "e_day": "8",
   "e_month": "3",
@@ -31670,7 +31660,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1874",
   "e_day": "8",
   "e_month": "3",
@@ -31680,7 +31670,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1923",
   "e_day": "8",
   "e_month": "3",
@@ -31690,7 +31680,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1930",
   "e_day": "8",
   "e_month": "3",
@@ -31700,7 +31690,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1935",
   "e_day": "8",
   "e_month": "3",
@@ -31710,7 +31700,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1935",
   "e_day": "8",
   "e_month": "3",
@@ -31720,7 +31710,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/1983",
   "e_day": "8",
   "e_month": "3",
@@ -31730,7 +31720,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/2005",
   "e_day": "8",
   "e_month": "3",
@@ -31740,7 +31730,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/2011",
   "e_day": "8",
   "e_month": "3",
@@ -31750,7 +31740,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "8/3/2016",
   "e_day": "8",
   "e_month": "3",
@@ -31761,10 +31751,10 @@
 {
   "e_weight": 0,
   "e_type": "Sự kiện",
-  "e_date": "9/3/1908 - Câu lạc bộ bóng đá Ý Inter Milan được hình thành sau khi tách khỏi Câu lạc bộ Cricket và bóng đá Milan",
+  "e_date": "9/3/1908",
   "e_day": "9",
   "e_month": "3",
-  "e_year": "1908 - Câu lạc bộ bóng đá Ý Inter Milan được hình thành sau khi tách khỏi Câu lạc bộ Cricket và bóng đá Milan",
+  "e_year": "1908",
   "e_info": "tiền thân của A.C. Milan.",
   "url": "https://vi.wikipedia.org/wiki/9_th%C3%A1ng_3"
 },
@@ -31781,10 +31771,10 @@
 {
   "e_weight": 0,
   "e_type": "Sự kiện",
-  "e_date": "10/3/1905­",
+  "e_date": "10/3/1905",
   "e_day": "10",
   "e_month": "3",
-  "e_year": "1905­",
+  "e_year": "1905",
   "e_info": "Chelsea F.C. được thành lập tại Luân Đôn, nay là một trong các câu lạc bộ hàng đầu của bóng đá Anh.",
   "url": "https://vi.wikipedia.org/wiki/10_th%C3%A1ng_3"
 },
@@ -32480,11 +32470,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
-  "e_date": "19/3/Công giáo Rôma và Anh giáo",
+  "e_type": "Sinh",
+  "e_date": "19/3",
   "e_day": "19",
   "e_month": "3",
-  "e_year": "Công giáo Rôma và Anh giáo",
+  "e_year": "0",
   "e_info": "Lễ kính thánh Giuse cho thánh Giuse từ Na-gia-rét, chồng của Đức Mẹ",
   "url": "https://vi.wikipedia.org/wiki/19_th%C3%A1ng_3"
 },
@@ -32640,11 +32630,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
-  "e_date": "21/3/Đạo Bahá'í",
+  "e_type": "Sinh",
+  "e_date": "21/3",
   "e_day": "21",
   "e_month": "3",
-  "e_year": "Đạo Bahá'í",
+  "e_year": "0",
   "e_info": "Cuối thời kỳ ăn chay mà kéo 19 ngày từ sáng đến chiều",
   "url": "https://vi.wikipedia.org/wiki/21_th%C3%A1ng_3"
 },
@@ -33030,11 +33020,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
-  "e_date": "25/3/Lễ truyền tin",
+  "e_type": "Sinh",
+  "e_date": "25/3",
   "e_day": "25",
   "e_month": "3",
-  "e_year": "Lễ truyền tin",
+  "e_year": "0",
   "e_info": "9 tháng trước Lễ Giáng sinh",
   "url": "https://vi.wikipedia.org/wiki/25_th%C3%A1ng_3"
 },
@@ -35460,21 +35450,21 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "9/4/Đạo Bahá'í: Lễ Jalál",
+  "e_type": "Sự kiện",
+  "e_date": "9/4",
   "e_day": "9",
   "e_month": "4",
-  "e_year": "Đạo Bahá'í: Lễ Jalál",
+  "e_year": "0",
   "e_info": "Ngày lễ đầu tiên vào tháng hai thuộc Lịch Bahá'í",
   "url": "https://vi.wikipedia.org/wiki/9_th%C3%A1ng_4"
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "9/4/… 1993, 2004, 2015 …",
+  "e_type": "Sự kiện",
+  "e_date": "9/4",
   "e_day": "9",
   "e_month": "4",
-  "e_year": "… 1993, 2004, 2015 …",
+  "e_year": "0",
   "e_info": "Thứ Sáu Tuần Thánh",
   "url": "https://vi.wikipedia.org/wiki/9_th%C3%A1ng_4"
 },
@@ -35661,10 +35651,10 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "10/4/1870 (theo lịch Julius)",
+  "e_date": "10/4/1870",
   "e_day": "10",
   "e_month": "4",
-  "e_year": "1870 (theo lịch Julius)",
+  "e_year": "1870",
   "e_info": "Vladimir Ilyich Lenin (chết vào 1924)",
   "url": "https://vi.wikipedia.org/wiki/10_th%C3%A1ng_4"
 },
@@ -35680,11 +35670,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "10/4/… 1993, 2004, 2015 …",
+  "e_type": "Sự kiện",
+  "e_date": "10/4",
   "e_day": "10",
   "e_month": "4",
-  "e_year": "… 1993, 2004, 2015 …",
+  "e_year": "0",
   "e_info": "Thứ Bảy Tuần thánh",
   "url": "https://vi.wikipedia.org/wiki/10_th%C3%A1ng_4"
 },
@@ -35820,11 +35810,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "11/4/… 1993, 2004, 2015 …",
+  "e_type": "Mất",
+  "e_date": "11/4",
   "e_day": "11",
   "e_month": "4",
-  "e_year": "… 1993, 2004, 2015 …",
+  "e_year": "0",
   "e_info": "Lễ Phục Sinh",
   "url": "https://vi.wikipedia.org/wiki/11_th%C3%A1ng_4"
 },
@@ -36329,6 +36319,13 @@
   "url": "https://vi.wikipedia.org/wiki/13_th%C3%A1ng_4"
 },
 {
+  "e_weight": 0,
+  "e_type": "Sự kiện",
+  "e_date": "14/4/924",
+  "e_day": "14",
+  "e_month": "4",
+  "e_year": "924",
+  "e_info": "Hậu Đường Trang Tông sách phong Cao Quý Hưng tước hiệu Nam Bình vương, khởi đầu nước Nam Bình.",
   "url": "https://vi.wikipedia.org/wiki/14_th%C3%A1ng_4"
 },
 {
@@ -36503,11 +36500,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
-  "e_date": "15/4/… 1993, 2004, 2015 …",
+  "e_type": "Sinh",
+  "e_date": "15/4",
   "e_day": "15",
   "e_month": "4",
-  "e_year": "… 1993, 2004, 2015 …",
+  "e_year": "0",
   "e_info": "Thứ năm trong tuần lễ sau Lễ Phục Sinh",
   "url": "https://vi.wikipedia.org/wiki/15_th%C3%A1ng_4"
 },
@@ -36544,10 +36541,10 @@
 {
   "e_weight": 0,
   "e_type": "Sự kiện",
-  "e_date": "16/4/1951 - Ban Chấp hành Trung ương Đảng ban hành Nghị quyết số 09",
+  "e_date": "16/4/1951",
   "e_day": "16",
   "e_month": "4",
-  "e_year": "1951 - Ban Chấp hành Trung ương Đảng ban hành Nghị quyết số 09",
+  "e_year": "1951",
   "e_info": "NQ/TW về \"Thành lập các ban và tiểu ban giúp việc\"",
   "url": "https://vi.wikipedia.org/wiki/16_th%C3%A1ng_4"
 },
@@ -36653,11 +36650,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "16/4/… 1993, 2004, 2015 …",
+  "e_type": "Mất",
+  "e_date": "16/4",
   "e_day": "16",
   "e_month": "4",
-  "e_year": "… 1993, 2004, 2015 …",
+  "e_year": "0",
   "e_info": "Thứ sáu trong tuần lễ sau Lễ Phục Sinh",
   "url": "https://vi.wikipedia.org/wiki/16_th%C3%A1ng_4"
 },
@@ -36883,11 +36880,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "18/4/Zimbabwe",
+  "e_type": "Mất",
+  "e_date": "18/4",
   "e_day": "18",
   "e_month": "4",
-  "e_year": "Zimbabwe",
+  "e_year": "0",
   "e_info": "Ngày Độc lập",
   "url": "https://vi.wikipedia.org/wiki/18_th%C3%A1ng_4"
 },
@@ -37894,10 +37891,10 @@
 {
   "e_weight": 0,
   "e_type": "Mất",
-  "e_date": "22/4/1870 (theo lịch Gregory)",
+  "e_date": "22/4/1870",
   "e_day": "22",
   "e_month": "4",
-  "e_year": "1870 (theo lịch Gregory)",
+  "e_year": "1870",
   "e_info": "Vladimir Ilyich Lenin, nhà cách mạng Nga, người sáng lập nhà nước Nga Xô viết (m. 1924)",
   "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_4"
 },
@@ -39473,11 +39470,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
-  "e_date": "26/4/Tanzania",
+  "e_type": "Sinh",
+  "e_date": "26/4",
   "e_day": "26",
   "e_month": "4",
-  "e_year": "Tanzania",
+  "e_year": "0",
   "e_info": "Ngày Thống nhất",
   "url": "https://vi.wikipedia.org/wiki/26_th%C3%A1ng_4"
 },
@@ -39823,11 +39820,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sự kiện",
-  "e_date": "29/4/Công giáo",
+  "e_type": "Sinh",
+  "e_date": "29/4",
   "e_day": "29",
   "e_month": "4",
-  "e_year": "Công giáo",
+  "e_year": "0",
   "e_info": "Lễ Thánh Catherine người Siena",
   "url": "https://vi.wikipedia.org/wiki/29_th%C3%A1ng_4"
 },
@@ -41292,9 +41289,6 @@
   "url": "https://vi.wikipedia.org/wiki/3_th%C3%A1ng_5"
 },
 {
-  "url": "https://vi.wikipedia.org/wiki/4_th%C3%A1ng_5"
-},
-{
   "e_weight": 0,
   "e_type": "Sự kiện",
   "e_date": "5/5/1260",
@@ -42637,10 +42631,10 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "13/5/1573 - Takeda Shingen, (tiếng Nhật: 武田信玄, Vũ Điền Tín Huyền; 152",
+  "e_date": "13/5/1573",
   "e_day": "13",
   "e_month": "5",
-  "e_year": "1573 - Takeda Shingen, (tiếng Nhật: 武田信玄, Vũ Điền Tín Huyền; 152",
+  "e_year": "1573",
   "e_info": "573), lãnh chúa (daimyo) của vùng Kai và vùng Shinano trong thời Chiến Quốc của Nhật Bản.",
   "url": "https://vi.wikipedia.org/wiki/13_th%C3%A1ng_5"
 },
@@ -43747,6 +43741,16 @@
 {
   "e_weight": 0,
   "e_type": "Sự kiện",
+  "e_date": "22/5/1972",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "1972",
+  "e_info": "Tổng thống Mỹ Nichxơn (Richard Nixon) chính thức đi thǎm Liên Xô, tiến hành hội đàm với Tổng Bí thư Leonid Brezhnev. Nhân cuộc đi thǎm, hai bên đã ký nhiều hiệp ước về kinh tế, khoa học - kỹ thuật, vǎn hoá và bảo vệ môi trường. Quan trọng nhất là hiệp ước hạn chế vũ khí chiến lược SALT, đánh dấu giai đoạn hoà hoãn giữa hai siêu cường trên thế giới.",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sự kiện",
   "e_date": "22/5/1990",
   "e_day": "22",
   "e_month": "5",
@@ -43786,7 +43790,87 @@
 },
 {
   "e_weight": 0,
+  "e_type": "Sự kiện",
+  "e_date": "22/5/2013",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "2013",
+  "e_info": "Mất điện toàn miền Nam Việt Nam do sự cố xe cần cẩu.",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sự kiện",
+  "e_date": "22/5/2014",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "2014",
+  "e_info": "Ít nhất 43 người chết và hơn 90 người bị thương trong vụ khủng bố nổ bom tại khu chợ trời ở Urumqi, thủ phủ khu tự trị Tân Cương.",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
   "e_type": "Sinh",
+  "e_date": "22/5/1859",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "1859",
+  "e_info": "Ngài Arthur Conan Doyle, nhà văn Anh, cha đẻ của nhân vật thám tử Sherlock Holmes lừng danh (m. 1930).",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
+  "e_date": "22/5/1901",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "1901",
+  "e_info": "Nhà vǎn Ngô Vǎn Triện, bút danh Trúc Khê.",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
+  "e_date": "22/5/1946",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "1946",
+  "e_info": "George Best, cầu thủ bóng đá người Bắc Ireland",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
+  "e_date": "22/5/1979",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "1979",
+  "e_info": "Maggie Q, diễn viên Mỹ",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
+  "e_date": "22/5/1991",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "1991",
+  "e_info": "Suho, thành viên nhóm nhạc EXO người Hàn Quốc",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Mất",
+  "e_date": "22/5/1978",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "1978",
+  "e_info": "Ginnifer Goodwin, diễn viên người Mỹ",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sự kiện",
   "e_date": "22/5/1975",
   "e_day": "22",
   "e_month": "5",
@@ -43796,12 +43880,22 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
+  "e_type": "Sinh",
   "e_date": "22/5/1883",
   "e_day": "22",
   "e_month": "5",
   "e_year": "1883",
   "e_info": "Jacques Antoine Charles Bresse, kỹ sư xây dựng Pháp (s. 1822)",
+  "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
+},
+{
+  "e_weight": 0,
+  "e_type": "Sinh",
+  "e_date": "22/5/1885",
+  "e_day": "22",
+  "e_month": "5",
+  "e_year": "1885",
+  "e_info": "Victor Hugo, văn hào Pháp (s. 1802)",
   "url": "https://vi.wikipedia.org/wiki/22_th%C3%A1ng_5"
 },
 {
@@ -44697,10 +44791,10 @@
 {
   "e_weight": 0,
   "e_type": "Sự kiện",
-  "e_date": "4/6/781 Trước Công nguyên",
+  "e_date": "4/6/781",
   "e_day": "4",
   "e_month": "6",
-  "e_year": "781 Trước Công nguyên",
+  "e_year": "781",
   "e_info": "Vụ Nhật thực đầu tiên trong lịch sử được ghi nhận tại Trung Quốc.",
   "url": "https://vi.wikipedia.org/wiki/4_th%C3%A1ng_6"
 },
@@ -47153,9 +47247,6 @@
   "e_year": "2006",
   "e_info": "Cộng hòa Montenegro trở thành thành viên thứ 192 của Liên Hiệp Quốc.",
   "url": "https://vi.wikipedia.org/wiki/28_th%C3%A1ng_6"
-},
-{
-  "url": "https://vi.wikipedia.org/wiki/29_th%C3%A1ng_6"
 },
 {
   "e_weight": 0,
@@ -49748,9 +49839,6 @@
   "url": "https://vi.wikipedia.org/wiki/17_th%C3%A1ng_7"
 },
 {
-  "url": "https://vi.wikipedia.org/wiki/18_th%C3%A1ng_7"
-},
-{
   "e_weight": 0,
   "e_type": "Sự kiện",
   "e_date": "19/7/1333",
@@ -50279,9 +50367,6 @@
   "e_year": "1989",
   "e_info": "Daniel Radcliffe, diễn viên người Anh, người thủ vai Harry Potter trong loạt phim cùng tên.",
   "url": "https://vi.wikipedia.org/wiki/23_th%C3%A1ng_7"
-},
-{
-  "url": "https://vi.wikipedia.org/wiki/24_th%C3%A1ng_7"
 },
 {
   "e_weight": 0,
@@ -52656,10 +52741,10 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "6/8/1949 - Ban Chấp hành Trung ương Đảng đã ra Nghị quyết số 02",
+  "e_date": "6/8/1949",
   "e_day": "6",
   "e_month": "8",
-  "e_year": "1949 - Ban Chấp hành Trung ương Đảng đã ra Nghị quyết số 02",
+  "e_year": "1949",
   "e_info": "NQ/TW về việc thành lập Ban Nông vận Trung ương",
   "url": "https://vi.wikipedia.org/wiki/6_th%C3%A1ng_8"
 },
@@ -52842,9 +52927,6 @@
   "e_year": "2005",
   "e_info": "Đồng Văn Cống trung tướng Quân đội Nhân dân Việt Nam",
   "url": "https://vi.wikipedia.org/wiki/6_th%C3%A1ng_8"
-},
-{
-  "url": "https://vi.wikipedia.org/wiki/7_th%C3%A1ng_8"
 },
 {
   "e_weight": 0,
@@ -56967,9 +57049,6 @@
   "url": "https://vi.wikipedia.org/wiki/9_th%C3%A1ng_9"
 },
 {
-  "url": "https://vi.wikipedia.org/wiki/10_th%C3%A1ng_9"
-},
-{
   "e_weight": 0,
   "e_type": "Sự kiện",
   "e_date": "11/9/1708",
@@ -60452,10 +60531,10 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "1/10/1914 - Lê Trọng Tấn, Đại tướng, Tổng tham mưu trưởng Quân đội Nhân dân Việt Nam (197",
+  "e_date": "1/10/1914",
   "e_day": "1",
   "e_month": "10",
-  "e_year": "1914 - Lê Trọng Tấn, Đại tướng, Tổng tham mưu trưởng Quân đội Nhân dân Việt Nam (197",
+  "e_year": "1914",
   "e_info": "986)",
   "url": "https://vi.wikipedia.org/wiki/1_th%C3%A1ng_10"
 },
@@ -60751,11 +60830,11 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "2/10/Ấn Độ",
+  "e_type": "Mất",
+  "e_date": "2/10",
   "e_day": "2",
   "e_month": "10",
-  "e_year": "Ấn Độ",
+  "e_year": "0",
   "e_info": "Gandhi Jayanti (s. nhật Mahatma Gandhi, 1869)",
   "url": "https://vi.wikipedia.org/wiki/2_th%C3%A1ng_10"
 },
@@ -68731,31 +68810,31 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "20/10/Thiên chúa giáo",
+  "e_type": "Sự kiện",
+  "e_date": "20/10",
   "e_day": "20",
   "e_month": "10",
-  "e_year": "Thiên chúa giáo",
+  "e_year": "0",
   "e_info": "ngày yến tiệc của liệt sĩ Andrew của Crete, Caprasius của Agen, Irene của Tomar, Artemius",
   "url": "https://vi.wikipedia.org/wiki/20_th%C3%A1ng_10"
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "20/10/Đức tin Bahá'í",
+  "e_type": "Sự kiện",
+  "e_date": "20/10",
   "e_day": "20",
   "e_month": "10",
-  "e_year": "Đức tin Bahá'í",
+  "e_year": "0",
   "e_info": "Holy Day – Ngày sinh của Báb",
   "url": "https://vi.wikipedia.org/wiki/20_th%C3%A1ng_10"
 },
 {
   "e_weight": 0,
-  "e_type": "Mất",
-  "e_date": "20/10/Lịch Cộng hoà Pháp",
+  "e_type": "Sự kiện",
+  "e_date": "20/10",
   "e_day": "20",
   "e_month": "10",
-  "e_year": "Lịch Cộng hoà Pháp",
+  "e_year": "0",
   "e_info": "Orge (Barley) Ngày, ngày thứ hai chín trong Tháng Vendémiaire",
   "url": "https://vi.wikipedia.org/wiki/20_th%C3%A1ng_10"
 },
@@ -72012,10 +72091,10 @@
 {
   "e_weight": 0,
   "e_type": "Sự kiện",
-  "e_date": "17/11/1292 theo lịch Julius",
+  "e_date": "17/11/1292",
   "e_day": "17",
   "e_month": "11",
-  "e_year": "1292 theo lịch Julius",
+  "e_year": "1292",
   "e_info": "John Balliol được trở thành Quốc vương Scotland.",
   "url": "https://vi.wikipedia.org/wiki/17_th%C3%A1ng_11"
 },
@@ -74462,10 +74541,10 @@
 {
   "e_weight": 0,
   "e_type": "Sự kiện",
-  "e_date": "24/11/1639 (st.v.)",
+  "e_date": "24/11/1639",
   "e_day": "24",
   "e_month": "11",
-  "e_year": "1639 (st.v.)",
+  "e_year": "1639",
   "e_info": "Jeremiah Horrocks và William Crabtree quan sát Sao Kim lướt qua Mặt Trời lần đầu tiên được xác nhận, sau khi Horrocks dự đoán sự kiện này. (4 tháng 12 theo lịch Gregory)",
   "url": "https://vi.wikipedia.org/wiki/24_th%C3%A1ng_11"
 },
@@ -92451,17 +92530,17 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
-  "e_date": "29/12/Không rõ năm",
+  "e_type": "Mất",
+  "e_date": "29/12",
   "e_day": "29",
   "e_month": "12",
-  "e_year": "Không rõ năm",
+  "e_year": "0",
   "e_info": "Ayana, ca sĩ người Nhật Bản",
   "url": "https://vi.wikipedia.org/wiki/29_th%C3%A1ng_12"
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1208",
   "e_day": "29",
   "e_month": "12",
@@ -92471,7 +92550,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1825",
   "e_day": "29",
   "e_month": "12",
@@ -92481,7 +92560,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1891",
   "e_day": "29",
   "e_month": "12",
@@ -92491,7 +92570,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1894",
   "e_day": "29",
   "e_month": "12",
@@ -92501,7 +92580,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1896",
   "e_day": "29",
   "e_month": "12",
@@ -92511,7 +92590,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1910",
   "e_day": "29",
   "e_month": "12",
@@ -92521,7 +92600,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1916",
   "e_day": "29",
   "e_month": "12",
@@ -92531,7 +92610,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1926",
   "e_day": "29",
   "e_month": "12",
@@ -92541,7 +92620,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1929",
   "e_day": "29",
   "e_month": "12",
@@ -92551,7 +92630,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1941",
   "e_day": "29",
   "e_month": "12",
@@ -92561,7 +92640,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/1951",
   "e_day": "29",
   "e_month": "12",
@@ -92571,7 +92650,7 @@
 },
 {
   "e_weight": 0,
-  "e_type": "Sinh",
+  "e_type": "Mất",
   "e_date": "29/12/2009",
   "e_day": "29",
   "e_month": "12",
@@ -93472,10 +93551,10 @@
 {
   "e_weight": 0,
   "e_type": "Sinh",
-  "e_date": "31/12/1870 - Mbah Gotho - Người sống thọ nhất thế giới*1878",
+  "e_date": "31/12/1870",
   "e_day": "31",
   "e_month": "12",
-  "e_year": "1870 - Mbah Gotho - Người sống thọ nhất thế giới*1878",
+  "e_year": "1870",
   "e_info": "Horacio Quiroga, tác gia, nhà thơ người Uruguay-Argentina (m. 1937)",
   "url": "https://vi.wikipedia.org/wiki/31_th%C3%A1ng_12"
 },
