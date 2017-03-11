@@ -17,15 +17,14 @@ public class NumberPickerRecyclerViewAdapter extends RecyclerView.Adapter<Number
     private int endNumber;
 
     public NumberPickerRecyclerViewAdapter(int startNumber, int endNumber) {
-        this.startNumber = startNumber;
-        this.endNumber = endNumber;
+        this.startNumber = startNumber; // số bắt đầu trong list number picker
+        this.endNumber = endNumber; // số kết thúc trong list number picker
     }
 
     @Override
     public NumberPickerRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.item_recycler_view_number_picker, parent, false);
-
         return new ViewHolder(view);
     }
 
@@ -62,7 +61,7 @@ public class NumberPickerRecyclerViewAdapter extends RecyclerView.Adapter<Number
         this.onItemClick = onItemClick;
     }
 
-    public interface OnItemClick {
+    public interface OnItemClick { // lắng nghe sự kiện onlick item
         void onClick(View view, int position);
     }
 }

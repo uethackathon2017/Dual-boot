@@ -33,10 +33,10 @@ import static com.example.vaio.timestone.activity.MainActivity.ITEM;
  */
 
 public class SplashActivity extends AppCompatActivity {
-    public static final int RESULT_CODE = 0;
-    public static final int WHAT_DATA = 0;
-    private ArrayList<Item> arrItem;
     public static final String TAG = "SplashActivity";
+    public static final int RESULT_CODE = 0;
+    private ArrayList<Item> arrItem;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,76 +52,13 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
-    private void getdata() throws Exception {
-        // Load dữ liệu online hoặc offline vào mảng arrItem
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference reference = firebaseDatabase.getReference();
-        reference.child(ITEM).keepSynced(true); // Lưu dữ liệu khi sử dụng offline
-        reference.child(ITEM).addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Item item = dataSnapshot.getValue(Item.class);
-                arrItem.add(item); // add item lấy được vào mảng
-                Log.e(TAG, arrItem.size() + "");
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        reference.child(ITEM).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                GlobalData globalData = (GlobalData) getApplication();
-                globalData.setArrItem(arrItem);
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivityForResult(intent, RESULT_CODE);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-
     private AsyncTask dataLoadingAsyncTask = new AsyncTask() {
         @Override
         protected Object doInBackground(Object[] params) {
             Database database = new Database(SplashActivity.this);
-            arrItem = database.getData();
-            GlobalData globalData = (GlobalData) getApplication();
-            globalData.setArrItem(arrItem);
-//            final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//            DatabaseReference reference = firebaseDatabase.getReference();
-//
-//            for (int i = 0; i < arrItem.size(); i++) {
-//                reference.child("item").child(arrItem.get(i).getE_id() + "").setValue(arrItem.get(i));
-//                try {
-//                    Thread.sleep(10);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                Log.e(TAG,i+"");
-//            }
-
+            arrItem = database.getData(); // lấy dữ liệu từ database
+            GlobalData globalData = (GlobalData) getApplication(); // ánh xạ dữ liệu toàn cục
+            globalData.setArrItem(arrItem); // gán dữ liệu từ database cho dữ liệu toàn cục
             return null;
         }
 
@@ -129,7 +66,7 @@ public class SplashActivity extends AppCompatActivity {
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            startActivityForResult(intent, RESULT_CODE);
+            startActivityForResult(intent, RESULT_CODE); // Chuyển sang main activity ngay sau khi đã chuẩn bị xong dữ liệu
         }
     };
 

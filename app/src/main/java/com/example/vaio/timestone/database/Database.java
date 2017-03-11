@@ -49,12 +49,9 @@ public class Database {
     public Database(Context context) {
         this.context = context;
         copyDatabase(context);
-//        dbHelper = new DBhelper(context);
-//        database = dbHelper.getWritableDatabase();
-
     }
 
-    private void copyDatabase(Context context) {
+    private void copyDatabase(Context context) { // copy database chứa dữ liệu vào bộ nhớ máy
         try {
             File file = new File(PATH);
             Log.e(TAG, file.getAbsolutePath());
@@ -92,28 +89,6 @@ public class Database {
         database.close();
     }
 
-    //    public void insertData(ArrayList<Item> items) {
-//        openDatabase();
-//        String sql = "INSERT INTO " + DBhelper.TB_NAME + " VALUES (?,?,?,?,?,?,?,?,?);";
-//        SQLiteStatement statement = database.compileStatement(sql);
-//        database.beginTransaction();
-//
-//        for (Item item : items) {
-//            statement.clearBindings();
-//            statement.bindString(2, item.getE_type());
-//            statement.bindString(3, item.getE_info());
-//            statement.bindLong(4, item.getE_date());
-//            statement.bindString(5, item.getE_day());
-//            statement.bindString(6, item.getE_month());
-//            statement.bindString(7, item.getE_year());
-//            statement.bindLong(8, item.getE_weight());
-//            statement.bindString(9, item.getUrl());
-//            statement.execute();
-//        }
-//        database.setTransactionSuccessful();
-//        database.endTransaction();
-//        closeDatabase();
-//    }
     public void updateWeight(int id, int weight) {
         openDatabase();
         String sql = "Update " + TB_NAME + " SET " + WEIGHT + " = " + weight + " WHERE " + ID + " = " + id;
@@ -122,72 +97,26 @@ public class Database {
     }
 
     public ArrayList<Item> getData() {
+        //lấy toàn bộ dữ liệu trong database
         openDatabase();
         ArrayList<Item> arrItem = new ArrayList<>();
         String sql = "SELECT * FROM " + TB_NAME + " ORDER BY " + WEIGHT + " DESC";
         Cursor cursor = database.rawQuery(sql, null);
-        int idIndex = cursor.getColumnIndex(ID);
-        int typeIndex = cursor.getColumnIndex(TYPE);
-        int infoIndex = cursor.getColumnIndex(INFO);
-        int dateIndex = cursor.getColumnIndex(DATE);
-        int dayIndex = cursor.getColumnIndex(DAY);
-        int monthIndex = cursor.getColumnIndex(MONTH);
-        int yearIndex = cursor.getColumnIndex(YEAR);
-        int weightIndex = cursor.getColumnIndex(WEIGHT);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            int id = cursor.getInt(idIndex);
-            String type = cursor.getString(typeIndex);
-            String info = cursor.getString(infoIndex);
-            long date = cursor.getLong(dateIndex);
-            String day = cursor.getString(dayIndex);
-            String month = cursor.getString(monthIndex);
-            String year = cursor.getString(yearIndex);
-            int weight = cursor.getInt(weightIndex);
+            int id = cursor.getInt(cursor.getColumnIndex(ID));
+            String type = cursor.getString(cursor.getColumnIndex(TYPE));
+            String info = cursor.getString(cursor.getColumnIndex(INFO));
+            long date = cursor.getLong(cursor.getColumnIndex(DATE));
+            String day = cursor.getString(cursor.getColumnIndex(DAY));
+            String month = cursor.getString(cursor.getColumnIndex(MONTH));
+            String year = cursor.getString(cursor.getColumnIndex(YEAR));
+            int weight = cursor.getInt(cursor.getColumnIndex(WEIGHT));
             Item item = new Item(id, type, info, date, day, month, year, weight, "");
             arrItem.add(item);
             cursor.moveToNext();
-            Log.e(TAG, arrItem.size() + "");
-
         }
         closeDatabase();
         return arrItem;
-    }
-
-    public ArrayList<Item> getDataWithDate(long fromDate, long toDate) {
-        openDatabase();
-        ArrayList<Item> arrItem = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + TB_NAME + " WHERE " + DATE + " >" + fromDate + " AND " + DATE + " < " + toDate + " ORDER BY " + YEAR;
-        Cursor cursor = database.rawQuery(selectQuery, null);
-//        Cursor cursor = database.query(DBhelper.TB_NAME, null, DBhelper.DATE + ">? AND " + DBhelper.DATE + "<?", new String[]{String.valueOf(fromDate), String.valueOf(toDate)}, null, null, null);
-        int idIndex = cursor.getColumnIndex(ID);
-        int typeIndex = cursor.getColumnIndex(TYPE);
-        int infoIndex = cursor.getColumnIndex(INFO);
-        int dateIndex = cursor.getColumnIndex(DATE);
-        int dayIndex = cursor.getColumnIndex(DAY);
-        int monthIndex = cursor.getColumnIndex(MONTH);
-        int yearIndex = cursor.getColumnIndex(YEAR);
-        int weightIndex = cursor.getColumnIndex(WEIGHT);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            int id = cursor.getInt(idIndex);
-            String type = cursor.getString(typeIndex);
-            String info = cursor.getString(infoIndex);
-            long date = cursor.getLong(dateIndex);
-            String day = cursor.getString(dayIndex);
-            String month = cursor.getString(monthIndex);
-            String year = cursor.getString(yearIndex);
-            int weight = cursor.getInt(weightIndex);
-            Item item = new Item(id, type, info, date, day, month, year, weight, "");
-            arrItem.add(item);
-            cursor.moveToNext();
-            Log.e("DATE ", String.valueOf(item.getE_date()));
-        }
-        closeDatabase();
-        return arrItem;
-    }
-
-    public void deleteData() {
-        database.delete(TB_NAME, null, null);
     }
 }

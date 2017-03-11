@@ -39,10 +39,10 @@ public class OnNumberPickerSelectedAsyncTask extends AsyncTask<Void, Void, Array
                 }
 
                 int month = Integer.parseInt(item.getE_month().toString().trim()); // lấy ra tháng
-                if (century == centurySelected) {
-                    if (year == yearSelected || yearSelected == 0) {
-                        if (month == monthSelected || monthSelected == 0) {
-                            arrItem.add(arrItemTmp.get(i));
+                if (century == centurySelected) { // so sánh thế kỉ
+                    if (year == yearSelected || yearSelected == 0) { // so sánh năm
+                        if (month == monthSelected || monthSelected == 0) { // so sánh tháng
+                            arrItem.add(arrItemTmp.get(i)); // add phần tử vào mảng để hiển thị
                         }
                     }
                 }
@@ -69,6 +69,7 @@ public class OnNumberPickerSelectedAsyncTask extends AsyncTask<Void, Void, Array
     private OnSuccessfulLoadingData onSuccessfulLoadingData;
 
     public interface OnSuccessfulLoadingData {
+        // lắng nghe sự kiện hoàn thành loading data
         void onSuccess(ArrayList<Item> arrData);
     }
 }

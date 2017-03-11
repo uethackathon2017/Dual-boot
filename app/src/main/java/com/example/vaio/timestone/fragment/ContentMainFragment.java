@@ -98,7 +98,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
             tvNotification = (TextView) view.findViewById(R.id.textViewNotification);
             tvTitle = (TextView) view.findViewById(R.id.tvDate);
-            tvTitle.setText(currentContent);
+            tvTitle.setText(currentContent); // set title mặc định
             recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewEvent);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             if (arrItem.size() == 0) {
@@ -113,8 +113,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
 
             //
-            ivBack = (ImageView) view.findViewById(R.id.ivBack);
-            ivForward = (ImageView) view.findViewById(R.id.ivFoward);
+            ivBack = (ImageView) view.findViewById(R.id.ivBack); // phím back
+            ivForward = (ImageView) view.findViewById(R.id.ivFoward); // phím forward
             ivBack.setOnClickListener(this);
             ivForward.setOnClickListener(this);
             //
@@ -122,8 +122,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             numberPickerViewPagerAdapter = new NumberPickerViewPagerAdapter(getFragmentManager(), CENTURY_START_AT, CENTURY_END_AT);
             numberPickerViewPagerAdapter.setOnItemClick(this);
             viewPager.setAdapter(numberPickerViewPagerAdapter);
-            circlePageIndicator.setViewPager(viewPager);
-            initNumberPickerViewPagerAdapter(CENTURY_START_AT, CENTURY_END_AT);
+            circlePageIndicator.setViewPager(viewPager); // đồng bộ trạng thái viewpager và circle page indicator
+            initNumberPickerViewPagerAdapter(CENTURY_START_AT, CENTURY_END_AT); // khởi tạo mặc định number picker theo thế kỉ
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -132,31 +132,32 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
 
     private void initEventRecyclerViewAdapter(final ArrayList<Item> arrItem) throws Exception {
+        // khởi tạo adapter event recycler view
         eventRecyclerViewAdapter = new EventRecyclerViewAdapter(arrItem);
         recyclerView.setAdapter(eventRecyclerViewAdapter);
         eventRecyclerViewAdapter.setOnCompleteLoading(new EventRecyclerViewAdapter.OnCompleteLoading() {
             @Override
             public void onComplete() {
-                contentLoadingProgressBar.hide();
+                contentLoadingProgressBar.hide(); // ẩn progress bar khi đã load xong dữ liệu
             }
         });
         eventRecyclerViewAdapter.setOnItemClick(new EventRecyclerViewAdapter.OnItemClick() {
             @Override
             public void onClick(View view, int position) {
                 final Item item = arrItem.get(position);
-                item.setE_weight(item.getE_weight() + 1);
+                item.setE_weight(item.getE_weight() + 1); // tăng mức độ ưu tiên của bản ghi dữ liệu theo lượt xem
                 reference.child("item").child(item.getE_id() + "").child(Database.WEIGHT).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        int weight = dataSnapshot.getValue(Integer.class);
-                        Database database = new Database(getContext());
-                        database.updateWeight(item.getE_id(), weight);
+                        int weight = dataSnapshot.getValue(Integer.class); // lấy độ ưu tiên từ firebase
+                        Database database = new Database(getContext()); // cập nhật database để có thể sử dụng offile
+                        database.updateWeight(item.getE_id(), weight); // cập nhật
                         RefreshDataAsyncTask refreshDataAsyncTask = new RefreshDataAsyncTask(getContext());
                         refreshDataAsyncTask.setOnComplete(new RefreshDataAsyncTask.OnComplete() {
                             @Override
                             public void onComplete(ArrayList<Item> arrItem) {
-                                arrItemTmp.clear();
-                                arrItemTmp.addAll(arrItem);
+                                arrItemTmp.clear(); // làm mới mảng dữ liệu
+                                arrItemTmp.addAll(arrItem); // add dữ liệu mới vào mảng
                             }
                         });
                         refreshDataAsyncTask.execute();

@@ -5,15 +5,15 @@ package com.example.vaio.timestone.model;
  */
 
 public class Item {
-    int e_id;
-    String e_type;
-    String e_info;
-    long e_date;
-    String e_day;
-    String e_month;
-    String e_year;
-    int e_weight;
-    String url;
+    int e_id; // id
+    String e_type; // loại
+    String e_info;// nội dung của ngày
+    long e_date; // ngày tháng
+    String e_day; // ngày
+    String e_month; // tháng
+    String e_year; // năm
+    int e_weight; // số lượt xem - mức độ ưu tiên
+    String url; // đường đẫn tới trang full nội dung
 
     public Item() {
 

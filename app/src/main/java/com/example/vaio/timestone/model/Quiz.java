@@ -5,9 +5,9 @@ package com.example.vaio.timestone.model;
  */
 
 public class Quiz {
-    String question;
-    String[] answer = new String[4];
-    int rightAnser;
+    String question; // câu hỏi
+    String[] answer = new String[4]; //  4 câu trả lời
+    int rightAnser; // câu trả lời đúng
 
     public Quiz(String question, String[] answer, int rightAnser) {
         this.question = question;

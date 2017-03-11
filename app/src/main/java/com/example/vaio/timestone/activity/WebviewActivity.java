@@ -31,21 +31,23 @@ public class WebviewActivity extends AppCompatActivity implements MenuItem.OnMen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        webView = (WebView) findViewById(R.id.webview);
-        progressBar = (ContentLoadingProgressBar) findViewById(R.id.contentLoadingProgressBar);
-        progressBar.show();
+        webView = (WebView) findViewById(R.id.webview); // ánh xạ
+        progressBar = (ContentLoadingProgressBar) findViewById(R.id.contentLoadingProgressBar); // thanh bar loading web
+        progressBar.show(); // show progress bar bắt đầu loading
+        if (!MainActivity.isNetWorkAvailable(WebviewActivity.this)) {
+            Toast.makeText(WebviewActivity.this, "No internet connection !", Toast.LENGTH_SHORT);
+            progressBar.hide(); // ẩn progress bar khi không có kết nối internet
+        }
         link = getIntent().getExtras().getString(ContentMainFragment.LINK);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                progressBar.hide();
-                if (!MainActivity.isNetWorkAvailable(WebviewActivity.this)) {
-                    Toast.makeText(WebviewActivity.this, "No internet connection !", Toast.LENGTH_SHORT);
-                }
+                progressBar.hide(); // ẩn progress bar khi loading thành công
+
             }
         });
-        webView.loadUrl(link);
+        webView.loadUrl(link); // load dữ liệu vào webview từ link
 
     }
 

@@ -21,10 +21,10 @@ public class RefreshDataAsyncTask extends AsyncTask<Void, Void, ArrayList<Item>>
 
     @Override
     protected ArrayList<Item> doInBackground(Void... params) {
-        Database database = new Database(context);
-        ArrayList<Item> arrItemTmp = new ArrayList<>();
-        arrItemTmp.addAll(database.getData());
-        return arrItemTmp;
+        Database database = new Database(context); // khai báo database
+        ArrayList<Item> arrItemTmp = new ArrayList<>(); // khai báo mảng dữ liệu
+        arrItemTmp.addAll(database.getData()); // add dữ liệu vào mảng lấy từ database
+        return arrItemTmp; // trả về dữ liệu chuyển về fragment chính
     }
 
     @Override

@@ -17,11 +17,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.vaio.timestone.R;
 import com.example.vaio.timestone.fragment.ContentMainFragment;
 import com.example.vaio.timestone.fragment.QuizFragment;
@@ -34,11 +32,11 @@ public class MainActivity extends AppCompatActivity
     public static final String ITEM = "item";
     private static final String TAG = "MainActivity";
     private Toolbar toolbar;
-    private TextView tvTitle;
-    private ImageView ivSearch;
+    private TextView tvTitle; // titile trên toolbar
+    private ImageView ivSearch; // image view search trên toolbar
     private ArrayList arrItem = new ArrayList();   // arr Main data
-    private ContentMainFragment contentMainFragment;
-    private QuizFragment quizFragment;
+    private ContentMainFragment contentMainFragment; // fragment chính
+    private QuizFragment quizFragment; // fragment câu đố
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,9 +109,9 @@ public class MainActivity extends AppCompatActivity
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
                 // Dịch chuyển layout chính theo drawerlayout
-                coordinatorLayout.setTranslationX(slideOffset * drawerView.getWidth());
-                drawer.bringChildToFront(drawerView);
-                drawer.requestLayout();
+                coordinatorLayout.setTranslationX(slideOffset * drawerView.getWidth()); // set tọa độ dịch chuyển
+                drawer.bringChildToFront(drawerView); // set hiển thị drawer
+                drawer.requestLayout(); // request thực thi
             }
         };
         drawer.addDrawerListener(toggle);
@@ -161,21 +159,22 @@ public class MainActivity extends AppCompatActivity
 
             switch (id) {
                 case R.id.nav_home:
+                    // chọn fragment chính
                     tvTitle.setVisibility(View.VISIBLE);
-//                    ivSearch.setVisibility(View.VISIBLE);
-                    replaceContentMainLayout(contentMainFragment);
+                    replaceContentMainLayout(new ContentMainFragment(arrItem));
                     drawer.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.nav_quiz:
+                    // chọn fragment quiz
                     tvTitle.setVisibility(View.INVISIBLE);
                     replaceContentMainLayout(new QuizFragment(arrItem));
                     drawer.closeDrawer(GravityCompat.START);
-//                    ivSearch.setVisibility(View.INVISIBLE);
                     break;
                 case R.id.nav_share:
 
                     break;
                 case R.id.nav_feed_back:
+                    // lựa chọn phản hồi của người dùng
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
                             Uri.parse("mailto:" + Uri.encode("vietcoscc@gmail.com   ")));
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");

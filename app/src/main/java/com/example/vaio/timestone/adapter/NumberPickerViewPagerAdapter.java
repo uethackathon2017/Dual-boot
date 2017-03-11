@@ -59,7 +59,7 @@ public class NumberPickerViewPagerAdapter extends FragmentStatePagerAdapter {
 
     private OnItemClick onItemClick;
 
-    public interface OnItemClick {
+    public interface OnItemClick { // lắng nghe sự kiện on click item
         void onClick(View view, int position);
     }
 }

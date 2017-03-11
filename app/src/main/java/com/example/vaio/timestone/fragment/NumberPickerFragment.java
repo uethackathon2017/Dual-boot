@@ -19,7 +19,7 @@ import com.example.vaio.timestone.adapter.NumberPickerRecyclerViewAdapter;
 
 @SuppressLint("ValidFragment")
 public class NumberPickerFragment extends Fragment {
-    public static final int SPAN_COUNT = 3;
+    public static final int SPAN_COUNT = 3; // số cột recyclerview bằng  3
     private RecyclerView recyclerView;
     private int start;
     private int end;
@@ -68,6 +68,7 @@ public class NumberPickerFragment extends Fragment {
     }
 
     public interface OnItemClick {
+        // lắng nghe sự kiện on item click
         void onClick(View view, int position);
     }
 
