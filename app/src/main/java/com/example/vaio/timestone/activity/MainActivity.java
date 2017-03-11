@@ -1,6 +1,5 @@
 package com.example.vaio.timestone.activity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
@@ -18,9 +17,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
+import com.example.vaio.timestone.database.DAOdb;
 import com.example.vaio.timestone.fragment.ContentMainFragment;
 import com.example.vaio.timestone.fragment.QuizFragment;
 import com.example.vaio.timestone.model.GlobalData;
@@ -35,6 +34,7 @@ public class MainActivity extends AppCompatActivity
     private Toolbar toolbar;
     private ArrayList arrItem = new ArrayList();   // arr Main data
     private ContentMainFragment contentMainFragment;
+    private DAOdb daOdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +45,12 @@ public class MainActivity extends AppCompatActivity
             initDrawerLayout();
             initComponent();
             getData();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        daOdb = new DAOdb(this);
+        daOdb.deleteData();
+        daOdb.insertData(arrItem);
     }
 
     public static boolean isNetWorkAvailable(Context context) {
@@ -62,7 +63,6 @@ public class MainActivity extends AppCompatActivity
         // Lấy về dữ liệu sau khi đã load
         GlobalData data = (GlobalData) getApplication();
         arrItem.addAll(data.getArrItem());
-        Toast.makeText(this, arrItem.size(), Toast.LENGTH_SHORT).show();
         contentMainFragment.notifyData();
     }
 

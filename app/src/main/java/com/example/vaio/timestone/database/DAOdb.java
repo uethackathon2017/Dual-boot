@@ -72,9 +72,12 @@ public class DAOdb {
             int weight = cursor.getInt(weightIndex);
             Item item = new Item(type, info, date, day, month, year, weight, "");
             arrItem.add(item);
-            Log.e("INFO", String.valueOf(arrItem.size()));
             cursor.moveToNext();
         }
         return arrItem;
+    }
+
+    public void deleteData(){
+        database.delete(DBhelper.TB_NAME, null, null);
     }
 }
