@@ -8,5 +8,13 @@
     <color name="blue100">#bbdefb</color>
     <color name="blue200">#90caf9</color>
     <color name="blue300">#64b5f6</color>
+    <color name="green500">#4CAF50</color>
+    <color name="green400">#66BB6A</color>
+    <color name="green100">#C8E6C9</color>
+    <color name="green200">#A5D6A7</color>
+    <color name="green300">#81C784</color>
+    <color name="red100">#EF9A9A</color>
+    <color name="red300">#EF5350</color>
+    <color name="red500">#E53935</color>
     <color name="trans">#00000000</color>
 </resources>
