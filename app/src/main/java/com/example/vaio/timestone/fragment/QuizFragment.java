@@ -81,7 +81,7 @@ public class QuizFragment extends Fragment {
             for (int i = 0; i < 4; i++) {
                 int position = randAnswer.nextInt(arrItem.size() - 1); // 0 - 3432;
                 arrItemTmp.add(arrItem.get(position));
-                answer[i] = arrItem.get(position).getE_date();
+                answer[i] = arrItem.get(position).getE_day() + "/" + arrItem.get(position).getE_month() + "/" + arrItem.get(position).getE_year();
             }
             Random randQuestion = new Random();
             int rightAnswer = randQuestion.nextInt(3);

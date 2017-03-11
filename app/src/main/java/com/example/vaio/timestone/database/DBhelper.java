@@ -32,7 +32,7 @@ public class DBhelper extends SQLiteOpenHelper{
             ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             TYPE + TEXT_TYPE + COMMA_SEP +
             INFO + TEXT_TYPE + COMMA_SEP +
-            DATE + TEXT_TYPE + COMMA_SEP +
+            DATE + NUMERIC + COMMA_SEP +
             DAY + TEXT_TYPE + COMMA_SEP +
             MONTH + TEXT_TYPE + COMMA_SEP +
             YEAR + TEXT_TYPE + COMMA_SEP +

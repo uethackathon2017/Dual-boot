@@ -12,7 +12,7 @@ public class Item implements Parcelable {
 
     String e_type;
     String e_info;
-    String e_date;
+    long e_date;
     String e_day;
     String e_month;
     String e_year;
@@ -22,7 +22,7 @@ public class Item implements Parcelable {
     public Item() {
     }
 
-    public Item(String e_type, String e_info, String e_date, String e_day, String e_month, String e_year, int e_weight, String url) {
+    public Item(String e_type, String e_info, long e_date, String e_day, String e_month, String e_year, int e_weight, String url) {
         this.e_type = e_type;
         this.e_info = e_info;
         this.e_date = e_date;
@@ -36,7 +36,7 @@ public class Item implements Parcelable {
     protected Item(Parcel in) {
         e_type = in.readString();
         e_info = in.readString();
-        e_date = in.readString();
+        e_date = in.readLong();
         e_day = in.readString();
         e_month = in.readString();
         e_year = in.readString();
@@ -72,11 +72,11 @@ public class Item implements Parcelable {
         this.e_info = e_info;
     }
 
-    public String getE_date() {
+    public long getE_date() {
         return e_date;
     }
 
-    public void setE_date(String e_date) {
+    public void setE_date(long e_date) {
         this.e_date = e_date;
     }
 
@@ -129,7 +129,7 @@ public class Item implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(e_type);
         dest.writeString(e_info);
-        dest.writeString(e_date);
+        dest.writeLong(e_date);
         dest.writeString(e_day);
         dest.writeString(e_month);
         dest.writeString(e_year);

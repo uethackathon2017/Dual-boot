@@ -39,7 +39,7 @@ public class DAOdb {
             statement.clearBindings();
             statement.bindString(2, item.getE_type());
             statement.bindString(3, item.getE_info());
-            statement.bindString(4, item.getE_date());
+            statement.bindLong(4, item.getE_date());
             statement.bindString(5, item.getE_day());
             statement.bindString(6, item.getE_month());
             statement.bindString(7, item.getE_year());
@@ -65,7 +65,7 @@ public class DAOdb {
         while (!cursor.isAfterLast()) {
             String type = cursor.getString(typeIndex);
             String info = cursor.getString(infoIndex);
-            String date = cursor.getString(dateIndex);
+            long date = cursor.getLong(dateIndex);
             String day = cursor.getString(dayIndex);
             String month = cursor.getString(monthIndex);
             String year = cursor.getString(yearIndex);
@@ -73,6 +73,35 @@ public class DAOdb {
             Item item = new Item(type, info, date, day, month, year, weight, "");
             arrItem.add(item);
             cursor.moveToNext();
+        }
+        return arrItem;
+    }
+
+    public ArrayList<Item> getDataWithDate(long fromDate, long toDate) {
+        ArrayList<Item> arrItem = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + DBhelper.TB_NAME + " WHERE " + DBhelper.DATE + " BETWEEN " + fromDate + " AND " + toDate;
+        Cursor cursor = database.rawQuery(selectQuery, null);
+        //Cursor cursor = database.query(DBhelper.TB_NAME, null, DBhelper.DATE + ">? AND " + DBhelper.DATE + "<?", new String[]{fromDate, toDate}, null, null, null);
+        int typeIndex = cursor.getColumnIndex(DBhelper.TYPE);
+        int infoIndex = cursor.getColumnIndex(DBhelper.INFO);
+        int dateIndex = cursor.getColumnIndex(DBhelper.DATE);
+        int dayIndex = cursor.getColumnIndex(DBhelper.DAY);
+        int monthIndex = cursor.getColumnIndex(DBhelper.MONTH);
+        int yearIndex = cursor.getColumnIndex(DBhelper.YEAR);
+        int weightIndex = cursor.getColumnIndex(DBhelper.WEIGHT);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String type = cursor.getString(typeIndex);
+            String info = cursor.getString(infoIndex);
+            long date = cursor.getLong(dateIndex);
+            String day = cursor.getString(dayIndex);
+            String month = cursor.getString(monthIndex);
+            String year = cursor.getString(yearIndex);
+            int weight = cursor.getInt(weightIndex);
+            Item item = new Item(type, info, date, day, month, year, weight, "");
+            arrItem.add(item);
+            cursor.moveToNext();
+            Log.e("DATE ", String.valueOf(item.getE_date()));
         }
         return arrItem;
     }

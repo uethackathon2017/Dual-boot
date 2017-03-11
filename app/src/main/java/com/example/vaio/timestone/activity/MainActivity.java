@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity
         daOdb = new DAOdb(this);
         daOdb.deleteData();
         daOdb.insertData(arrItem);
+
+        daOdb.getDataWithDate(10101, 991231);
     }
 
     public static boolean isNetWorkAvailable(Context context) {
