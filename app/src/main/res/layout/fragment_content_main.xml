@@ -87,5 +87,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/recycler_view_default_margin" />
+        <TextView
+            android:id="@+id/textViewNotification"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:text="Text Sample"
+            android:visibility="gone"/>
     </RelativeLayout>
 </LinearLayout>

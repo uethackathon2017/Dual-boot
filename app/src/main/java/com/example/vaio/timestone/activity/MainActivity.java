@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity
         // Lấy về dữ liệu sau khi đã load
         GlobalData data = (GlobalData) getApplication();
         arrItem.addAll(data.getArrItem());
-        contentMainFragment.notifyData();
     }
 
 

@@ -35,8 +35,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private TextView tvAnswer3;
     private TextView tvAnswer4;
     private Quiz quiz;
-    private TextView tvScore;
-    private int score = 0;
+    private TextView tvScore, tvTime;
+    private int score = 0, time = 0;
 
     @SuppressLint("ValidFragment")
     public QuizFragment(ArrayList<Item> arrItem) {
@@ -50,27 +50,30 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_quiz, container, false);
         initData();
         initView(view);
-
-
         return view;
     }
     Timer timer = new Timer();
-    int i=0;
     TimerTask timerTask = new TimerTask() {
         @Override
         public void run() {
-            i++;
-            Log.e("TIME: ", i +"");
+            time ++;
+            tvTime.post(new Runnable() {
+                @Override
+                public void run() {
+                    tvTime.setText(time + "s");
+                }
+            });
         }
     };
     private void initView(View view) {
-        timer.schedule(timerTask, 0, 1000);
+        timer.schedule(timerTask, 1000, 1000);
         tvQuestion = (TextView) view.findViewById(R.id.tvQuestion);
         tvAnswer1 = (TextView) view.findViewById(R.id.tvAnswer1);
         tvAnswer2 = (TextView) view.findViewById(R.id.tvAnswer2);
         tvAnswer3 = (TextView) view.findViewById(R.id.tvAnswer3);
         tvAnswer4 = (TextView) view.findViewById(R.id.tvAnswer4);
         tvScore = (TextView) view.findViewById(R.id.tvScore);
+        tvTime = (TextView) view.findViewById(R.id.tvTime);
 
         reset();
 
@@ -206,23 +209,28 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 tvScore.setText(score + "");
                 break;
         }
-        switch (quiz.getRightAnser()){
-            case 0:
-                tvAnswer1.setBackgroundResource(R.drawable.bg_right_answer);
-                break;
-            case 1:
-                tvAnswer2.setBackgroundResource(R.drawable.bg_right_answer);
-                break;
-            case 2:
-                tvAnswer3.setBackgroundResource(R.drawable.bg_right_answer);
-                break;
-            case 3:
-                tvAnswer4.setBackgroundResource(R.drawable.bg_right_answer);
-                break;
-        }
-        blink(quiz.getRightAnser());
-
         Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                switch (quiz.getRightAnser()){
+                    case 0:
+                        tvAnswer1.setBackgroundResource(R.drawable.bg_right_answer);
+                        break;
+                    case 1:
+                        tvAnswer2.setBackgroundResource(R.drawable.bg_right_answer);
+                        break;
+                    case 2:
+                        tvAnswer3.setBackgroundResource(R.drawable.bg_right_answer);
+                        break;
+                    case 3:
+                        tvAnswer4.setBackgroundResource(R.drawable.bg_right_answer);
+                        break;
+                }
+                blink(quiz.getRightAnser());
+            }
+        }, 1000);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {

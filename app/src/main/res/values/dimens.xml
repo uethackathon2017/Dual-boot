@@ -11,5 +11,9 @@
     <dimen name="recycler_view_default_margin">10dp</dimen>
     <dimen name="view_pager_margin">10dp</dimen>
     <dimen name="bg_answer_radius">50dp</dimen>
+    <dimen name="bg_question_radius">5dp</dimen>
     <dimen name="tv_pading">16dp</dimen>
+
+    <dimen name="question_text_size">18sp</dimen>
+    <dimen name="answer_text_size">16sp</dimen>
 </resources>

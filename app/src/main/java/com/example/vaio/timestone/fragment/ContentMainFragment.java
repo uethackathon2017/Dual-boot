@@ -54,7 +54,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     private ImageView ivBack;
     private ImageView ivForward;
     private ViewPager viewPager;
-    private TextView tvTitle;
+    private TextView tvTitle, tvNotification;
     private EventRecyclerViewAdapter eventRecyclerViewAdapter;
     private NumberPickerViewPagerAdapter numberPickerViewPagerAdapter;
     private ContentLoadingProgressBar contentLoadingProgressBar;
@@ -89,11 +89,21 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             currentContent = CENTURY; // nội dung hiển thị hiện tại theo cent hoặc year hoặc month
             circlePageIndicator = (CirclePageIndicator) view.findViewById(R.id.circlePageIndicator);
 
+            tvNotification = (TextView) view.findViewById(R.id.textViewNotification);
             tvTitle = (TextView) view.findViewById(R.id.tvDate);
             tvTitle.setText(currentContent);
             recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewEvent);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-            initEventRecyclerViewAdapter(arrItem);
+            if (arrItem.size() == 0){
+                recyclerView.setVisibility(View.GONE);
+                tvNotification.setVisibility(View.VISIBLE);
+                tvNotification.setText("Không có sự kiện nào trong khoảng thời gian này");
+            } else {
+                recyclerView.setVisibility(View.VISIBLE);
+                tvNotification.setVisibility(View.GONE);
+                initEventRecyclerViewAdapter(arrItem);
+            }
+
 
             //
             ivBack = (ImageView) view.findViewById(R.id.ivBack);

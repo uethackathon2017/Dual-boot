@@ -29,7 +29,9 @@
             android:layout_weight="2"
             android:background="@drawable/bg_picker_center"
             android:gravity="center"
-            android:padding="@dimen/tv_pading" />
+            android:padding="@dimen/tv_pading"
+            android:textSize="@dimen/question_text_size"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tvAnswer1"
@@ -43,7 +45,8 @@
             android:gravity="center"
             android:maxLines="3"
             android:paddingLeft="@dimen/tv_pading"
-            android:paddingRight="@dimen/tv_pading" />
+            android:paddingRight="@dimen/tv_pading"
+            android:textSize="@dimen/answer_text_size"/>
 
         <TextView
             android:id="@+id/tvAnswer2"
@@ -58,7 +61,8 @@
             android:gravity="center"
             android:maxLines="3"
             android:paddingLeft="@dimen/tv_pading"
-            android:paddingRight="@dimen/tv_pading" />
+            android:paddingRight="@dimen/tv_pading"
+            android:textSize="@dimen/answer_text_size"/>
 
         <TextView
             android:id="@+id/tvAnswer3"
@@ -73,7 +77,8 @@
             android:gravity="center"
             android:maxLines="3"
             android:paddingLeft="@dimen/tv_pading"
-            android:paddingRight="@dimen/tv_pading" />
+            android:paddingRight="@dimen/tv_pading"
+            android:textSize="@dimen/answer_text_size"/>
 
         <TextView
             android:id="@+id/tvAnswer4"
@@ -89,7 +94,8 @@
             android:gravity="center"
             android:maxLines="3"
             android:paddingLeft="@dimen/tv_pading"
-            android:paddingRight="@dimen/tv_pading" />
+            android:paddingRight="@dimen/tv_pading"
+            android:textSize="@dimen/answer_text_size"/>
     </LinearLayout>
 
     <TextView
@@ -101,4 +107,23 @@
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:textColor="@android:color/black" />
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:indeterminate="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_centerInParent="true"
+            android:text="0s"
+            android:id="@+id/tvTime"
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
 </RelativeLayout>
