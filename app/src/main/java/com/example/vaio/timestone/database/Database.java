@@ -92,7 +92,7 @@ public class Database {
         database.close();
     }
 
-    //    public void insertData(ArrayList<Item> items) {
+//    public void insertData(ArrayList<Item> items) {
 //        openDatabase();
 //        String sql = "INSERT INTO " + DBhelper.TB_NAME + " VALUES (?,?,?,?,?,?,?,?,?);";
 //        SQLiteStatement statement = database.compileStatement(sql);
@@ -188,6 +188,8 @@ public class Database {
     }
 
     public void deleteData() {
+        openDatabase();
         database.delete(TB_NAME, null, null);
+        closeDatabase();
     }
 }

@@ -234,9 +234,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                setClickable(true);
                 initData();
                 reset();
-                setClickable(true);
             }
         },3000);
 
