@@ -1,14 +1,9 @@
 package com.example.vaio.timestone.model;
-
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.support.v4.os.ParcelableCompat;
-
 /**
  * Created by vaio on 10/03/2017.
  */
 
-public class Item implements Parcelable {
+public class Item {
 
     String e_type;
     String e_info;
@@ -32,29 +27,6 @@ public class Item implements Parcelable {
         this.e_weight = e_weight;
         this.url = url;
     }
-
-    protected Item(Parcel in) {
-        e_type = in.readString();
-        e_info = in.readString();
-        e_date = in.readLong();
-        e_day = in.readString();
-        e_month = in.readString();
-        e_year = in.readString();
-        e_weight = in.readInt();
-        url = in.readString();
-    }
-
-    public static final Creator<Item> CREATOR = new Creator<Item>() {
-        @Override
-        public Item createFromParcel(Parcel in) {
-            return new Item(in);
-        }
-
-        @Override
-        public Item[] newArray(int size) {
-            return new Item[size];
-        }
-    };
 
     public String getE_type() {
         return e_type;
@@ -120,20 +92,4 @@ public class Item implements Parcelable {
         this.url = url;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(e_type);
-        dest.writeString(e_info);
-        dest.writeLong(e_date);
-        dest.writeString(e_day);
-        dest.writeString(e_month);
-        dest.writeString(e_year);
-        dest.writeInt(e_weight);
-        dest.writeString(url);
-    }
 }
