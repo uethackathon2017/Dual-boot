@@ -20,6 +20,8 @@ import com.example.vaio.timestone.model.Quiz;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by vaio on 10/03/2017.
@@ -52,8 +54,17 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         return view;
     }
-
+    Timer timer = new Timer();
+    int i=0;
+    TimerTask timerTask = new TimerTask() {
+        @Override
+        public void run() {
+            i++;
+            Log.e("TIME: ", i +"");
+        }
+    };
     private void initView(View view) {
+        timer.schedule(timerTask, 0, 1000);
         tvQuestion = (TextView) view.findViewById(R.id.tvQuestion);
         tvAnswer1 = (TextView) view.findViewById(R.id.tvAnswer1);
         tvAnswer2 = (TextView) view.findViewById(R.id.tvAnswer2);
@@ -168,7 +179,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 tvScore.setText(score + "");
                 break;
             case R.id.tvAnswer2:
-                if (quiz.getRightAnser() == 0) {
+                if (quiz.getRightAnser() == 1) {
                     score++;
                 } else {
                     tvAnswer2.setBackgroundResource(R.drawable.bg_wrong_answer);
@@ -177,7 +188,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 tvScore.setText(score + "");
                 break;
             case R.id.tvAnswer3:
-                if (quiz.getRightAnser() == 0) {
+                if (quiz.getRightAnser() == 2) {
                     score++;
                 } else {
                     tvAnswer3.setBackgroundResource(R.drawable.bg_wrong_answer);
@@ -186,7 +197,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 tvScore.setText(score + "");
                 break;
             case R.id.tvAnswer4:
-                if (quiz.getRightAnser() == 0) {
+                if (quiz.getRightAnser() == 3) {
                     score++;
                 } else {
                     tvAnswer4.setBackgroundResource(R.drawable.bg_wrong_answer);
