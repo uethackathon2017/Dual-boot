@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.vaio.timestone.activity.WebviewActivity">
+
     <android.support.v4.widget.ContentLoadingProgressBar
         android:id="@+id/contentLoadingProgressBar"
         android:indeterminate="true"

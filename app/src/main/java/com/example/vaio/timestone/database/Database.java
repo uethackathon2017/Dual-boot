@@ -92,7 +92,7 @@ public class Database {
         database.close();
     }
 
-//    public void insertData(ArrayList<Item> items) {
+    //    public void insertData(ArrayList<Item> items) {
 //        openDatabase();
 //        String sql = "INSERT INTO " + DBhelper.TB_NAME + " VALUES (?,?,?,?,?,?,?,?,?);";
 //        SQLiteStatement statement = database.compileStatement(sql);
@@ -114,11 +114,19 @@ public class Database {
 //        database.endTransaction();
 //        closeDatabase();
 //    }
+    public void updateWeight(int id, int weight) {
+        openDatabase();
+        String sql = "Update " + TB_NAME + " SET " + WEIGHT + " = " + weight + " WHERE " + ID + " = " + id;
+        database.execSQL(sql);
+        closeDatabase();
+    }
 
     public ArrayList<Item> getData() {
         openDatabase();
         ArrayList<Item> arrItem = new ArrayList<>();
-        Cursor cursor = database.query("data", null, null, null, null, null, null);
+        String sql = "SELECT * FROM " + TB_NAME + " ORDER BY " + WEIGHT + " DESC";
+        Cursor cursor = database.rawQuery(sql, null);
+        int idIndex = cursor.getColumnIndex(ID);
         int typeIndex = cursor.getColumnIndex(TYPE);
         int infoIndex = cursor.getColumnIndex(INFO);
         int dateIndex = cursor.getColumnIndex(DATE);
@@ -128,6 +136,7 @@ public class Database {
         int weightIndex = cursor.getColumnIndex(WEIGHT);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
+            int id = cursor.getInt(idIndex);
             String type = cursor.getString(typeIndex);
             String info = cursor.getString(infoIndex);
             long date = cursor.getLong(dateIndex);
@@ -135,7 +144,7 @@ public class Database {
             String month = cursor.getString(monthIndex);
             String year = cursor.getString(yearIndex);
             int weight = cursor.getInt(weightIndex);
-            Item item = new Item(type, info, date, day, month, year, weight, "");
+            Item item = new Item(id, type, info, date, day, month, year, weight, "");
             arrItem.add(item);
             cursor.moveToNext();
             Log.e(TAG, arrItem.size() + "");
@@ -151,6 +160,7 @@ public class Database {
         String selectQuery = "SELECT * FROM " + TB_NAME + " WHERE " + DATE + " >" + fromDate + " AND " + DATE + " < " + toDate + " ORDER BY " + YEAR;
         Cursor cursor = database.rawQuery(selectQuery, null);
 //        Cursor cursor = database.query(DBhelper.TB_NAME, null, DBhelper.DATE + ">? AND " + DBhelper.DATE + "<?", new String[]{String.valueOf(fromDate), String.valueOf(toDate)}, null, null, null);
+        int idIndex = cursor.getColumnIndex(ID);
         int typeIndex = cursor.getColumnIndex(TYPE);
         int infoIndex = cursor.getColumnIndex(INFO);
         int dateIndex = cursor.getColumnIndex(DATE);
@@ -160,6 +170,7 @@ public class Database {
         int weightIndex = cursor.getColumnIndex(WEIGHT);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
+            int id = cursor.getInt(idIndex);
             String type = cursor.getString(typeIndex);
             String info = cursor.getString(infoIndex);
             long date = cursor.getLong(dateIndex);
@@ -167,7 +178,7 @@ public class Database {
             String month = cursor.getString(monthIndex);
             String year = cursor.getString(yearIndex);
             int weight = cursor.getInt(weightIndex);
-            Item item = new Item(type, info, date, day, month, year, weight, "");
+            Item item = new Item(id, type, info, date, day, month, year, weight, "");
             arrItem.add(item);
             cursor.moveToNext();
             Log.e("DATE ", String.valueOf(item.getE_date()));

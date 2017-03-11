@@ -1,10 +1,11 @@
 package com.example.vaio.timestone.model;
+
 /**
  * Created by vaio on 10/03/2017.
  */
 
 public class Item {
-
+    int e_id;
     String e_type;
     String e_info;
     long e_date;
@@ -15,9 +16,12 @@ public class Item {
     String url;
 
     public Item() {
+
+
     }
 
-    public Item(String e_type, String e_info, long e_date, String e_day, String e_month, String e_year, int e_weight, String url) {
+    public Item(int e_id, String e_type, String e_info, long e_date, String e_day, String e_month, String e_year, int e_weight, String url) {
+        this.e_id = e_id;
         this.e_type = e_type;
         this.e_info = e_info;
         this.e_date = e_date;
@@ -26,6 +30,14 @@ public class Item {
         this.e_year = e_year;
         this.e_weight = e_weight;
         this.url = url;
+    }
+
+    public int getE_id() {
+        return e_id;
+    }
+
+    public void setE_id(int e_id) {
+        this.e_id = e_id;
     }
 
     public String getE_type() {
@@ -91,5 +103,4 @@ public class Item {
     public void setUrl(String url) {
         this.url = url;
     }
-
 }

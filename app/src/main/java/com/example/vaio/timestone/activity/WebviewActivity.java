@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
 import com.example.vaio.timestone.fragment.ContentMainFragment;
@@ -39,6 +40,9 @@ public class WebviewActivity extends AppCompatActivity implements MenuItem.OnMen
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 progressBar.hide();
+                if (!MainActivity.isNetWorkAvailable(WebviewActivity.this)) {
+                    Toast.makeText(WebviewActivity.this, "No internet connection !", Toast.LENGTH_SHORT);
+                }
             }
         });
         webView.loadUrl(link);

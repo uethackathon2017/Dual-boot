@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -20,9 +19,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.vaio.timestone.R;
-import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.fragment.ContentMainFragment;
 import com.example.vaio.timestone.fragment.QuizFragment;
 import com.example.vaio.timestone.model.GlobalData;
@@ -34,8 +34,11 @@ public class MainActivity extends AppCompatActivity
     public static final String ITEM = "item";
     private static final String TAG = "MainActivity";
     private Toolbar toolbar;
+    private TextView tvTitle;
+    private ImageView ivSearch;
     private ArrayList arrItem = new ArrayList();   // arr Main data
     private ContentMainFragment contentMainFragment;
+    private QuizFragment quizFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity
             initToolbar("CC / YYYY / MM ");
             initDrawerLayout();
             initComponent();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,6 +69,8 @@ public class MainActivity extends AppCompatActivity
 
 
     private void initComponent() throws Exception {
+
+        quizFragment = new QuizFragment(arrItem);
         contentMainFragment = new ContentMainFragment(arrItem);
         replaceContentMainLayout(contentMainFragment);
     }
@@ -79,8 +85,17 @@ public class MainActivity extends AppCompatActivity
 
     public void initToolbar(String title) throws Exception {
         // Khởi tạo thanh Action Bar
+        tvTitle = (TextView) findViewById(R.id.tvTitle);
+        ivSearch = (ImageView) findViewById(R.id.ivSearch);
+        ivSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(title);
+        tvTitle.setText(title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -136,25 +151,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -165,12 +161,16 @@ public class MainActivity extends AppCompatActivity
 
             switch (id) {
                 case R.id.nav_home:
-                    replaceContentMainLayout(new ContentMainFragment(arrItem));
+                    tvTitle.setVisibility(View.VISIBLE);
+//                    ivSearch.setVisibility(View.VISIBLE);
+                    replaceContentMainLayout(contentMainFragment);
                     drawer.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.nav_quiz:
+                    tvTitle.setVisibility(View.INVISIBLE);
                     replaceContentMainLayout(new QuizFragment(arrItem));
                     drawer.closeDrawer(GravityCompat.START);
+//                    ivSearch.setVisibility(View.INVISIBLE);
                     break;
                 case R.id.nav_share:
 
@@ -181,6 +181,9 @@ public class MainActivity extends AppCompatActivity
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
                     emailIntent.putExtra(Intent.EXTRA_TEXT, "");
                     startActivity(Intent.createChooser(emailIntent, "Send email via..."));
+                    break;
+                case R.id.nav_exit:
+                    finish();
                     break;
             }
 

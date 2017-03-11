@@ -24,9 +24,16 @@ import com.example.vaio.timestone.activity.MainActivity;
 import com.example.vaio.timestone.activity.WebviewActivity;
 import com.example.vaio.timestone.adapter.EventRecyclerViewAdapter;
 import com.example.vaio.timestone.adapter.NumberPickerViewPagerAdapter;
+import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.model.CurrentTime;
 import com.example.vaio.timestone.model.Item;
 import com.example.vaio.timestone.sync_task.OnNumberPickerSelectedAsyncTask;
+import com.example.vaio.timestone.sync_task.RefreshDataAsyncTask;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
@@ -66,6 +73,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     private int centurySelected = 1;
     private int yearSelected = 0;
     private int monthSelected = 0;
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
     @SuppressLint("ValidFragment")
     public ContentMainFragment(ArrayList<Item> arrItem) {
@@ -78,7 +86,6 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
         inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.fragment_content_main, container, false);
         initViews(view);
-
         return view;
     }
 
@@ -94,7 +101,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             tvTitle.setText(currentContent);
             recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewEvent);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-            if (arrItem.size() == 0){
+            if (arrItem.size() == 0) {
                 recyclerView.setVisibility(View.GONE);
                 tvNotification.setVisibility(View.VISIBLE);
                 tvNotification.setText("Không có sự kiện nào trong khoảng thời gian này");
@@ -116,6 +123,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             numberPickerViewPagerAdapter.setOnItemClick(this);
             viewPager.setAdapter(numberPickerViewPagerAdapter);
             circlePageIndicator.setViewPager(viewPager);
+            initNumberPickerViewPagerAdapter(CENTURY_START_AT, CENTURY_END_AT);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -135,15 +143,44 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
         eventRecyclerViewAdapter.setOnItemClick(new EventRecyclerViewAdapter.OnItemClick() {
             @Override
             public void onClick(View view, int position) {
+                final Item item = arrItem.get(position);
+                item.setE_weight(item.getE_weight() + 1);
+                reference.child("item").child(item.getE_id() + "").child(Database.WEIGHT).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int weight = dataSnapshot.getValue(Integer.class);
+                        Database database = new Database(getContext());
+                        database.updateWeight(item.getE_id(), weight);
+                        RefreshDataAsyncTask refreshDataAsyncTask = new RefreshDataAsyncTask(getContext());
+                        refreshDataAsyncTask.setOnComplete(new RefreshDataAsyncTask.OnComplete() {
+                            @Override
+                            public void onComplete(ArrayList<Item> arrItem) {
+                                arrItemTmp.clear();
+                                arrItemTmp.addAll(arrItem);
+                            }
+                        });
+                        refreshDataAsyncTask.execute();
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+                reference.child("item").child(item.getE_id() + "").child(Database.WEIGHT).setValue(item.getE_weight());
+
                 Intent intent = new Intent(getContext(), WebviewActivity.class);
                 intent.putExtra(LINK, "http://www.google.com/search?btnI=I'm+Feeling+Lucky&q=" + arrItem.get(position).getE_info().trim()); //
                 // Đường link tới nội dung
                 startActivity(intent);
+
+
             }
         });
     }
 
-    private void initNumberPickerViewPagerAdapter(int from, int to) {
+    public void initNumberPickerViewPagerAdapter(int from, int to) {
         // Khởi tạo adapter cho viewpager
         numberPickerViewPagerAdapter =
                 new NumberPickerViewPagerAdapter(getFragmentManager(), from, to);

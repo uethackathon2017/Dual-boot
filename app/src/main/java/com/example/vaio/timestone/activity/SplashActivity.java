@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
     public static final int WHAT_DATA = 0;
     private ArrayList<Item> arrItem;
     public static final String TAG = "SplashActivity";
-    
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +109,19 @@ public class SplashActivity extends AppCompatActivity {
             arrItem = database.getData();
             GlobalData globalData = (GlobalData) getApplication();
             globalData.setArrItem(arrItem);
+//            final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//            DatabaseReference reference = firebaseDatabase.getReference();
+//
+//            for (int i = 0; i < arrItem.size(); i++) {
+//                reference.child("item").child(arrItem.get(i).getE_id() + "").setValue(arrItem.get(i));
+//                try {
+//                    Thread.sleep(10);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                Log.e(TAG,i+"");
+//            }
+
             return null;
         }
 
