@@ -276,7 +276,6 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View view, int position) {
         try {
-            Log.e(TAG, currentContent);
 
             contentLoadingProgressBar.show();
             TextView textView = (TextView) view.findViewById(R.id.tvNumber);
@@ -301,7 +300,6 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
                 @Override
                 public void onSuccess(ArrayList<Item> arrItemT) {
                     arrItem.clear();
-                    Log.e(TAG, arrItemT.size() + "");
                     arrItem.addAll(arrItemT);
                     if (arrItem.size() == 0){
                         recyclerView.setVisibility(View.GONE);

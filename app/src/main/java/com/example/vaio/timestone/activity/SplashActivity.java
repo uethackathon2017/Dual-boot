@@ -63,7 +63,6 @@ public class SplashActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Item item = dataSnapshot.getValue(Item.class);
                 arrItem.add(item); // add item lấy được vào mảng
-                Log.e(TAG, arrItem.size() + "");
             }
 
             @Override

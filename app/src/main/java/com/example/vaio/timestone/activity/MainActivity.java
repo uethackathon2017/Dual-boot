@@ -10,6 +10,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity
     private TextView tvTitle;
     private ImageView ivSearch;
     private ArrayList arrItem = new ArrayList();   // arr Main data
+    private ArrayList arrItemTmp = new ArrayList();
     private ContentMainFragment contentMainFragment;
     private QuizFragment quizFragment;
 
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity
         // Lấy về dữ liệu sau khi đã load
         GlobalData data = (GlobalData) getApplication();
         arrItem.addAll(data.getArrItem());
+        arrItemTmp.addAll(data.getArrItem());
     }
 
 
@@ -163,7 +166,7 @@ public class MainActivity extends AppCompatActivity
                 case R.id.nav_home:
                     tvTitle.setVisibility(View.VISIBLE);
 //                    ivSearch.setVisibility(View.VISIBLE);
-                    replaceContentMainLayout(contentMainFragment);
+                    replaceContentMainLayout(new ContentMainFragment(arrItem));
                     drawer.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.nav_quiz:

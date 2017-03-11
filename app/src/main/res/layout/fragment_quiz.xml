@@ -99,8 +99,8 @@
     </LinearLayout>
 
     <TextView
-        android:text="@string/app_name"
-        android:id="@+id/tvScore"
+        android:text="0"
+        android:id="@+id/tvHighScore"
         style="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -113,13 +113,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <ProgressBar
+            android:interpolator="@android:interpolator/accelerate_decelerate"
             android:indeterminate="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
             android:layout_centerInParent="true"
-            android:text="0s"
-            android:id="@+id/tvTime"
+            android:text="0"
+            android:id="@+id/tvCurrentScore"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -57,7 +57,6 @@ public class Database {
     private void copyDatabase(Context context) {
         try {
             File file = new File(PATH);
-            Log.e(TAG, file.getAbsolutePath());
             if (file.exists()) {
                 return;
             }
@@ -147,7 +146,6 @@ public class Database {
             Item item = new Item(id, type, info, date, day, month, year, weight, "");
             arrItem.add(item);
             cursor.moveToNext();
-            Log.e(TAG, arrItem.size() + "");
 
         }
         closeDatabase();
@@ -181,7 +179,6 @@ public class Database {
             Item item = new Item(id, type, info, date, day, month, year, weight, "");
             arrItem.add(item);
             cursor.moveToNext();
-            Log.e("DATE ", String.valueOf(item.getE_date()));
         }
         closeDatabase();
         return arrItem;
