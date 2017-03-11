@@ -86,6 +86,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
         inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.fragment_content_main, container, false);
         initViews(view);
+
         return view;
     }
 
@@ -101,15 +102,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             tvTitle.setText(currentContent); // set title mặc định
             recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewEvent);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-            if (arrItem.size() == 0) {
-                recyclerView.setVisibility(View.GONE);
-                tvNotification.setVisibility(View.VISIBLE);
-                tvNotification.setText("Không có sự kiện nào trong khoảng thời gian này");
-            } else {
-                recyclerView.setVisibility(View.VISIBLE);
-                tvNotification.setVisibility(View.GONE);
-                initEventRecyclerViewAdapter(arrItem);
-            }
+            initEventRecyclerViewAdapter(arrItem);
+
 
 
             //
@@ -175,8 +169,6 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
                 intent.putExtra(LINK, "http://www.google.com/search?btnI=I'm+Feeling+Lucky&q=" + arrItem.get(position).getE_info().trim()); //
                 // Đường link tới nội dung
                 startActivity(intent);
-
-
             }
         });
     }
@@ -312,6 +304,14 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
                     arrItem.clear();
                     Log.e(TAG, arrItemT.size() + "");
                     arrItem.addAll(arrItemT);
+                    if (arrItem.size() == 0){
+                        recyclerView.setVisibility(View.GONE);
+                        tvNotification.setVisibility(View.VISIBLE);
+                        tvNotification.setText("Không có sự kiện nào trong khoảng thời gian này");
+                    } else {
+                        recyclerView.setVisibility(View.VISIBLE);
+                        tvNotification.setVisibility(View.GONE);
+                    }
                     eventRecyclerViewAdapter.notifyDataSetChanged();
                     contentLoadingProgressBar.hide();
                     onImageViewForwardPress(); // tự động next sang nội dung mới
