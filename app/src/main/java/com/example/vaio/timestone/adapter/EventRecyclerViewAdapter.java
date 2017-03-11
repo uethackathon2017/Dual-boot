@@ -34,7 +34,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Item item = arrItem.get(position);
-        holder.tvDate.setText(item.getE_date() + "");
+        holder.tvDate.setText(item.getE_day() + " / " + item.getE_month() + " / " + item.getE_year());
         holder.tvInfo.setText(item.getE_info());
         holder.tvType.setText(item.getE_type());
         if (position >= 0) {

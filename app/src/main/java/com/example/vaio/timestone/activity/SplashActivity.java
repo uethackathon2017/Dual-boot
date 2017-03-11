@@ -3,6 +3,7 @@ package com.example.vaio.timestone.activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
+import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.model.GlobalData;
 import com.example.vaio.timestone.model.Item;
 import com.google.firebase.database.ChildEventListener;
@@ -33,17 +35,17 @@ import static com.example.vaio.timestone.activity.MainActivity.ITEM;
 public class SplashActivity extends AppCompatActivity {
     public static final int RESULT_CODE = 0;
     public static final int WHAT_DATA = 0;
-    private ArrayList<Item> arrItem = new ArrayList<>();
+    private ArrayList<Item> arrItem;
     public static final String TAG = "SplashActivity";
-
+    
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         try {
 //            getdata();
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            startActivityForResult(intent,RESULT_CODE);
+            dataLoadingAsyncTask.execute();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,7 +92,7 @@ public class SplashActivity extends AppCompatActivity {
                 GlobalData globalData = (GlobalData) getApplication();
                 globalData.setArrItem(arrItem);
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivityForResult(intent,RESULT_CODE);
+                startActivityForResult(intent, RESULT_CODE);
             }
 
             @Override
@@ -99,6 +101,24 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
     }
+
+    private AsyncTask dataLoadingAsyncTask = new AsyncTask() {
+        @Override
+        protected Object doInBackground(Object[] params) {
+            Database database = new Database(SplashActivity.this);
+            arrItem = database.getData();
+            GlobalData globalData = (GlobalData) getApplication();
+            globalData.setArrItem(arrItem);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivityForResult(intent, RESULT_CODE);
+        }
+    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

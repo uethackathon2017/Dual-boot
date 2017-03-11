@@ -2,7 +2,9 @@ package com.example.vaio.timestone.activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.CoordinatorLayout;
@@ -34,15 +36,14 @@ public class MainActivity extends AppCompatActivity
     private Toolbar toolbar;
     private ArrayList arrItem = new ArrayList();   // arr Main data
     private ContentMainFragment contentMainFragment;
-    private Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            database = new Database(this);
-            arrItem = database.getData();
+            GlobalData globalData = (GlobalData) getApplication();
+            arrItem = globalData.getArrItem();
             initToolbar("CC / YYYY / MM ");
             initDrawerLayout();
             initComponent();
@@ -168,16 +169,30 @@ public class MainActivity extends AppCompatActivity
         // set onlick các phần tử trong navigation
         try {
             int id = item.getItemId();
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
             switch (id) {
                 case R.id.nav_home:
                     replaceContentMainLayout(new ContentMainFragment(arrItem));
+                    drawer.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.nav_quiz:
                     replaceContentMainLayout(new QuizFragment(arrItem));
+                    drawer.closeDrawer(GravityCompat.START);
+                    break;
+                case R.id.nav_share:
+
+                    break;
+                case R.id.nav_feed_back:
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
+                            Uri.parse("mailto:" + Uri.encode("vietcoscc@gmail.com   ")));
+
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, "");
+                    startActivity(Intent.createChooser(emailIntent, "Send email via..."));
                     break;
             }
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

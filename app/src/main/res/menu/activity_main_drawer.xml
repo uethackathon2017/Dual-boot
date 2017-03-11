@@ -19,7 +19,7 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_feed_back"
                 android:icon="@android:drawable/ic_dialog_email"
                 android:title="Feed back" />
         </menu>
