@@ -35,6 +35,7 @@ public class DAOdb {
         String sql = "INSERT INTO "+ DBhelper.TB_NAME +" VALUES (?,?,?,?,?,?,?,?,?);";
         SQLiteStatement statement = database.compileStatement(sql);
         database.beginTransaction();
+
         for (Item item : items) {
             statement.clearBindings();
             statement.bindString(2, item.getE_type());

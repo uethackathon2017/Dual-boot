@@ -42,6 +42,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         try {
             getdata();
+//            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+//            startActivityForResult(intent,RESULT_CODE);
         } catch (Exception e) {
             e.printStackTrace();
         }

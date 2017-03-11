@@ -123,7 +123,7 @@ public class MyDatabase {
         while (!cursor.isAfterLast()) {
             String type = cursor.getString(typeIndex);
             String info = cursor.getString(infoIndex);
-            String date = cursor.getString(dateIndex);
+            long date = cursor.getLong(dateIndex);
             String day = cursor.getString(dayIndex);
             String month = cursor.getString(monthIndex);
             String year = cursor.getString(yearIndex);
