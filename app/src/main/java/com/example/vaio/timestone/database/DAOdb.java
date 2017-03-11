@@ -5,33 +5,77 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.vaio.timestone.model.Item;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
+
+import static com.example.vaio.timestone.fragment.ContentMainFragment.TAG;
 
 /**
  * Created by sonbn on 3/11/17.
  */
 
 public class DAOdb {
+    public static final String DB_NAME = "timestone.sqlite";
+    public static final String PATH = Environment.getDataDirectory() + "/data/com.example.vaio.timestone/databases" + DB_NAME;
+    private  Context context;
+
     public SQLiteDatabase database;
     private DBhelper dbHelper;
 
     public DAOdb(Context context) {
-        dbHelper = new DBhelper(context);
-        database = dbHelper.getWritableDatabase();
+        this.context = context;
+        copyDatabase(context);
+//        dbHelper = new DBhelper(context);
+//        database = dbHelper.getWritableDatabase();
+
+    }
+    public void openDatabase() {
+        database = context.openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
+    }
+    private void copyDatabase(Context context) {
+        try {
+        File file = new File(PATH);
+            Log.e(TAG, file.getAbsolutePath());
+        if (file.exists()) {
+            return;
+        }
+        File parentFile = file.getParentFile();
+        parentFile.mkdirs();
+
+        byte[] b = new byte[1024];
+
+            FileOutputStream outputStream = new FileOutputStream(file);
+            InputStream inputStream = context.getAssets().open(DB_NAME);
+            int count = inputStream.read(b);
+            while (count != -1) {
+                outputStream.write(b, 0, count);
+                count = inputStream.read(b);
+            }
+            inputStream.close();
+            outputStream.close();
+            Toast.makeText(context, "Successful", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * close any database object
      */
-    public void close() {
-        dbHelper.close();
+    public void closeDatabase() {
+        database.close();
     }
 
     public void insertData(ArrayList<Item> items){
+        openDatabase();
         String sql = "INSERT INTO "+ DBhelper.TB_NAME +" VALUES (?,?,?,?,?,?,?,?,?);";
         SQLiteStatement statement = database.compileStatement(sql);
         database.beginTransaction();
@@ -49,9 +93,11 @@ public class DAOdb {
         }
         database.setTransactionSuccessful();
         database.endTransaction();
+        closeDatabase();
     }
 
     public ArrayList<Item> getData() {
+        openDatabase();
         ArrayList<Item> arrItem = new ArrayList<>();
         Cursor cursor = database.query(DBhelper.TB_NAME, null, null, null, null, null, null);
         int typeIndex = cursor.getColumnIndex(DBhelper.TYPE);
@@ -74,14 +120,16 @@ public class DAOdb {
             arrItem.add(item);
             cursor.moveToNext();
         }
+        closeDatabase();
         return arrItem;
     }
 
     public ArrayList<Item> getDataWithDate(long fromDate, long toDate) {
+        openDatabase();
         ArrayList<Item> arrItem = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + DBhelper.TB_NAME + " WHERE " + DBhelper.DATE + " BETWEEN " + fromDate + " AND " + toDate;
+        String selectQuery = "SELECT * FROM " + DBhelper.TB_NAME + " WHERE " + DBhelper.DATE + " >" + fromDate + " AND " + DBhelper.DATE + " < " + toDate + " ORDER BY " + DBhelper.YEAR;
         Cursor cursor = database.rawQuery(selectQuery, null);
-        //Cursor cursor = database.query(DBhelper.TB_NAME, null, DBhelper.DATE + ">? AND " + DBhelper.DATE + "<?", new String[]{fromDate, toDate}, null, null, null);
+//        Cursor cursor = database.query(DBhelper.TB_NAME, null, DBhelper.DATE + ">? AND " + DBhelper.DATE + "<?", new String[]{String.valueOf(fromDate), String.valueOf(toDate)}, null, null, null);
         int typeIndex = cursor.getColumnIndex(DBhelper.TYPE);
         int infoIndex = cursor.getColumnIndex(DBhelper.INFO);
         int dateIndex = cursor.getColumnIndex(DBhelper.DATE);
@@ -103,6 +151,7 @@ public class DAOdb {
             cursor.moveToNext();
             Log.e("DATE ", String.valueOf(item.getE_date()));
         }
+        closeDatabase();
         return arrItem;
     }
 

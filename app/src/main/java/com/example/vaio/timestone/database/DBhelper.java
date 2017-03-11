@@ -3,6 +3,12 @@ package com.example.vaio.timestone.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 /**
  * Created by sonbn on 3/11/17.
@@ -41,12 +47,14 @@ public class DBhelper extends SQLiteOpenHelper{
             " )";
 
     public DBhelper(Context context) {
+
         super(context, DB_NAME, null, DB_VERSION);
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE);
+        //db.execSQL(CREATE_TABLE);
     }
 
     @Override

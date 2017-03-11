@@ -46,16 +46,16 @@ public class MainActivity extends AppCompatActivity
             initToolbar("CC / YYYY / MM ");
             initDrawerLayout();
             initComponent();
-            getData();
+//            getData();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         daOdb = new DAOdb(this);
-        daOdb.deleteData();
-        daOdb.insertData(arrItem);
+//        daOdb.deleteData();
+//        daOdb.insertData(arrItem);
 
-        daOdb.getDataWithDate(10101, 991231);
+        daOdb.getDataWithDate(19000101, 19991231);
     }
 
     public static boolean isNetWorkAvailable(Context context) {
