@@ -2,6 +2,7 @@ package com.example.vaio.timestone.sync_task;
 
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
 
 import com.example.vaio.timestone.database.DBhelper;
 
@@ -19,17 +20,16 @@ import java.io.OutputStream;
 public class CopyingDataAsyncTask extends AsyncTask<Void, Void, Void> {
     public static final String PATH_SRC = Environment.getDataDirectory() + "/data/com.example.vaio.timestone/databases/" + DBhelper.DB_NAME;
     public static final String PATH_DES = Environment.getExternalStorageDirectory() + "/Database/" + DBhelper.DB_NAME;
+    private static final String TAG = "CopyingDataAsyncTask";
 
     @Override
     protected Void doInBackground(Void... params) {
-        File file = new File(PATH_SRC);
-        if (!file.exists()) {
-            return null;
-        }
         try {
+            File file = new File(PATH_SRC);
             File fileOutPut = new File(PATH_DES);
-            if (!file.exists()) {
-                fileOutPut.mkdirs();
+            if (!fileOutPut.exists()) {
+                File fileParent = fileOutPut.getParentFile();
+                fileParent.mkdirs();
             }
             FileInputStream inputStream = new FileInputStream(file);
             FileOutputStream outputStream = new FileOutputStream(fileOutPut);
@@ -38,12 +38,12 @@ public class CopyingDataAsyncTask extends AsyncTask<Void, Void, Void> {
             while (count != -1) {
                 outputStream.write(b, 0, count);
                 count = inputStream.read(b);
+                Log.e(TAG, count + "");
             }
+            Log.e(TAG, PATH_DES);
             inputStream.close();
             outputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
