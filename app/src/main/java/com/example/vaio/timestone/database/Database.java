@@ -51,10 +51,9 @@ public class Database {
         copyDatabase(context);
     }
 
-    private void copyDatabase(Context context) { // copy database chứa dữ liệu vào bộ nhớ máy
+    private void copyDatabase(Context context) {
         try {
             File file = new File(PATH);
-            Log.e(TAG, file.getAbsolutePath());
             if (file.exists()) {
                 return;
             }
@@ -115,6 +114,7 @@ public class Database {
             Item item = new Item(id, type, info, date, day, month, year, weight, "");
             arrItem.add(item);
             cursor.moveToNext();
+
         }
         closeDatabase();
         return arrItem;
