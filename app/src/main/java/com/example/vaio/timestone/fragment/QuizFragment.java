@@ -75,7 +75,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         String[] answer = new String[4];
         int answerPosition = 0;
         Random random = new Random();
-        int randType = random.nextInt(2); // random thể loại câu hỏi
+        int randType = random.nextInt(6); // random thể loại câu hỏi
         switch (randType){
             case 0:
                 questionSet.clear();

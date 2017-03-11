@@ -23,17 +23,21 @@
 
         <TextView
             android:id="@+id/tvQuestion"
+            style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="1.5dp"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:layout_weight="2"
             android:background="@drawable/bg_picker_center"
+            android:ellipsize="end"
             android:gravity="center"
+            android:maxLines="3"
             android:padding="@dimen/tv_pading"
-            android:textSize="@dimen/question_text_size"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <TextView
+            android:textColor="@android:color/white"
             android:id="@+id/tvAnswer1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -46,9 +50,10 @@
             android:maxLines="3"
             android:paddingLeft="@dimen/tv_pading"
             android:paddingRight="@dimen/tv_pading"
-            android:textSize="@dimen/answer_text_size"/>
+            android:textSize="@dimen/answer_text_size" />
 
         <TextView
+            android:textColor="@android:color/white"
             android:id="@+id/tvAnswer2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -62,9 +67,10 @@
             android:maxLines="3"
             android:paddingLeft="@dimen/tv_pading"
             android:paddingRight="@dimen/tv_pading"
-            android:textSize="@dimen/answer_text_size"/>
+            android:textSize="@dimen/answer_text_size" />
 
         <TextView
+            android:textColor="@android:color/white"
             android:id="@+id/tvAnswer3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -78,9 +84,10 @@
             android:maxLines="3"
             android:paddingLeft="@dimen/tv_pading"
             android:paddingRight="@dimen/tv_pading"
-            android:textSize="@dimen/answer_text_size"/>
+            android:textSize="@dimen/answer_text_size" />
 
         <TextView
+            android:textColor="@android:color/white"
             android:id="@+id/tvAnswer4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -95,35 +102,37 @@
             android:maxLines="3"
             android:paddingLeft="@dimen/tv_pading"
             android:paddingRight="@dimen/tv_pading"
-            android:textSize="@dimen/answer_text_size"/>
+            android:textSize="@dimen/answer_text_size" />
     </LinearLayout>
 
     <TextView
-        android:text="0"
         android:id="@+id/tvHighScore"
         style="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/activity_horizontal_margin"
+        android:text="0"
         android:textColor="@android:color/black" />
 
     <RelativeLayout
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin">
+
         <ProgressBar
-            android:interpolator="@android:interpolator/accelerate_decelerate"
-            android:indeterminate="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:interpolator="@android:interpolator/accelerate_decelerate" />
+
         <TextView
-            android:layout_centerInParent="true"
-            android:text="0"
             android:id="@+id/tvCurrentScore"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="0"
             android:textColor="@android:color/black" />
     </RelativeLayout>
 
