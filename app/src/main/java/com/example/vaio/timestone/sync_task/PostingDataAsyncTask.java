@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.vaio.timestone.database.MyDatabase;
+import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.model.Item;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,6 +20,14 @@ import java.util.ArrayList;
  */
 
 public class PostingDataAsyncTask extends AsyncTask<Void, Void, Void> {
+    public static final String TYPE = "e_type";
+    public static final String INFO = "e_info";
+    public static final String DATE = "e_date";
+    public static final String DAY = "e_day";
+    public static final String MONTH = "e_month";
+    public static final String YEAR = "e_year";
+    public static final String WEIGHT = "e_weight";
+    public static final String URL = "url";
     private Context context;
 
     public PostingDataAsyncTask(Context context) {
@@ -45,17 +53,17 @@ public class PostingDataAsyncTask extends AsyncTask<Void, Void, Void> {
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
             DatabaseReference reference = firebaseDatabase.getReference();
 
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
+            for (int Database = 0; Database < jsonArray.length(); Database++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(Database);
 
-                String type = jsonObject.getString(MyDatabase.TYPE);
-                String indo = jsonObject.getString(MyDatabase.INFO);
-                long date = jsonObject.getLong(MyDatabase.DATE);
-                String day = jsonObject.getString(MyDatabase.DAY);
-                String month = jsonObject.getString(MyDatabase.MONTH);
-                String year = jsonObject.getString(MyDatabase.YEAR);
-                int weight = jsonObject.getInt(MyDatabase.WEIGHT);
-                String url = jsonObject.getString(MyDatabase.URL);
+                String type = jsonObject.getString(TYPE);
+                String indo = jsonObject.getString(INFO);
+                long date = jsonObject.getLong(DATE);
+                String day = jsonObject.getString(DAY);
+                String month = jsonObject.getString(MONTH);
+                String year = jsonObject.getString(YEAR);
+                int weight = jsonObject.getInt(WEIGHT);
+                String url = jsonObject.getString(URL);
                 Log.e("TAG", date + ":" + type);
                 Item item = new Item(type, indo, date, day, month, year, weight, url);
                 arrItem.add(item);

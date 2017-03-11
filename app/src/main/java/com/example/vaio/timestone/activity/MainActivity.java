@@ -1,6 +1,5 @@
 package com.example.vaio.timestone.activity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
@@ -10,7 +9,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,53 +18,43 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
-import com.example.vaio.timestone.database.DAOdb;
-import com.example.vaio.timestone.database.DBhelper;
+import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.fragment.ContentMainFragment;
 import com.example.vaio.timestone.fragment.QuizFragment;
 import com.example.vaio.timestone.model.GlobalData;
-import com.example.vaio.timestone.sync_task.CopyingDataAsyncTask;
-import com.example.vaio.timestone.sync_task.PostingDataAsyncTask;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    public static final String PATH_SRC = Environment.getDataDirectory() + "/data/com.example.vaio.timestone/databases/" + DBhelper.DB_NAME;
-    public static final String PATH_DES = Environment.getExternalStorageDirectory() + "/Database/" + DBhelper.DB_NAME;
     public static final String ITEM = "item";
     private static final String TAG = "MainActivity";
     private Toolbar toolbar;
     private ArrayList arrItem = new ArrayList();   // arr Main data
     private ContentMainFragment contentMainFragment;
-    private DAOdb daOdb;
+    private Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
+            database = new Database(this);
+            arrItem = database.getData();
             initToolbar("CC / YYYY / MM ");
             initDrawerLayout();
             initComponent();
-            getData();
+//            getData();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        daOdb = new DAOdb(this);
-        daOdb.deleteData();
-        daOdb.insertData(arrItem);
 
-        daOdb.getDataWithDate(10101, 991231);
+//        daOdb.deleteData();
+//        daOdb.insertData(arrItem);
+//        daOdb.getDataWithDate(10101, 991231);
     }
 
     public static boolean isNetWorkAvailable(Context context) {

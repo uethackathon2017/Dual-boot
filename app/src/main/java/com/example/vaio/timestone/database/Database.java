@@ -22,35 +22,49 @@ import static com.example.vaio.timestone.fragment.ContentMainFragment.TAG;
  * Created by sonbn on 3/11/17.
  */
 
-public class DAOdb {
+public class Database {
+    public static final String TB_NAME = "data";
+    public static final int DB_VERSION = 1;
+
+    public static final String COMMA_SEP = ",";
+    public static final String TEXT_TYPE = " TEXT";
+    public static final String NUMERIC = " INTEGER";
+
+    public static final String ID = "id";
+    public static final String TYPE = "e_type";
+    public static final String INFO = "e_info";
+    public static final String DATE = "e_date";
+    public static final String DAY = "e_day";
+    public static final String MONTH = "e_month";
+    public static final String YEAR = "e_year";
+    public static final String WEIGHT = "e_weight";
+    public static final String URL = "url";
+
     public static final String DB_NAME = "timestone.sqlite";
-    public static final String PATH = Environment.getDataDirectory() + "/data/com.example.vaio.timestone/databases" + DB_NAME;
-    private  Context context;
+    public static final String PATH = Environment.getDataDirectory() + "/data/com.example.vaio.timestone/databases/" + DB_NAME;
+    private Context context;
 
     public SQLiteDatabase database;
-    private DBhelper dbHelper;
 
-    public DAOdb(Context context) {
+    public Database(Context context) {
         this.context = context;
         copyDatabase(context);
 //        dbHelper = new DBhelper(context);
 //        database = dbHelper.getWritableDatabase();
 
     }
-    public void openDatabase() {
-        database = context.openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
-    }
+
     private void copyDatabase(Context context) {
         try {
-        File file = new File(PATH);
+            File file = new File(PATH);
             Log.e(TAG, file.getAbsolutePath());
-        if (file.exists()) {
-            return;
-        }
-        File parentFile = file.getParentFile();
-        parentFile.mkdirs();
+            if (file.exists()) {
+                return;
+            }
+            File parentFile = file.getParentFile();
+            parentFile.mkdirs();
 
-        byte[] b = new byte[1024];
+            byte[] b = new byte[1024];
 
             FileOutputStream outputStream = new FileOutputStream(file);
             InputStream inputStream = context.getAssets().open(DB_NAME);
@@ -70,44 +84,48 @@ public class DAOdb {
     /**
      * close any database object
      */
+    public void openDatabase() {
+        database = context.openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
+    }
+
     public void closeDatabase() {
         database.close();
     }
 
-    public void insertData(ArrayList<Item> items){
-        openDatabase();
-        String sql = "INSERT INTO "+ DBhelper.TB_NAME +" VALUES (?,?,?,?,?,?,?,?,?);";
-        SQLiteStatement statement = database.compileStatement(sql);
-        database.beginTransaction();
-
-        for (Item item : items) {
-            statement.clearBindings();
-            statement.bindString(2, item.getE_type());
-            statement.bindString(3, item.getE_info());
-            statement.bindLong(4, item.getE_date());
-            statement.bindString(5, item.getE_day());
-            statement.bindString(6, item.getE_month());
-            statement.bindString(7, item.getE_year());
-            statement.bindLong(8, item.getE_weight());
-            statement.bindString(9, item.getUrl());
-            statement.execute();
-        }
-        database.setTransactionSuccessful();
-        database.endTransaction();
-        closeDatabase();
-    }
+//    public void insertData(ArrayList<Item> items) {
+//        openDatabase();
+//        String sql = "INSERT INTO " + DBhelper.TB_NAME + " VALUES (?,?,?,?,?,?,?,?,?);";
+//        SQLiteStatement statement = database.compileStatement(sql);
+//        database.beginTransaction();
+//
+//        for (Item item : items) {
+//            statement.clearBindings();
+//            statement.bindString(2, item.getE_type());
+//            statement.bindString(3, item.getE_info());
+//            statement.bindLong(4, item.getE_date());
+//            statement.bindString(5, item.getE_day());
+//            statement.bindString(6, item.getE_month());
+//            statement.bindString(7, item.getE_year());
+//            statement.bindLong(8, item.getE_weight());
+//            statement.bindString(9, item.getUrl());
+//            statement.execute();
+//        }
+//        database.setTransactionSuccessful();
+//        database.endTransaction();
+//        closeDatabase();
+//    }
 
     public ArrayList<Item> getData() {
         openDatabase();
         ArrayList<Item> arrItem = new ArrayList<>();
-        Cursor cursor = database.query(DBhelper.TB_NAME, null, null, null, null, null, null);
-        int typeIndex = cursor.getColumnIndex(DBhelper.TYPE);
-        int infoIndex = cursor.getColumnIndex(DBhelper.INFO);
-        int dateIndex = cursor.getColumnIndex(DBhelper.DATE);
-        int dayIndex = cursor.getColumnIndex(DBhelper.DAY);
-        int monthIndex = cursor.getColumnIndex(DBhelper.MONTH);
-        int yearIndex = cursor.getColumnIndex(DBhelper.YEAR);
-        int weightIndex = cursor.getColumnIndex(DBhelper.WEIGHT);
+        Cursor cursor = database.query("data", null, null, null, null, null, null);
+        int typeIndex = cursor.getColumnIndex(TYPE);
+        int infoIndex = cursor.getColumnIndex(INFO);
+        int dateIndex = cursor.getColumnIndex(DATE);
+        int dayIndex = cursor.getColumnIndex(DAY);
+        int monthIndex = cursor.getColumnIndex(MONTH);
+        int yearIndex = cursor.getColumnIndex(YEAR);
+        int weightIndex = cursor.getColumnIndex(WEIGHT);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             String type = cursor.getString(typeIndex);
@@ -120,6 +138,8 @@ public class DAOdb {
             Item item = new Item(type, info, date, day, month, year, weight, "");
             arrItem.add(item);
             cursor.moveToNext();
+            Log.e(TAG, arrItem.size() + "");
+
         }
         closeDatabase();
         return arrItem;
@@ -128,16 +148,16 @@ public class DAOdb {
     public ArrayList<Item> getDataWithDate(long fromDate, long toDate) {
         openDatabase();
         ArrayList<Item> arrItem = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + DBhelper.TB_NAME + " WHERE " + DBhelper.DATE + " >" + fromDate + " AND " + DBhelper.DATE + " < " + toDate + " ORDER BY " + DBhelper.YEAR;
+        String selectQuery = "SELECT * FROM " + TB_NAME + " WHERE " + DATE + " >" + fromDate + " AND " + DATE + " < " + toDate + " ORDER BY " + YEAR;
         Cursor cursor = database.rawQuery(selectQuery, null);
 //        Cursor cursor = database.query(DBhelper.TB_NAME, null, DBhelper.DATE + ">? AND " + DBhelper.DATE + "<?", new String[]{String.valueOf(fromDate), String.valueOf(toDate)}, null, null, null);
-        int typeIndex = cursor.getColumnIndex(DBhelper.TYPE);
-        int infoIndex = cursor.getColumnIndex(DBhelper.INFO);
-        int dateIndex = cursor.getColumnIndex(DBhelper.DATE);
-        int dayIndex = cursor.getColumnIndex(DBhelper.DAY);
-        int monthIndex = cursor.getColumnIndex(DBhelper.MONTH);
-        int yearIndex = cursor.getColumnIndex(DBhelper.YEAR);
-        int weightIndex = cursor.getColumnIndex(DBhelper.WEIGHT);
+        int typeIndex = cursor.getColumnIndex(TYPE);
+        int infoIndex = cursor.getColumnIndex(INFO);
+        int dateIndex = cursor.getColumnIndex(DATE);
+        int dayIndex = cursor.getColumnIndex(DAY);
+        int monthIndex = cursor.getColumnIndex(MONTH);
+        int yearIndex = cursor.getColumnIndex(YEAR);
+        int weightIndex = cursor.getColumnIndex(WEIGHT);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             String type = cursor.getString(typeIndex);
@@ -156,7 +176,7 @@ public class DAOdb {
         return arrItem;
     }
 
-    public void deleteData(){
-        database.delete(DBhelper.TB_NAME, null, null);
+    public void deleteData() {
+        database.delete(TB_NAME, null, null);
     }
 }

@@ -4,22 +4,19 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 
-import com.example.vaio.timestone.database.DBhelper;
+import com.example.vaio.timestone.database.Database;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * Created by vaio on 11/03/2017.
  */
 
 public class CopyingDataAsyncTask extends AsyncTask<Void, Void, Void> {
-    public static final String PATH_SRC = Environment.getDataDirectory() + "/data/com.example.vaio.timestone/databases/" + DBhelper.DB_NAME;
-    public static final String PATH_DES = Environment.getExternalStorageDirectory() + "/Database/" + DBhelper.DB_NAME;
+    public static final String PATH_SRC = Environment.getDataDirectory() + "/data/com.example.vaio.timestone/databases/" + Database.DB_NAME;
+    public static final String PATH_DES = Environment.getExternalStorageDirectory() + "/Database/" + Database.DB_NAME;
     private static final String TAG = "CopyingDataAsyncTask";
 
     @Override
