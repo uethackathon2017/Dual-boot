@@ -6,7 +6,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="text_view_padding">5dp</dimen>
+    <dimen name="text_view_padding">4dp</dimen>
     <dimen name="view_pager_padding">10dp</dimen>
     <dimen name="recycler_view_default_margin">10dp</dimen>
     <dimen name="view_pager_margin">10dp</dimen>

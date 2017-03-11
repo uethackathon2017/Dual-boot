@@ -12,7 +12,7 @@ import com.example.vaio.timestone.fragment.NumberPickerFragment;
  */
 
 public class NumberPickerViewPagerAdapter extends FragmentStatePagerAdapter {
-    public static final int ITEM_QUANTITY = 9; // số lượng item của mỗi fragment view pager
+    public static final int ITEM_QUANTITY = 12; // số lượng item của mỗi fragment view pager
     private static final String TAG = "NumberPickerViewPagerAdapter";
     private int to; // phần tử cuối cùng của list number picker
     private int from; // phần tử đầu tiên của list number picker

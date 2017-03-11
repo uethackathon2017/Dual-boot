@@ -1,8 +1,12 @@
 package com.example.vaio.timestone.activity;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,8 +31,8 @@ import static com.example.vaio.timestone.activity.MainActivity.ITEM;
  */
 
 public class SplashActivity extends AppCompatActivity {
-    public static final String DATA = "data";
     public static final int RESULT_CODE = 0;
+    public static final int WHAT_DATA = 0;
     private ArrayList<Item> arrItem = new ArrayList<>();
     public static final String TAG = "SplashActivity";
 
@@ -47,7 +51,7 @@ public class SplashActivity extends AppCompatActivity {
     private void getdata() throws Exception {
         // Load dữ liệu online hoặc offline vào mảng arrItem
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference reference = firebaseDatabase.getReference();
         reference.child(ITEM).keepSynced(true); // Lưu dữ liệu khi sử dụng offline
         reference.child(ITEM).addChildEventListener(new ChildEventListener() {
@@ -81,11 +85,10 @@ public class SplashActivity extends AppCompatActivity {
         reference.child(ITEM).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Hàm được gọi khi đã load xong dữ liệu
+                GlobalData globalData = (GlobalData) getApplication();
+                globalData.setArrItem(arrItem);
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                GlobalData data = (GlobalData) getApplication(); // Lưu dữ liệu cho toàn ứng dụng
-                data.setArrItem(arrItem);
-                startActivityForResult(intent, RESULT_CODE); // Chuyển sang main activity khi đã chuẩn bị xong dữ liệu
+                startActivityForResult(intent,RESULT_CODE);
             }
 
             @Override
@@ -104,8 +107,4 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
 }
