@@ -1,5 +1,6 @@
 package com.example.vaio.timestone.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
@@ -17,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
 import com.example.vaio.timestone.database.DAOdb;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity
             initDrawerLayout();
             initComponent();
             getData();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

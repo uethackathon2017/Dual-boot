@@ -1,6 +1,7 @@
 package com.example.vaio.timestone.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.vaio.timestone.R;
 import com.example.vaio.timestone.activity.MainActivity;
+import com.example.vaio.timestone.activity.WebviewActivity;
 import com.example.vaio.timestone.adapter.EventRecyclerViewAdapter;
 import com.example.vaio.timestone.adapter.NumberPickerViewPagerAdapter;
 import com.example.vaio.timestone.model.CurrentTime;
@@ -44,7 +46,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     public static final int CENTURY_END_AT = 21;
     public static final int MONTH_START_AT = 1;
     public static final int MONTH_END_AT = 12;
-    private static final String TAG = "ContentMainFragment";
+    public static final String TAG = "ContentMainFragment";
+    public static final String LINK = "link";
 
     private RecyclerView recyclerView;
     private ImageView ivBack;
@@ -121,12 +124,10 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
         eventRecyclerViewAdapter.setOnItemClick(new EventRecyclerViewAdapter.OnItemClick() {
             @Override
             public void onClick(View view, int position) {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
-                builder.setMessage(arrItem.get(position).getE_info());
-                builder.setTitle(arrItem.get(position).getE_date());
-                builder.setCancelable(true);
-                builder.create().show();
+                Intent intent = new Intent(getContext(), WebviewActivity.class);
+                intent.putExtra(LINK, "http://www.google.com/search?btnI=I'm+Feeling+Lucky&q=" + arrItem.get(position).getE_info().trim()); //
+                // Đường link tới nội dung
+                startActivity(intent);
             }
         });
     }
