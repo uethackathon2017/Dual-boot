@@ -67,7 +67,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     private ContentLoadingProgressBar contentLoadingProgressBar;
     private CirclePageIndicator circlePageIndicator;
 
-    private ArrayList<Item> arrItem; // mảng dữ liệu hiển thị chính
+    private ArrayList<Item> arrItem = new ArrayList<>(); // mảng dữ liệu hiển thị chính
     private ArrayList<Item> arrItemTmp = new ArrayList<>(); // mảng nhớ tạm
     private String currentContent;
     private int centurySelected = 1;
@@ -77,7 +77,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
     @SuppressLint("ValidFragment")
     public ContentMainFragment(ArrayList<Item> arrItem) {
-        this.arrItem = arrItem;
+        this.arrItem.addAll(arrItem);
     }
 
     @Nullable

@@ -15,8 +15,15 @@ import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
 import com.example.vaio.timestone.adapter.EventRecyclerViewAdapter;
+import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.model.GlobalData;
 import com.example.vaio.timestone.model.Item;
+import com.example.vaio.timestone.sync_task.RefreshDataAsyncTask;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -28,6 +35,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     private RecyclerView recyclerView;
     private EventRecyclerViewAdapter eventRecyclerViewAdapter;
     private ContentLoadingProgressBar contentLoadingProgressBar;
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +67,33 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         eventRecyclerViewAdapter.setOnItemClick(new EventRecyclerViewAdapter.OnItemClick() {
             @Override
             public void onClick(View view, int position) {
+                final Item item = arrItem.get(position);
+                item.setE_weight(item.getE_weight() + 1);
+                reference.child("item").child(item.getE_id() + "").child(Database.WEIGHT).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int weight = dataSnapshot.getValue(Integer.class);
+                        Database database = new Database(SearchActivity.this);
+                        database.updateWeight(item.getE_id(), weight);
+                        RefreshDataAsyncTask refreshDataAsyncTask = new RefreshDataAsyncTask(SearchActivity.this);
+                        refreshDataAsyncTask.setOnComplete(new RefreshDataAsyncTask.OnComplete() {
+                            @Override
+                            public void onComplete(ArrayList<Item> arrItem) {
+                                arrItemTmp.clear();
+                                arrItemTmp.addAll(arrItem);
+                            }
+                        });
+                        refreshDataAsyncTask.execute();
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+                reference.child("item").child(item.getE_id() + "").child(Database.WEIGHT).setValue(item.getE_weight());
+
                 Intent intent = new Intent(SearchActivity.this, WebviewActivity.class);
                 intent.putExtra(LINK, "http://www.google.com/search?btnI=I'm+Feeling+Lucky&q=" + arrItem.get(position).getE_info().trim()); //
                 // Đường link tới nội dung

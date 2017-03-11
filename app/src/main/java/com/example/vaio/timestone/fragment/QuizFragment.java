@@ -26,7 +26,7 @@ import java.util.Random;
  */
 
 public class QuizFragment extends Fragment implements View.OnClickListener {
-    private ArrayList<Item> arrItem;
+    private ArrayList<Item> arrItem = new ArrayList<>();
     private TextView tvQuestion;
     private TextView tvAnswer1;
     private TextView tvAnswer2;
@@ -39,7 +39,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("ValidFragment")
     public QuizFragment(ArrayList<Item> arrItem) {
         Log.e("TAG", arrItem.size() + "");
-        this.arrItem = arrItem;
+        this.arrItem.addAll(arrItem);
     }
 
     @Nullable
@@ -214,54 +214,82 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         setClickable(false);
+        Handler handler = new Handler();
         switch (v.getId()) {
             case R.id.tvAnswer1:
-                if (quiz.getRightAnser() == 0) {
-                    currentScore++;
-                } else {
-                    tvAnswer1.setBackgroundResource(R.drawable.bg_wrong_answer);
-                    currentScore = 0;
-                }
-                tvCurrentScore.setText(currentScore + "");
+                tvAnswer1.setBackgroundResource(R.drawable.bg_answer_selected);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (quiz.getRightAnser() == 0) {
+                            currentScore++;
+                        } else {
+                            tvAnswer1.setBackgroundResource(R.drawable.bg_wrong_answer);
+                            currentScore = 0;
+                        }
+                        tvCurrentScore.setText(currentScore + "");
+                    }
+                }, 1000);
                 break;
             case R.id.tvAnswer2:
-                if (quiz.getRightAnser() == 1) {
-                    currentScore++;
-                } else {
-                    tvAnswer2.setBackgroundResource(R.drawable.bg_wrong_answer);
-                    currentScore = 0;
-                }
-                tvCurrentScore.setText(currentScore + "");
+                tvAnswer2.setBackgroundResource(R.drawable.bg_answer_selected);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (quiz.getRightAnser() == 1) {
+                            currentScore++;
+                        } else {
+                            tvAnswer2.setBackgroundResource(R.drawable.bg_wrong_answer);
+                            currentScore = 0;
+                        }
+                        tvCurrentScore.setText(currentScore + "");
+                    }
+                }, 1000);
                 break;
             case R.id.tvAnswer3:
-                if (quiz.getRightAnser() == 2) {
-                    currentScore++;
-                } else {
-                    tvAnswer3.setBackgroundResource(R.drawable.bg_wrong_answer);
-                    currentScore = 0;
-                }
-                tvCurrentScore.setText(currentScore + "");
+                tvAnswer3.setBackgroundResource(R.drawable.bg_answer_selected);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (quiz.getRightAnser() == 2) {
+                            currentScore++;
+                        } else {
+                            tvAnswer3.setBackgroundResource(R.drawable.bg_wrong_answer);
+                            currentScore = 0;
+                        }
+                        tvCurrentScore.setText(currentScore + "");
+                    }
+                }, 1000);
                 break;
             case R.id.tvAnswer4:
-                if (quiz.getRightAnser() == 3) {
-                    currentScore++;
-                } else {
-                    tvAnswer4.setBackgroundResource(R.drawable.bg_wrong_answer);
-                    currentScore = 0;
-                }
-                tvCurrentScore.setText(currentScore + "");
+                tvAnswer4.setBackgroundResource(R.drawable.bg_answer_selected);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (quiz.getRightAnser() == 3) {
+                            currentScore++;
+                        } else {
+                            tvAnswer4.setBackgroundResource(R.drawable.bg_wrong_answer);
+                            currentScore = 0;
+                        }
+                        tvCurrentScore.setText(currentScore + "");
+                        if (currentScore > highScore){
+                            highScore = currentScore;
+                            tvHighScore.setText(highScore + "");
+                        }
+                    }
+                }, 1000);
                 break;
         }
-        if (currentScore > highScore){
-            highScore = currentScore;
-            tvHighScore.setText(highScore + "");
-        }
 
-        Handler handler = new Handler();
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                if (currentScore > highScore) {
+                    highScore = currentScore;
+                    tvHighScore.setText(highScore + "");
+                }
                 switch (quiz.getRightAnser()){
                     case 0:
                         tvAnswer1.setBackgroundResource(R.drawable.bg_right_answer);
@@ -279,6 +307,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 blink(quiz.getRightAnser());
             }
         }, 1000);
+
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
