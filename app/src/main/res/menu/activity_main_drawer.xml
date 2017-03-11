@@ -22,6 +22,10 @@
                 android:id="@+id/nav_feed_back"
                 android:icon="@android:drawable/ic_dialog_email"
                 android:title="Feed back" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/exit"
+                android:title="Exit" />
         </menu>
     </item>
 

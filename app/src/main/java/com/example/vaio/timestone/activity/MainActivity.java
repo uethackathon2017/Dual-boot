@@ -42,20 +42,13 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            GlobalData globalData = (GlobalData) getApplication();
-            arrItem = globalData.getArrItem();
+            getData();
             initToolbar("CC / YYYY / MM ");
             initDrawerLayout();
             initComponent();
-//            getData();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-//        daOdb.deleteData();
-//        daOdb.insertData(arrItem);
-//        daOdb.getDataWithDate(10101, 991231);
     }
 
     public static boolean isNetWorkAvailable(Context context) {
@@ -186,7 +179,6 @@ public class MainActivity extends AppCompatActivity
                 case R.id.nav_feed_back:
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
                             Uri.parse("mailto:" + Uri.encode("vietcoscc@gmail.com   ")));
-
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
                     emailIntent.putExtra(Intent.EXTRA_TEXT, "");
                     startActivity(Intent.createChooser(emailIntent, "Send email via..."));
