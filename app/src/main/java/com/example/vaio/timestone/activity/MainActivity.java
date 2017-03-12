@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity
                     } else {
                         Toast.makeText(this, "Không có sự kiện xem sau", Toast.LENGTH_SHORT).show();
                     }
-
+                    drawer.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.nav_share:
                     Intent share = new Intent(Intent.ACTION_SEND);

@@ -1,11 +1,14 @@
 package com.example.vaio.timestone.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import static com.example.vaio.timestone.fragment.ContentMainFragment.LINK;
+import static com.example.vaio.timestone.fragment.ContentMainFragment.TAG;
 
 /**
  * Created by vaio on 12/03/2017.
@@ -53,6 +57,7 @@ public class WatchLaterFragment extends Fragment {
     }
 
     private void initViews(View view) {
+
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         eventRecyclerViewAdapter = new EventRecyclerViewAdapter(arrItem);
@@ -95,6 +100,22 @@ public class WatchLaterFragment extends Fragment {
                 intent.putExtra(LINK, "http://www.google.com/search?btnI=I'm+Feeling+Lucky&q=" + arrItem.get(position).getE_info().trim()); //
                 // Đường link tới nội dung
                 startActivity(intent);
+            }
+        });
+        eventRecyclerViewAdapter.setOnItemLongClick(new EventRecyclerViewAdapter.OnItemLongClick() {
+            @Override
+            public void onClick(View view, int position) {
+                SharedPreferences sharedPreferences = getContext().getSharedPreferences(QuizFragment.SHARE_PRE, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String s = sharedPreferences.getString(MainActivity.STRING_ID,"");
+                int id = arrItem.get(position).getE_id();
+                Log.e(TAG, s);
+                s.replaceAll("/"+id+"/","/");
+                Log.e(TAG, s);
+                editor.putString(MainActivity.STRING_ID,s);
+                editor.commit();
+                arrItem.remove(position);
+                eventRecyclerViewAdapter.notifyDataSetChanged();
             }
         });
     }
