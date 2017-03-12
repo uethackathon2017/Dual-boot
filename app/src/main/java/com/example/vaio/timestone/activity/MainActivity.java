@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     public static final String ITEM = "item";
     private static final String TAG = "MainActivity";
+    private static final java.lang.String EMAIL = "vietcoscc@gmail.com";
     private Toolbar toolbar;
     private TextView tvTitle; // titile trên toolbar
     private ImageView ivSearch; // image view search trên toolbar
@@ -163,22 +164,25 @@ public class MainActivity extends AppCompatActivity
                 case R.id.nav_home:
                     // chọn fragment chính
                     tvTitle.setVisibility(View.VISIBLE);
-                    replaceContentMainLayout(new ContentMainFragment(arrItem));
+                    replaceContentMainLayout(contentMainFragment);
                     drawer.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.nav_quiz:
                     // chọn fragment quiz
                     tvTitle.setVisibility(View.INVISIBLE);
-                    replaceContentMainLayout(new QuizFragment(arrItem));
+                    replaceContentMainLayout(quizFragment);
                     drawer.closeDrawer(GravityCompat.START);
                     break;
                 case R.id.nav_share:
-
+                    Intent share = new Intent(Intent.ACTION_SEND);
+                    share.setType("text/plain");
+                    share.putExtra(Intent.EXTRA_TEXT, "_Time_stone_app_");
+                    startActivity(Intent.createChooser(share, "Bạn muốn chia sẻ trên..."));
                     break;
                 case R.id.nav_feed_back:
                     // lựa chọn phản hồi của người dùng
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
-                            Uri.parse("mailto:" + Uri.encode("vietcoscc@gmail.com   ")));
+                            Uri.parse("mailto:" + Uri.encode(EMAIL)));
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
                     emailIntent.putExtra(Intent.EXTRA_TEXT, "");
                     startActivity(Intent.createChooser(emailIntent, "Send email via..."));

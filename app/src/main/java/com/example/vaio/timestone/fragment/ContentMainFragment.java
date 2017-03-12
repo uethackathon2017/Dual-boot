@@ -2,7 +2,6 @@ package com.example.vaio.timestone.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +25,8 @@ import com.example.vaio.timestone.adapter.NumberPickerViewPagerAdapter;
 import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.model.CurrentTime;
 import com.example.vaio.timestone.model.Item;
-import com.example.vaio.timestone.sync_task.OnNumberPickerSelectedAsyncTask;
-import com.example.vaio.timestone.sync_task.RefreshDataAsyncTask;
+import com.example.vaio.timestone.async_task.OnNumberPickerSelectedAsyncTask;
+import com.example.vaio.timestone.async_task.RefreshDataAsyncTask;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -70,14 +68,14 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     private ArrayList<Item> arrItem = new ArrayList<>(); // mảng dữ liệu hiển thị chính
     private ArrayList<Item> arrItemTmp = new ArrayList<>(); // mảng nhớ tạm
     private String currentContent;
-    private int centurySelected = 1;
-    private int yearSelected = 0;
-    private int monthSelected = 0;
+    private int centurySelected = 1; // khai báo biến với giá trị default century
+    private int yearSelected = 0; // khai báo biến với giá trị default year
+    private int monthSelected = 0; // khai báo biến với giá trị default month
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
     @SuppressLint("ValidFragment")
     public ContentMainFragment(ArrayList<Item> arrItem) {
-        this.arrItem.addAll(arrItem);
+        this.arrItem = arrItem;
     }
 
     @Nullable
@@ -86,7 +84,6 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
         inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.fragment_content_main, container, false);
         initViews(view);
-
         return view;
     }
 
@@ -103,9 +100,6 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewEvent);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             initEventRecyclerViewAdapter(arrItem);
-
-
-
             //
             ivBack = (ImageView) view.findViewById(R.id.ivBack); // phím back
             ivForward = (ImageView) view.findViewById(R.id.ivFoward); // phím forward
@@ -124,10 +118,15 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
     }
 
-
     private void initEventRecyclerViewAdapter(final ArrayList<Item> arrItem) throws Exception {
         // khởi tạo adapter event recycler view
         eventRecyclerViewAdapter = new EventRecyclerViewAdapter(arrItem);
+        eventRecyclerViewAdapter.setOnItemLongClick(new EventRecyclerViewAdapter.OnItemLongClick() {
+            @Override
+            public void onClick(View view, int position) {
+                QuizFragment.showDialogContent(getContext(), arrItem.get(position).getE_info());
+            }
+        });
         recyclerView.setAdapter(eventRecyclerViewAdapter);
         eventRecyclerViewAdapter.setOnCompleteLoading(new EventRecyclerViewAdapter.OnCompleteLoading() {
             @Override
@@ -163,7 +162,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
                     }
                 });
-                reference.child("item").child(item.getE_id() + "").child(Database.WEIGHT).setValue(item.getE_weight());
+                reference.child(MainActivity.ITEM).child(item.getE_id() + "").child(Database.WEIGHT).setValue(item.getE_weight());
 
                 Intent intent = new Intent(getContext(), WebviewActivity.class);
                 intent.putExtra(LINK, "http://www.google.com/search?btnI=I'm+Feeling+Lucky&q=" + arrItem.get(position).getE_info().trim()); //
@@ -175,10 +174,15 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
     public void initNumberPickerViewPagerAdapter(int from, int to) {
         // Khởi tạo adapter cho viewpager
-        numberPickerViewPagerAdapter =
-                new NumberPickerViewPagerAdapter(getFragmentManager(), from, to);
+        numberPickerViewPagerAdapter = new NumberPickerViewPagerAdapter(getFragmentManager(), from, to);
         viewPager.setAdapter(numberPickerViewPagerAdapter);
         numberPickerViewPagerAdapter.setOnItemClick(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initNumberPickerViewPagerAdapter(CENTURY_START_AT, CENTURY_END_AT);
     }
 
     private void onImageViewBackPress() {
@@ -302,7 +306,7 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
                 public void onSuccess(ArrayList<Item> arrItemT) {
                     arrItem.clear();
                     arrItem.addAll(arrItemT);
-                    if (arrItem.size() == 0){
+                    if (arrItem.size() == 0) {
                         recyclerView.setVisibility(View.GONE);
                         tvNotification.setVisibility(View.VISIBLE);
                         tvNotification.setText("Không có sự kiện nào trong khoảng thời gian này");

@@ -30,6 +30,7 @@ public class WebviewActivity extends AppCompatActivity implements MenuItem.OnMen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
+        getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         webView = (WebView) findViewById(R.id.webview); // ánh xạ
         progressBar = (ContentLoadingProgressBar) findViewById(R.id.contentLoadingProgressBar); // thanh bar loading web

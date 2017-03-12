@@ -7,18 +7,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
 import com.example.vaio.timestone.adapter.EventRecyclerViewAdapter;
 import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.model.GlobalData;
 import com.example.vaio.timestone.model.Item;
-import com.example.vaio.timestone.sync_task.RefreshDataAsyncTask;
+import com.example.vaio.timestone.async_task.RefreshDataAsyncTask;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,25 +39,27 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        initData();
-        initToolbar();
-        initComponent();
+        try {
+            initData();
+            initToolbar();
+            initComponent();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
-    private void initData() {
+    private void initData() throws Exception {
         GlobalData globalData = (GlobalData) getApplication();
         arrItem.addAll(globalData.getArrItem());
         arrItemTmp.addAll(globalData.getArrItem());
     }
 
-    private void initToolbar() {
-////        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-////        setSupportActionBar(toolbar);
-//        getSupportActionBar().setBackgroundDrawable();
+    private void initToolbar() throws Exception {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void initComponent() {
+    private void initComponent() throws Exception {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         eventRecyclerViewAdapter = new EventRecyclerViewAdapter(arrItem);
@@ -143,12 +143,12 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         }
         contentLoadingProgressBar.hide(); // ẩn progress bar khi đã chuẩn bị xong dữ liệu
         eventRecyclerViewAdapter.notifyDataSetChanged();
-        return true;
+        return false;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
 
-        return true;
+        return false;
     }
 }

@@ -49,7 +49,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
         return arrItem.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         TextView tvDate;
         TextView tvInfo;
         TextView tvType;
@@ -60,6 +60,7 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
             tvInfo = (TextView) itemView.findViewById(R.id.tvInfo);
             tvType = (TextView) itemView.findViewById(R.id.tvType);
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         @Override
@@ -67,6 +68,14 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
             if (onItemClick != null) {
                 onItemClick.onClick(v, getPosition());
             }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            if (onItemLongClick != null) {
+                onItemLongClick.onClick(v, getPosition());
+            }
+            return true;
         }
     }
 
@@ -87,6 +96,18 @@ public class EventRecyclerViewAdapter extends RecyclerView.Adapter<EventRecycler
     private OnItemClick onItemClick;
 
     public interface OnItemClick {
+        // lắng nghe sự kiện item click
+        void onClick(View view, int position);
+    }
+
+    public void setOnItemLongClick(OnItemLongClick onItemLongClick) {
+        this.onItemLongClick = onItemLongClick;
+    }
+
+    private OnItemLongClick onItemLongClick;
+
+    public interface OnItemLongClick {
+        // lắng nghe sự kiện item long click
         void onClick(View view, int position);
     }
 

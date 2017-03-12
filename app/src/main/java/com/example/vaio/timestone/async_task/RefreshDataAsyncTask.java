@@ -1,4 +1,4 @@
-package com.example.vaio.timestone.sync_task;
+package com.example.vaio.timestone.async_task;
 
 import android.content.Context;
 import android.os.AsyncTask;

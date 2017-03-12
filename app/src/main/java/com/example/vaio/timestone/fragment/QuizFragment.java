@@ -1,10 +1,13 @@
 package com.example.vaio.timestone.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +28,10 @@ import java.util.Random;
  * Created by vaio on 10/03/2017.
  */
 
-public class QuizFragment extends Fragment implements View.OnClickListener {
+public class QuizFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener {
+    private static final String SHARE_PRE = "data";
+    private static final String HIGH_SCORE = "high score";
+    private static final String DEFAULT_VALUE = "0";
     private ArrayList<Item> arrItem = new ArrayList<>();
     private TextView tvQuestion;
     private TextView tvAnswer1;
@@ -35,6 +41,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private Quiz quiz;
     private TextView tvHighScore, tvCurrentScore;
     private int currentScore = 0, highScore = 0;
+    private SharedPreferences sharedPreferences;
 
     @SuppressLint("ValidFragment")
     public QuizFragment(ArrayList<Item> arrItem) {
@@ -49,8 +56,10 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_quiz, container, false);
         initData();
         initView(view);
+
         return view;
     }
+
     private void initView(View view) {
         tvQuestion = (TextView) view.findViewById(R.id.tvQuestion);
         tvAnswer1 = (TextView) view.findViewById(R.id.tvAnswer1);
@@ -59,105 +68,118 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         tvAnswer4 = (TextView) view.findViewById(R.id.tvAnswer4);
         tvHighScore = (TextView) view.findViewById(R.id.tvHighScore);
         tvCurrentScore = (TextView) view.findViewById(R.id.tvCurrentScore);
-        tvCurrentScore.setText("0");
+        tvHighScore.setText(sharedPreferences.getString(HIGH_SCORE, DEFAULT_VALUE));
 
         reset();
+        tvQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogContent(getContext(), tvQuestion.getText().toString());
+            }
+        });
 
         tvAnswer1.setOnClickListener(this);
         tvAnswer2.setOnClickListener(this);
         tvAnswer3.setOnClickListener(this);
         tvAnswer4.setOnClickListener(this);
+
+        tvAnswer1.setOnLongClickListener(this);
+        tvAnswer2.setOnLongClickListener(this);
+        tvAnswer3.setOnLongClickListener(this);
+        tvAnswer4.setOnLongClickListener(this);
     }
 
     private void initData() {
+        sharedPreferences = getContext().getSharedPreferences(SHARE_PRE, Context.MODE_PRIVATE);
+
         ArrayList<Item> questionSet = new ArrayList<>();
         String question = "";
         String[] answer = new String[4];
         int answerPosition = 0;
         Random random = new Random();
         int randType = random.nextInt(6); // random thể loại câu hỏi
-        switch (randType){
+        switch (randType) {
             case 0:
                 questionSet.clear();
-                while (questionSet.size() < 4){
-                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
-                    if (arrItem.get(randomItem).getE_type().equals("Sự kiện")){
+                while (questionSet.size() < 4) {
+                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
+                    if (arrItem.get(randomItem).getE_type().equals("Sự kiện")) {
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
                 answerPosition = random.nextInt(4);
                 question = questionSet.get(answerPosition).getE_info() + " diễn ra khi nào?";
-                for (int i=0; i<4; i++){
+                for (int i = 0; i < 4; i++) {
                     answer[i] = questionSet.get(i).getE_day() + "/" + questionSet.get(i).getE_month() + "/" + questionSet.get(i).getE_year();
                 }
                 break;
             case 1:
                 questionSet.clear();
-                while (questionSet.size() < 4){
-                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
-                    if (arrItem.get(randomItem).getE_type().equals("Sinh")){
+                while (questionSet.size() < 4) {
+                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
+                    if (arrItem.get(randomItem).getE_type().equals("Sinh")) {
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
                 answerPosition = random.nextInt(4);
                 question = "Ngày sinh của " + questionSet.get(answerPosition).getE_info();
-                for (int i=0; i<4; i++){
+                for (int i = 0; i < 4; i++) {
                     answer[i] = questionSet.get(i).getE_day() + "/" + questionSet.get(i).getE_month() + "/" + questionSet.get(i).getE_year();
                 }
                 break;
             case 2:
                 questionSet.clear();
-                while (questionSet.size() < 4){
-                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
-                    if (arrItem.get(randomItem).getE_type().equals("Mất")){
+                while (questionSet.size() < 4) {
+                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
+                    if (arrItem.get(randomItem).getE_type().equals("Mất")) {
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
                 answerPosition = random.nextInt(4);
                 question = "Ngày mất của " + questionSet.get(answerPosition).getE_info();
-                for (int i=0; i<4; i++){
+                for (int i = 0; i < 4; i++) {
                     answer[i] = questionSet.get(i).getE_day() + "/" + questionSet.get(i).getE_month() + "/" + questionSet.get(i).getE_year();
                 }
                 break;
             case 3:
                 questionSet.clear();
-                while (questionSet.size() < 4){
-                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
-                    if (arrItem.get(randomItem).getE_type().equals("Sự kiện")){
+                while (questionSet.size() < 4) {
+                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
+                    if (arrItem.get(randomItem).getE_type().equals("Sự kiện")) {
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
                 answerPosition = random.nextInt(4);
                 question = questionSet.get(answerPosition).getE_day() + "/" + questionSet.get(answerPosition).getE_month() + "/" + questionSet.get(answerPosition).getE_year() + " diễn ra sự kiện nào?";
-                for (int i=0; i<4; i++){
+                for (int i = 0; i < 4; i++) {
                     answer[i] = questionSet.get(i).getE_info();
                 }
                 break;
             case 4:
                 questionSet.clear();
-                while (questionSet.size() < 4){
-                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
-                    if (arrItem.get(randomItem).getE_type().equals("Sinh")){
+                while (questionSet.size() < 4) {
+                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
+                    if (arrItem.get(randomItem).getE_type().equals("Sinh")) {
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
                 answerPosition = random.nextInt(4);
                 question = questionSet.get(answerPosition).getE_day() + "/" + questionSet.get(answerPosition).getE_month() + "/" + questionSet.get(answerPosition).getE_year() + " là ngày sinh của ai?";
-                for (int i=0; i<4; i++){
+                for (int i = 0; i < 4; i++) {
                     answer[i] = questionSet.get(i).getE_info();
                 }
                 break;
             case 5:
                 questionSet.clear();
-                while (questionSet.size() < 4){
-                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
-                    if (arrItem.get(randomItem).getE_type().equals("Mất")){
+                while (questionSet.size() < 4) {
+                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
+                    if (arrItem.get(randomItem).getE_type().equals("Mất")) {
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
                 answerPosition = random.nextInt(4);
                 question = questionSet.get(answerPosition).getE_day() + "/" + questionSet.get(answerPosition).getE_month() + "/" + questionSet.get(answerPosition).getE_year() + " là ngày mất của ai?";
-                for (int i=0; i<4; i++){
+                for (int i = 0; i < 4; i++) {
                     answer[i] = questionSet.get(i).getE_info();
                 }
                 break;
@@ -166,20 +188,20 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    private void setClickable(boolean b){
+    private void setClickable(boolean b) {
         tvAnswer1.setClickable(b);
         tvAnswer2.setClickable(b);
         tvAnswer3.setClickable(b);
         tvAnswer4.setClickable(b);
     }
 
-    private void blink(final int position){
+    private void blink(final int position) {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 AnimationSet blink = (AnimationSet) AnimationUtils.loadAnimation(getContext(), R.anim.blink);
-                switch (position){
+                switch (position) {
                     case 0:
                         tvAnswer1.startAnimation(blink);
                         break;
@@ -197,7 +219,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         }, 400);
     }
 
-    private void reset(){
+    private void reset() {
         tvQuestion.setText(quiz.getQuestion());
 
         tvAnswer1.setBackgroundResource(R.drawable.bg_answer);
@@ -211,11 +233,18 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         tvAnswer4.setText(quiz.getAnswer()[3]);
     }
 
+    public static void showDialogContent(Context context, String content) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
+        builder.setMessage(content);
+        builder.create().show();
+    }
+
     @Override
     public void onClick(View v) {
         setClickable(false);
         Handler handler = new Handler();
         switch (v.getId()) {
+
             case R.id.tvAnswer1:
                 tvAnswer1.setBackgroundResource(R.drawable.bg_answer_selected);
                 handler.postDelayed(new Runnable() {
@@ -273,7 +302,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                             currentScore = 0;
                         }
                         tvCurrentScore.setText(currentScore + "");
-                        if (currentScore > highScore){
+                        if (currentScore > highScore) {
                             highScore = currentScore;
                             tvHighScore.setText(highScore + "");
                         }
@@ -289,8 +318,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 if (currentScore > highScore) {
                     highScore = currentScore;
                     tvHighScore.setText(highScore + "");
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(HIGH_SCORE, highScore+"");
+                    editor.commit();
                 }
-                switch (quiz.getRightAnser()){
+                switch (quiz.getRightAnser()) {
                     case 0:
                         tvAnswer1.setBackgroundResource(R.drawable.bg_right_answer);
                         break;
@@ -316,8 +349,26 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 initData();
                 reset();
             }
-        },3000);
+        }, 3500);
 
     }
 
+    @Override
+    public boolean onLongClick(View v) {
+        switch (v.getId()) {
+            case R.id.tvAnswer1:
+                showDialogContent(getContext(), tvAnswer1.getText().toString());
+                break;
+            case R.id.tvAnswer2:
+                showDialogContent(getContext(), tvAnswer1.getText().toString());
+                break;
+            case R.id.tvAnswer3:
+                showDialogContent(getContext(), tvAnswer1.getText().toString());
+                break;
+            case R.id.tvAnswer4:
+                showDialogContent(getContext(), tvAnswer1.getText().toString());
+                break;
+        }
+        return true;
+    }
 }

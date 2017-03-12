@@ -8,26 +8,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="bottom"
         android:orientation="vertical"
         android:weightSum="10">
 
-
-        <TextView
-            style="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:fontFamily="serif"
-            android:gravity="center"
-            android:text="@string/tv_quiz" />
+            android:adjustViewBounds="true"
+            android:src="@drawable/iv_quiz" />
 
         <TextView
             android:id="@+id/tvQuestion"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
-            android:layout_height="1.5dp"
-            android:layout_margin="@dimen/activity_horizontal_margin"
-            android:layout_weight="2"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_weight="3"
             android:background="@drawable/bg_picker_center"
             android:ellipsize="end"
             android:gravity="center"
@@ -37,101 +38,124 @@
             android:textStyle="bold" />
 
         <TextView
-            android:textColor="@android:color/white"
             android:id="@+id/tvAnswer1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_weight="1.5"
-            android:background="@drawable/bg_answer"
+            android:background="@drawable/selector_bg_answer"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="3"
-            android:paddingLeft="@dimen/tv_pading"
-            android:paddingRight="@dimen/tv_pading"
+            android:paddingBottom="@dimen/tv_pading"
+            android:paddingLeft="@dimen/tv_pading_horizontal"
+            android:paddingRight="@dimen/tv_pading_horizontal"
+            android:paddingTop="@dimen/tv_pading"
+            android:textColor="@android:color/white"
             android:textSize="@dimen/answer_text_size" />
 
         <TextView
-            android:textColor="@android:color/white"
             android:id="@+id/tvAnswer2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_weight="1.5"
-            android:background="@drawable/bg_answer"
+            android:background="@drawable/selector_bg_answer"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="3"
-            android:paddingLeft="@dimen/tv_pading"
-            android:paddingRight="@dimen/tv_pading"
+            android:paddingBottom="@dimen/tv_pading"
+            android:paddingLeft="@dimen/tv_pading_horizontal"
+            android:paddingRight="@dimen/tv_pading_horizontal"
+            android:paddingTop="@dimen/tv_pading"
+            android:textColor="@android:color/white"
             android:textSize="@dimen/answer_text_size" />
 
         <TextView
-            android:textColor="@android:color/white"
             android:id="@+id/tvAnswer3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_weight="1.5"
-            android:background="@drawable/bg_answer"
+            android:background="@drawable/selector_bg_answer"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="3"
-            android:paddingLeft="@dimen/tv_pading"
-            android:paddingRight="@dimen/tv_pading"
+            android:paddingBottom="@dimen/tv_pading"
+            android:paddingLeft="@dimen/tv_pading_horizontal"
+            android:paddingRight="@dimen/tv_pading_horizontal"
+            android:paddingTop="@dimen/tv_pading"
+            android:textColor="@android:color/white"
             android:textSize="@dimen/answer_text_size" />
 
         <TextView
-            android:textColor="@android:color/white"
             android:id="@+id/tvAnswer4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_weight="1.5"
-            android:background="@drawable/bg_answer"
+            android:background="@drawable/selector_bg_answer"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="3"
-            android:paddingLeft="@dimen/tv_pading"
-            android:paddingRight="@dimen/tv_pading"
+            android:paddingBottom="@dimen/tv_pading"
+            android:paddingLeft="@dimen/tv_pading_horizontal"
+            android:paddingRight="@dimen/tv_pading_horizontal"
+            android:paddingTop="@dimen/tv_pading"
+            android:textColor="@android:color/white"
             android:textSize="@dimen/answer_text_size" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvHighScore"
-        style="?android:attr/textAppearanceLarge"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:textColor="@android:color/black" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:interpolator="@android:interpolator/accelerate_decelerate" />
+        android:layout_margin="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/tvCurrentScore"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/tv_default_margin"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/atp__icon_event_on_small" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/atp__activity_profile_icon_rank" />
+
+        <TextView
+            android:id="@+id/tvHighScore"
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/tv_default_margin"
             android:layout_centerInParent="true"
             android:textColor="@android:color/black" />
-    </RelativeLayout>
+    </LinearLayout>
+
 
 </RelativeLayout>
