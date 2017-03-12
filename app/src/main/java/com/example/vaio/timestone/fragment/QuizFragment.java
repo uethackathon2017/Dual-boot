@@ -67,6 +67,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         return view;
     }
 
+    /*
+    Init view component
+     */
     private void initView(View view) {
         tvQuestion = (TextView) view.findViewById(R.id.tvQuestion);
         tvAnswer1 = (TextView) view.findViewById(R.id.tvAnswer1);
@@ -97,7 +100,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         tvAnswer4.setOnLongClickListener(this);
     }
 
+    /*
+    Init question data
+    Random data from database
+     */
     private void initData() {
+        //Save high score to sharepreferences
         sharedPreferences = getContext().getSharedPreferences(SHARE_PRE, Context.MODE_PRIVATE);
 
         ArrayList<Item> questionSet = new ArrayList<>();
@@ -108,6 +116,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         int randType = random.nextInt(6); // random thể loại câu hỏi
         switch (randType) {
             case 0:
+                // Cau hoi su kien khuyet ngay
                 questionSet.clear();
                 while (questionSet.size() < MAX_ANSWER) {
                     int randomItem = 1 + random.nextInt(arrItem.size() - 1);
@@ -122,6 +131,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                 }
                 break;
             case 1:
+                // Cau hoi ngay sinh khuyet ngay
                 questionSet.clear();
                 while (questionSet.size() < MAX_ANSWER) {
                     int randomItem = 1 + random.nextInt(arrItem.size() - 1);
@@ -136,6 +146,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                 }
                 break;
             case 2:
+                // Cau hoi ngay mat khuyet ngay
                 questionSet.clear();
                 while (questionSet.size() < MAX_ANSWER) {
                     int randomItem = 1 + random.nextInt(arrItem.size() - 1);
@@ -150,6 +161,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                 }
                 break;
             case 3:
+                // Cau hoi su kien khuyet noi dung
                 questionSet.clear();
                 while (questionSet.size() < MAX_ANSWER) {
                     int randomItem = 1 + random.nextInt(arrItem.size() - 1);
@@ -164,6 +176,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                 }
                 break;
             case 4:
+                // Cau hoi ngay sinh khuyet nhan vat
                 questionSet.clear();
                 while (questionSet.size() < MAX_ANSWER) {
                     int randomItem = 1 + random.nextInt(arrItem.size() - 1);
@@ -178,6 +191,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                 }
                 break;
             case 5:
+                // Cau hoi ngay mat khuyet nhan vat
                 questionSet.clear();
                 while (questionSet.size() < MAX_ANSWER) {
                     int randomItem = 1 + random.nextInt(arrItem.size() - 1);
@@ -196,6 +210,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
 
     }
 
+    /*
+    Disable and enable all text view when a touch operation occurs
+     */
     private void setClickable(boolean b) {
         tvAnswer1.setClickable(b);
         tvAnswer2.setClickable(b);
@@ -203,6 +220,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         tvAnswer4.setClickable(b);
     }
 
+    /*
+    Blink animation
+     */
     private void blink(final int position) {
         AnimationSet blink = (AnimationSet) AnimationUtils.loadAnimation(getContext(), R.anim.blink);
         switch (position) {
@@ -221,6 +241,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         }
     }
 
+    //Update new question and answer
     private void reset() {
         tvQuestion.setText(quiz.getQuestion());
 
@@ -235,6 +256,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         tvAnswer4.setText(quiz.getAnswer()[ANSWER_4]);
     }
 
+    //Show detail content of a text view
     public static void showDialogContent(Context context, String content) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
         builder.setMessage(content);
@@ -245,8 +267,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
     public void onClick(View v) {
         setClickable(false);
         Handler handler = new Handler();
+        // Select answer
         switch (v.getId()) {
-
             case R.id.tvAnswer1:
                 tvAnswer1.setBackgroundResource(R.drawable.bg_answer_selected);
                 handler.postDelayed(new Runnable() {
@@ -314,6 +336,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         }
 
 
+        //Delay appear true answer
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -343,7 +366,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
             }
         }, DELAY_SELECT_ANSWER);
 
-
+        //Switch new question
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
