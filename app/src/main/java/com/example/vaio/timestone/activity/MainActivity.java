@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity
                         replaceContentMainLayout(new WatchLaterFragment(arrItem));
                         drawer.closeDrawer(GravityCompat.START);
                     } else {
-                        Toast.makeText(this, "Null", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Không có sự kiện xem sau", Toast.LENGTH_SHORT).show();
                     }
 
                     break;

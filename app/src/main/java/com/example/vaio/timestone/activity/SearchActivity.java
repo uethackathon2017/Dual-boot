@@ -1,7 +1,11 @@
 package com.example.vaio.timestone.activity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.widget.ContentLoadingProgressBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,7 +38,8 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     private EventRecyclerViewAdapter eventRecyclerViewAdapter;
     private ContentLoadingProgressBar contentLoadingProgressBar;
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-
+    private String stringIDData = "/";
+    private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,10 +105,37 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
                 startActivity(intent);
             }
         });
+        eventRecyclerViewAdapter.setOnItemLongClick(new EventRecyclerViewAdapter.OnItemLongClick() {
+            @Override
+            public void onClick(View view, int position) {
+                showDialogContent(SearchActivity.this,arrItem.get(position).getE_info(),arrItem.get(position).getE_id());
+            }
+        });
         contentLoadingProgressBar = (ContentLoadingProgressBar) findViewById(R.id.contentLoadingProgressBar);
         contentLoadingProgressBar.show();
     }
+    public void showDialogContent(final Context context, final String content, final int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
 
+            }
+        });
+        builder.setNegativeButton("Xem sau", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (!stringIDData.contains("/" + id + "/")) {
+                    stringIDData = stringIDData + id + "/";
+                }
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(MainActivity.STRING_ID, stringIDData);
+                editor.commit();
+            }
+        });
+        builder.setMessage(content);
+        builder.create().show();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
