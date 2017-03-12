@@ -9,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
+import com.example.vaio.timestone.activity.MainActivity;
 import com.example.vaio.timestone.activity.SearchActivity;
 import com.example.vaio.timestone.activity.WebviewActivity;
 import com.example.vaio.timestone.adapter.EventRecyclerViewAdapter;
@@ -54,6 +56,9 @@ public class WatchLaterFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         eventRecyclerViewAdapter = new EventRecyclerViewAdapter(arrItem);
+        if (arrItem.size() == 0){
+            Toast.makeText(getContext(), "Chưa có sự kiện nào được lưu", Toast.LENGTH_SHORT).show();
+        }
         recyclerView.setAdapter(eventRecyclerViewAdapter);
         eventRecyclerViewAdapter.setOnItemClick(new EventRecyclerViewAdapter.OnItemClick() {
             @Override
