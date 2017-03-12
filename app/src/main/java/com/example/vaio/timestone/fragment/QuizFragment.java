@@ -2,6 +2,7 @@ package com.example.vaio.timestone.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.vaio.timestone.R;
+import com.example.vaio.timestone.activity.MainActivity;
 import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.model.Item;
 import com.example.vaio.timestone.model.Quiz;
@@ -29,8 +31,8 @@ import java.util.Random;
  */
 
 public class QuizFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener {
-    private static final String SHARE_PRE = "data";
-    private static final String HIGH_SCORE = "high score";
+    public static final String SHARE_PRE = "data";
+    public static final String HIGH_SCORE = "high score";
     private static final String DEFAULT_VALUE = "0";
     public static final int ANSWER_1 = 0;
     public static final int ANSWER_2 = 1;
@@ -50,7 +52,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
     private TextView tvHighScore, tvCurrentScore;
     private int currentScore = 0, highScore = 0;
     private SharedPreferences sharedPreferences;
-
     @SuppressLint("ValidFragment")
     public QuizFragment(ArrayList<Item> arrItem) {
         Log.e("TAG", arrItem.size() + "");
@@ -257,8 +258,20 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
     }
 
     //Show detail content of a text view
-    public static void showDialogContent(Context context, String content) {
+    public static void showDialogContent(final Context context, final String content) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.setNegativeButton("Xem sau", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
         builder.setMessage(content);
         builder.create().show();
     }

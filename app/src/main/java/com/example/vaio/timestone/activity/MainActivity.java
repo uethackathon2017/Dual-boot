@@ -3,6 +3,7 @@ package com.example.vaio.timestone.activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,16 +23,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.vaio.timestone.R;
+import com.example.vaio.timestone.database.Database;
 import com.example.vaio.timestone.fragment.ContentMainFragment;
 import com.example.vaio.timestone.fragment.QuizFragment;
+import com.example.vaio.timestone.fragment.WatchLaterFragment;
 import com.example.vaio.timestone.model.GlobalData;
+import com.example.vaio.timestone.model.Item;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String STRING_ID = "string";
     public static final String ITEM = "item";
     private static final String TAG = "MainActivity";
     private static final java.lang.String EMAIL = "vietcoscc@gmail.com";
@@ -40,6 +47,8 @@ public class MainActivity extends AppCompatActivity
     private ArrayList arrItem = new ArrayList();   // arr Main data
     private ContentMainFragment contentMainFragment; // fragment chính
     private QuizFragment quizFragment; // fragment câu đố
+    private String stringIDData = "/";
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +83,8 @@ public class MainActivity extends AppCompatActivity
         quizFragment = new QuizFragment(arrItem);
         contentMainFragment = new ContentMainFragment(arrItem);
         replaceContentMainLayout(contentMainFragment);
+        sharedPreferences = getSharedPreferences(QuizFragment.SHARE_PRE, Context.MODE_PRIVATE);
+        stringIDData = sharedPreferences.getString(STRING_ID, "/");
     }
 
     public void replaceContentMainLayout(Fragment fragment) throws Exception {
@@ -172,6 +183,21 @@ public class MainActivity extends AppCompatActivity
                     tvTitle.setVisibility(View.INVISIBLE);
                     replaceContentMainLayout(quizFragment);
                     drawer.closeDrawer(GravityCompat.START);
+                    break;
+                case R.id.nav_watch_later:
+                    // chọn fragment quiz
+                    Database database = new Database(this);
+                    stringIDData = sharedPreferences.getString(STRING_ID, "");
+                    Log.e(TAG, stringIDData);
+                    ArrayList<Item> arrItem = database.getDataFromID(stringIDData);
+                    if (arrItem != null) {
+                        tvTitle.setVisibility(View.INVISIBLE);
+                        replaceContentMainLayout(new WatchLaterFragment(arrItem));
+                        drawer.closeDrawer(GravityCompat.START);
+                    } else {
+                        Toast.makeText(this, "Null", Toast.LENGTH_SHORT).show();
+                    }
+
                     break;
                 case R.id.nav_share:
                     Intent share = new Intent(Intent.ACTION_SEND);

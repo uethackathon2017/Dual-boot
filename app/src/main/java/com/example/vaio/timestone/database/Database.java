@@ -89,34 +89,76 @@ public class Database {
     }
 
     public void updateWeight(int id, int weight) {
-        openDatabase();
-        String sql = "Update " + TB_NAME + " SET " + WEIGHT + " = " + weight + " WHERE " + ID + " = " + id;
-        database.execSQL(sql);
-        closeDatabase();
+        try {
+            openDatabase();
+            String sql = "Update " + TB_NAME + " SET " + WEIGHT + " = " + weight + " WHERE " + ID + " = " + id;
+            database.execSQL(sql);
+            closeDatabase();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public ArrayList<Item> getData() {
         //lấy toàn bộ dữ liệu trong database
-        openDatabase();
-        ArrayList<Item> arrItem = new ArrayList<>();
-        String sql = "SELECT * FROM " + TB_NAME + " ORDER BY " + WEIGHT + " DESC";
-        Cursor cursor = database.rawQuery(sql, null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            int id = cursor.getInt(cursor.getColumnIndex(ID));
-            String type = cursor.getString(cursor.getColumnIndex(TYPE));
-            String info = cursor.getString(cursor.getColumnIndex(INFO));
-            long date = cursor.getLong(cursor.getColumnIndex(DATE));
-            String day = cursor.getString(cursor.getColumnIndex(DAY));
-            String month = cursor.getString(cursor.getColumnIndex(MONTH));
-            String year = cursor.getString(cursor.getColumnIndex(YEAR));
-            int weight = cursor.getInt(cursor.getColumnIndex(WEIGHT));
-            Item item = new Item(id, type, info, date, day, month, year, weight, "");
-            arrItem.add(item);
-            cursor.moveToNext();
+        try {
+            openDatabase();
+            ArrayList<Item> arrItem = new ArrayList<>();
+            String sql = "SELECT * FROM " + TB_NAME + " ORDER BY " + WEIGHT + " DESC";
+            Cursor cursor = database.rawQuery(sql, null);
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                int id = cursor.getInt(cursor.getColumnIndex(ID));
+                String type = cursor.getString(cursor.getColumnIndex(TYPE));
+                String info = cursor.getString(cursor.getColumnIndex(INFO));
+                long date = cursor.getLong(cursor.getColumnIndex(DATE));
+                String day = cursor.getString(cursor.getColumnIndex(DAY));
+                String month = cursor.getString(cursor.getColumnIndex(MONTH));
+                String year = cursor.getString(cursor.getColumnIndex(YEAR));
+                int weight = cursor.getInt(cursor.getColumnIndex(WEIGHT));
+                Item item = new Item(id, type, info, date, day, month, year, weight, "");
+                arrItem.add(item);
+                cursor.moveToNext();
 
+            }
+            closeDatabase();
+            return arrItem;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        closeDatabase();
-        return arrItem;
+        return null;
+    }
+
+    public ArrayList<Item> getDataFromID(String stringID) {
+        //lấy toàn bộ dữ liệu trong database
+        String[] s = stringID.split("/");
+        try {
+            openDatabase();
+            ArrayList<Item> arrItem = new ArrayList<>();
+
+            for (int i = 1; i < s.length; i++) {
+
+                String sql = "SELECT * FROM " + TB_NAME + " WHERE " + ID + " = " + s[i];
+                Log.e(TAG,sql);
+                Cursor cursor = database.rawQuery(sql, null);
+                cursor.moveToFirst();
+                int id = cursor.getInt(cursor.getColumnIndex(ID));
+                String type = cursor.getString(cursor.getColumnIndex(TYPE));
+                String info = cursor.getString(cursor.getColumnIndex(INFO));
+                long date = cursor.getLong(cursor.getColumnIndex(DATE));
+                String day = cursor.getString(cursor.getColumnIndex(DAY));
+                String month = cursor.getString(cursor.getColumnIndex(MONTH));
+                String year = cursor.getString(cursor.getColumnIndex(YEAR));
+                int weight = cursor.getInt(cursor.getColumnIndex(WEIGHT));
+                Item item = new Item(id, type, info, date, day, month, year, weight, "");
+                arrItem.add(item);
+            }
+            closeDatabase();
+            return arrItem;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

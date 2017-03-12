@@ -5,11 +5,15 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="Home" />
+            android:title="Trang chính" />
         <item
             android:id="@+id/nav_quiz"
             android:icon="@drawable/ic_quiz_black_24dp"
-            android:title="Quiz" />
+            android:title="Câu đố" />
+        <item
+            android:id="@+id/nav_watch_later"
+            android:icon="@drawable/ic_quiz_black_24dp"
+            android:title="Xem sau" />
     </group>
 
     <item android:title="Others">

@@ -1,12 +1,16 @@
 package com.example.vaio.timestone.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.ContentLoadingProgressBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -72,6 +76,8 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
     private int yearSelected = 0; // khai báo biến với giá trị default year
     private int monthSelected = 0; // khai báo biến với giá trị default month
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+    private String stringIDData = "/";
+    private SharedPreferences sharedPreferences;
 
     @SuppressLint("ValidFragment")
     public ContentMainFragment(ArrayList<Item> arrItem) {
@@ -89,6 +95,9 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
     protected void initViews(View view) {
         try {
+            sharedPreferences = getContext().getSharedPreferences(QuizFragment.SHARE_PRE, Context.MODE_PRIVATE);
+            stringIDData = sharedPreferences.getString(MainActivity.STRING_ID, "/");
+
             arrItemTmp.addAll(arrItem); // add tất cả phần tử của dữ liệu sang một mảng tạm
             contentLoadingProgressBar = (ContentLoadingProgressBar) view.findViewById(R.id.contentLoadingProgressBar);
             currentContent = CENTURY; // nội dung hiển thị hiện tại theo cent hoặc year hoặc month
@@ -118,13 +127,36 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
 
     }
 
+    public void showDialogContent(final Context context, final String content, final int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.setNegativeButton("Xem sau", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (!stringIDData.contains("/" + id + "/")) {
+                    stringIDData = stringIDData + id + "/";
+                }
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(MainActivity.STRING_ID, stringIDData);
+                editor.commit();
+            }
+        });
+        builder.setMessage(content);
+        builder.create().show();
+    }
+
     private void initEventRecyclerViewAdapter(final ArrayList<Item> arrItem) throws Exception {
         // khởi tạo adapter event recycler view
         eventRecyclerViewAdapter = new EventRecyclerViewAdapter(arrItem);
         eventRecyclerViewAdapter.setOnItemLongClick(new EventRecyclerViewAdapter.OnItemLongClick() {
             @Override
             public void onClick(View view, int position) {
-                QuizFragment.showDialogContent(getContext(), arrItem.get(position).getE_info());
+                showDialogContent(getContext(), arrItem.get(position).getE_info(), arrItem.get(position).getE_id());
             }
         });
         recyclerView.setAdapter(eventRecyclerViewAdapter);
@@ -268,14 +300,6 @@ public class ContentMainFragment extends Fragment implements View.OnClickListene
             e.printStackTrace();
         }
 
-    }
-
-    public void notifyData() {
-        if (eventRecyclerViewAdapter != null) {
-            eventRecyclerViewAdapter.notifyDataSetChanged();
-            arrItemTmp.clear(); //
-            arrItemTmp.addAll(arrItem); //
-        }
     }
 
     @Override
