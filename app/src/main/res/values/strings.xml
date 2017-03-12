@@ -8,4 +8,6 @@
     <string name="tv_quiz">Quiz</string>
     <string name="tv_loading_data">Preparing data ...</string>
     <string name="action_search">Search</string>
+
+    <string name="max_line">3</string>
 </resources>

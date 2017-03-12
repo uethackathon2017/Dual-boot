@@ -32,6 +32,14 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
     private static final String SHARE_PRE = "data";
     private static final String HIGH_SCORE = "high score";
     private static final String DEFAULT_VALUE = "0";
+    public static final int ANSWER_1 = 0;
+    public static final int ANSWER_2 = 1;
+    public static final int ANSWER_3 = 2;
+    public static final int ANSWER_4 = 3;
+    public static final int MAX_ANSWER = 4;
+    public static final int DELAY_SELECT_ANSWER = 1000;
+    public static final int DELAY_CHANGE_QUESTION = 3000;
+
     private ArrayList<Item> arrItem = new ArrayList<>();
     private TextView tvQuestion;
     private TextView tvAnswer1;
@@ -98,88 +106,88 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         int answerPosition = 0;
         Random random = new Random();
         int randType = random.nextInt(6); // random thể loại câu hỏi
-        switch (randType) {
+        switch (randType){
             case 0:
                 questionSet.clear();
-                while (questionSet.size() < 4) {
-                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
-                    if (arrItem.get(randomItem).getE_type().equals("Sự kiện")) {
+                while (questionSet.size() < MAX_ANSWER){
+                    int randomItem = 1+ random.nextInt(arrItem.size() - 1);
+                    if (arrItem.get(randomItem).getE_type().equals("Sự kiện")){
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
                 answerPosition = random.nextInt(4);
                 question = questionSet.get(answerPosition).getE_info() + " diễn ra khi nào?";
-                for (int i = 0; i < 4; i++) {
+                for (int i=0; i<4; i++){
                     answer[i] = questionSet.get(i).getE_day() + "/" + questionSet.get(i).getE_month() + "/" + questionSet.get(i).getE_year();
                 }
                 break;
             case 1:
                 questionSet.clear();
-                while (questionSet.size() < 4) {
-                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
-                    if (arrItem.get(randomItem).getE_type().equals("Sinh")) {
+                while (questionSet.size() < MAX_ANSWER){
+                    int randomItem = 1+ random.nextInt(arrItem.size() - 1);
+                    if (arrItem.get(randomItem).getE_type().equals("Sinh")){
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
-                answerPosition = random.nextInt(4);
+                answerPosition = random.nextInt(MAX_ANSWER);
                 question = "Ngày sinh của " + questionSet.get(answerPosition).getE_info();
-                for (int i = 0; i < 4; i++) {
+                for (int i=0; i<MAX_ANSWER; i++){
                     answer[i] = questionSet.get(i).getE_day() + "/" + questionSet.get(i).getE_month() + "/" + questionSet.get(i).getE_year();
                 }
                 break;
             case 2:
                 questionSet.clear();
-                while (questionSet.size() < 4) {
-                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
-                    if (arrItem.get(randomItem).getE_type().equals("Mất")) {
+                while (questionSet.size() < MAX_ANSWER){
+                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
+                    if (arrItem.get(randomItem).getE_type().equals("Mất")){
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
-                answerPosition = random.nextInt(4);
+                answerPosition = random.nextInt(MAX_ANSWER);
                 question = "Ngày mất của " + questionSet.get(answerPosition).getE_info();
-                for (int i = 0; i < 4; i++) {
+                for (int i=0; i<MAX_ANSWER; i++){
                     answer[i] = questionSet.get(i).getE_day() + "/" + questionSet.get(i).getE_month() + "/" + questionSet.get(i).getE_year();
                 }
                 break;
             case 3:
                 questionSet.clear();
-                while (questionSet.size() < 4) {
-                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
-                    if (arrItem.get(randomItem).getE_type().equals("Sự kiện")) {
+                while (questionSet.size() < MAX_ANSWER){
+                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
+                    if (arrItem.get(randomItem).getE_type().equals("Sự kiện")){
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
-                answerPosition = random.nextInt(4);
+                answerPosition = random.nextInt(MAX_ANSWER);
                 question = questionSet.get(answerPosition).getE_day() + "/" + questionSet.get(answerPosition).getE_month() + "/" + questionSet.get(answerPosition).getE_year() + " diễn ra sự kiện nào?";
-                for (int i = 0; i < 4; i++) {
+                for (int i=0; i<MAX_ANSWER; i++){
                     answer[i] = questionSet.get(i).getE_info();
                 }
                 break;
             case 4:
                 questionSet.clear();
-                while (questionSet.size() < 4) {
-                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
-                    if (arrItem.get(randomItem).getE_type().equals("Sinh")) {
+                while (questionSet.size() < MAX_ANSWER){
+                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
+                    if (arrItem.get(randomItem).getE_type().equals("Sinh")){
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
-                answerPosition = random.nextInt(4);
+                answerPosition = random.nextInt(MAX_ANSWER);
                 question = questionSet.get(answerPosition).getE_day() + "/" + questionSet.get(answerPosition).getE_month() + "/" + questionSet.get(answerPosition).getE_year() + " là ngày sinh của ai?";
-                for (int i = 0; i < 4; i++) {
+                for (int i=0; i<MAX_ANSWER; i++){
                     answer[i] = questionSet.get(i).getE_info();
                 }
                 break;
             case 5:
                 questionSet.clear();
-                while (questionSet.size() < 4) {
-                    int randomItem = 1 + random.nextInt(arrItem.size() - 1);
-                    if (arrItem.get(randomItem).getE_type().equals("Mất")) {
+                while (questionSet.size() < MAX_ANSWER){
+                    int randomItem = 1+ random.nextInt(arrItem.size()-1);
+                    if (arrItem.get(randomItem).getE_type().equals("Mất")){
                         questionSet.add(arrItem.get(randomItem));
                     }
                 }
-                answerPosition = random.nextInt(4);
+                answerPosition = random.nextInt(MAX_ANSWER);
                 question = questionSet.get(answerPosition).getE_day() + "/" + questionSet.get(answerPosition).getE_month() + "/" + questionSet.get(answerPosition).getE_year() + " là ngày mất của ai?";
-                for (int i = 0; i < 4; i++) {
+                for (int i=0; i<MAX_ANSWER; i++){
                     answer[i] = questionSet.get(i).getE_info();
                 }
                 break;
@@ -195,28 +203,43 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         tvAnswer4.setClickable(b);
     }
 
-    private void blink(final int position) {
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                AnimationSet blink = (AnimationSet) AnimationUtils.loadAnimation(getContext(), R.anim.blink);
-                switch (position) {
-                    case 0:
-                        tvAnswer1.startAnimation(blink);
-                        break;
-                    case 1:
-                        tvAnswer2.startAnimation(blink);
-                        break;
-                    case 2:
-                        tvAnswer3.startAnimation(blink);
-                        break;
-                    case 3:
-                        tvAnswer4.startAnimation(blink);
-                        break;
-                }
-            }
-        }, 400);
+    private void blink(final int position){
+//        final Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                AnimationSet blink = (AnimationSet) AnimationUtils.loadAnimation(getContext(), R.anim.blink);
+//                switch (position){
+//                    case ANSWER_1:
+//                        tvAnswer1.startAnimation(blink);
+//                        break;
+//                    case ANSWER_2:
+//                        tvAnswer2.startAnimation(blink);
+//                        break;
+//                    case ANSWER_3:
+//                        tvAnswer3.startAnimation(blink);
+//                        break;
+//                    case ANSWER_4:
+//                        tvAnswer4.startAnimation(blink);
+//                        break;
+//                }
+//            }
+//        }, 400);
+        AnimationSet blink = (AnimationSet) AnimationUtils.loadAnimation(getContext(), R.anim.blink);
+        switch (position){
+            case ANSWER_1:
+                tvAnswer1.startAnimation(blink);
+                break;
+            case ANSWER_2:
+                tvAnswer2.startAnimation(blink);
+                break;
+            case ANSWER_3:
+                tvAnswer3.startAnimation(blink);
+                break;
+            case ANSWER_4:
+                tvAnswer4.startAnimation(blink);
+                break;
+        }
     }
 
     private void reset() {
@@ -227,10 +250,10 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
         tvAnswer3.setBackgroundResource(R.drawable.bg_answer);
         tvAnswer4.setBackgroundResource(R.drawable.bg_answer);
 
-        tvAnswer1.setText(quiz.getAnswer()[0]);
-        tvAnswer2.setText(quiz.getAnswer()[1]);
-        tvAnswer3.setText(quiz.getAnswer()[2]);
-        tvAnswer4.setText(quiz.getAnswer()[3]);
+        tvAnswer1.setText(quiz.getAnswer()[ANSWER_1]);
+        tvAnswer2.setText(quiz.getAnswer()[ANSWER_2]);
+        tvAnswer3.setText(quiz.getAnswer()[ANSWER_3]);
+        tvAnswer4.setText(quiz.getAnswer()[ANSWER_4]);
     }
 
     public static void showDialogContent(Context context, String content) {
@@ -250,7 +273,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (quiz.getRightAnser() == 0) {
+                        if (quiz.getRightAnser() == ANSWER_1) {
                             currentScore++;
                         } else {
                             tvAnswer1.setBackgroundResource(R.drawable.bg_wrong_answer);
@@ -258,14 +281,14 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                         }
                         tvCurrentScore.setText(currentScore + "");
                     }
-                }, 1000);
+                }, DELAY_SELECT_ANSWER);
                 break;
             case R.id.tvAnswer2:
                 tvAnswer2.setBackgroundResource(R.drawable.bg_answer_selected);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (quiz.getRightAnser() == 1) {
+                        if (quiz.getRightAnser() == ANSWER_2) {
                             currentScore++;
                         } else {
                             tvAnswer2.setBackgroundResource(R.drawable.bg_wrong_answer);
@@ -273,14 +296,14 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                         }
                         tvCurrentScore.setText(currentScore + "");
                     }
-                }, 1000);
+                }, DELAY_SELECT_ANSWER);
                 break;
             case R.id.tvAnswer3:
                 tvAnswer3.setBackgroundResource(R.drawable.bg_answer_selected);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (quiz.getRightAnser() == 2) {
+                        if (quiz.getRightAnser() == ANSWER_3) {
                             currentScore++;
                         } else {
                             tvAnswer3.setBackgroundResource(R.drawable.bg_wrong_answer);
@@ -288,14 +311,14 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                         }
                         tvCurrentScore.setText(currentScore + "");
                     }
-                }, 1000);
+                }, DELAY_SELECT_ANSWER);
                 break;
             case R.id.tvAnswer4:
                 tvAnswer4.setBackgroundResource(R.drawable.bg_answer_selected);
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (quiz.getRightAnser() == 3) {
+                        if (quiz.getRightAnser() == ANSWER_4) {
                             currentScore++;
                         } else {
                             tvAnswer4.setBackgroundResource(R.drawable.bg_wrong_answer);
@@ -307,7 +330,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                             tvHighScore.setText(highScore + "");
                         }
                     }
-                }, 1000);
+                }, DELAY_SELECT_ANSWER);
                 break;
         }
 
@@ -339,7 +362,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                 }
                 blink(quiz.getRightAnser());
             }
-        }, 1000);
+        }, DELAY_SELECT_ANSWER);
 
 
         handler.postDelayed(new Runnable() {
@@ -349,7 +372,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener, View
                 initData();
                 reset();
             }
-        }, 3500);
+        }, DELAY_CHANGE_QUESTION);
 
     }
 
